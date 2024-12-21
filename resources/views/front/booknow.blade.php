@@ -1374,7 +1374,7 @@
                         </div>
                         @php
                             $userData = Session::get('user');
-                            
+                        if ($userData && isset($userData['userid'])) {
                             $wallet_plus_amount = DB::table('front_user_wallet')
                                         ->where('refer_id', $userData['userid'])
                                         ->where('added_from',0)
@@ -1389,6 +1389,9 @@
                             // echo"<pre>";print_r($wallet_minus_amount);echo"</pre>";
 
                             $wallet_amount = $wallet_plus_amount - $wallet_minus_amount;
+                            }else{
+                                $wallet_amount = 0;
+                            }
                         @endphp
                         
                         @if($wallet_amount > 0)
