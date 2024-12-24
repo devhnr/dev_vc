@@ -293,11 +293,13 @@ class Vendorinquirycontroller extends Controller
                                     ->first();
 		$redirect_type ="";		
         
-    //     echo"<pre>";print_r($vendor_package_no_of_inquiry);echo"</pre>";
-    //     echo"<pre>";print_r($vendor_accept_inquiry_data->total_no_of_inquiry
-    // );echo"</pre>";exit;
-		if($vendor_package_no_of_inquiry > $vendor_accept_inquiry_data->total_no_of_inquiry){
+        // echo"<pre>";print_r($vendor_package_no_of_inquiry);echo"</pre>";
+        // echo"<pre>";print_r($vendor_lead_no_of_inquiry);echo"</pre>";
+        // echo"<pre>";print_r($vendor_accept_inquiry_data);echo"</pre>";exit;
 
+		if($vendor_package_no_of_inquiry > $vendor_accept_inquiry_data->total_no_of_inquiry || $vendor_lead_no_of_inquiry == 0){
+
+            // echo"here";exit;
             // echo"<pre>";print_r($vendor_package_no_of_inquiry);echo"</pre>";exit;
             
 
@@ -331,24 +333,25 @@ class Vendorinquirycontroller extends Controller
                             ->where('id', 30)
                             ->first();
 							
-					/* echo"<pre>";print_r($package_data);echo"</pre>";
-					echo"<pre>";print_r($subs_subservice_id);echo"</pre>";
-					
-					exit; */
-					
+					//  echo"<pre>";print_r($package_data);echo"</pre>";
+					// echo"<pre>";print_r($subs_subservice_id);echo"</pre>";exit; 
+					if($package_data->subservice_id != 31){
 				if(in_array('23',$subs_subservice_id) || in_array('26',$subs_subservice_id) || in_array('53',$subs_subservice_id) ){ // apartment ,villa and office subservice
 					
 						// echo "aprt";exit;
 						
 						if($package_data->form_type == 'Local Move'){
 							
-							$local_form_field_array = explode(',', $service_data->form_fields);
+                        $local_form_field_array = explode(',', $service_data->form_fields);
+
+                        // echo"<pre>";print_r($local_form_field_array);echo"</pre>";exit;				
 							
-							$local_more_formfields_details_att = DB::table('more_formfields_details_att')->select('*')
+                        $local_more_formfields_details_att = DB::table('more_formfields_details_att')->select('*')
                                                         ->where('package_inquiry_id', $inquiryId)
                                                         ->where('form_id', 20)
                                                         ->first();
-														
+
+                       		
 							$subscription_local_move_attribute = DB::table('subscription_local_move_attribute')->select('*')
                                                         ->where('subscription_id', $subscription_vendor_data[0]->id)
                                                         ->where('form_id', 20)
@@ -513,12 +516,18 @@ class Vendorinquirycontroller extends Controller
 						}
 
 					}
+
+                }
 					
 					//if($package_data->subservice_id == 31){ // vehicle
 					
 					if($package_data->subservice_id == 31){
+
+
 					
 					if(in_array('31',$subs_subservice_id)){ // vehicle subservice
+
+                        // echo"here";exit;
 					
 						$package_att_data = DB::table('more_formfields_details')
                                                 ->where('package_inquiry_id',$package_data->id)
@@ -530,12 +539,16 @@ class Vendorinquirycontroller extends Controller
 						$form_attributes_val = DB::table('form_attributes')
                                                     ->where('id',$package_att_data->formfield_value)
                                                     ->first();
+
+                        
 					
 						$subscription_subservice_attribute = DB::table('subscription_subservice_attribute')->select('*')
                                                     ->where('subscription_id', $subscription_vendor_data[0]->id)
                                                     ->where('service_id', $package_data->service_id)
                                                     ->where('subservice_id', $package_data->subservice_id)
                                                     ->first();
+
+                    // echo"<pre>";print_r($subscription_subservice_attribute);echo"</pre>";exit;
 							
                         $vendors_data = DB::table('users')->where('id', $vendorId)->first();
 
@@ -568,7 +581,9 @@ class Vendorinquirycontroller extends Controller
 						$data_inquiry_other['type_of_leads'] = $package_data->form_type;
 						$data_inquiry_other['price_of_lead'] =$price_of_lead ;
 						$data_inquiry_other['subscription_id'] =$subscription_subservice_attribute->subscription_id;
-													
+							
+                        // echo"<pre>";print_r($data_inquiry_other);echo"</pre>";exit;
+
 						$id_package_inquiry_accepted =  DB::table('package_inquiry_accepted')->insertGetId($data_inquiry_other);
 
                         $vendor_wallet_amount = $vendors_data->wallet_amount - $price_of_lead;
