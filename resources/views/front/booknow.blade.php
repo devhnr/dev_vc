@@ -1119,14 +1119,14 @@
                         <label class="form-label fw500 dark-color " for="country">How would you like to pay for your service?</label>
                         <p style="margin-top: -10px;font-size: 14px;">Please note cancellation or rescheduling fees may apply for last minute changes.</p>
                         <div class="radio-group payment-type"> 
-                            <input type="radio" id="paymet_2" name="payment_type" value="ONLINE" checked>
+                            <input type="radio" id="paymet_2" name="payment_type_old" value="ONLINE" checked>
                             <label for="paymet_2" style="border-radius: 50px;text-align: center;width:50%;">Online</label>
                             <img src="{{ asset('public/site/images/pay_logo_new.png') }}" style="height: 45px;margin-bottom:10px;">
                         </div>
                             {{-- <p>Payment will only be processed once the service is successfully completed.</p> --}}
 
                             <div class="radio-group payment-type">
-                            <input type="radio" id="paymet_1" name="payment_type" value="COD" >
+                            <input type="radio" id="paymet_1" name="payment_type_old" value="COD" >
                             <label for="paymet_1" style="border-radius: 50px;text-align: center;width:50%;">Cash</label>
                             <p>+ AED 5 Cash handling charges will be applied.</p>
                         </div>
@@ -1449,6 +1449,8 @@
                 <input type="hidden" name="cod_charge" id="cod_charge" value="0">
                 <input type="hidden" name="service_fee" id="service_fee" value="9">
                 <input type="hidden" name="total_to_pay" id="total_to_pay" value="81.90">
+                <input type="hidden" id="payment_type_new" name="payment_type" value="ONLINE" >
+
 
                 </form>
             </div>
@@ -2057,9 +2059,9 @@ $("#userDetailForm").submit();
             //alert('Selected Days: ' + selectedDaysStr);
         });
 
-        $("input[name='payment_type']").on("change", function() {
-            var selectedValue = $("input[name='payment_type']:checked").val();
-
+        $("input[name='payment_type_old']").on("change", function() {
+            var selectedValue = $("input[name='payment_type_old']:checked").val();
+            $('#payment_type_new').val(selectedValue);
             if(selectedValue == 'COD'){
                 var charge_payment = 5;
             }else{
@@ -2766,7 +2768,7 @@ $("#userDetailForm").submit();
         if(id == 5){
 
             
-            var paymentTypeSelected = document.querySelector('input[name="payment_type"]:checked');
+            var paymentTypeSelected = document.querySelector('input[name="payment_type_old"]:checked');
 
             //alert(paymentTypeSelected);
 
@@ -2839,7 +2841,7 @@ $("#userDetailForm").submit();
             //var selectedName = time_slotSelected.getAttribute('data-name');
             //$('#frequency_summary_timeslot').html(selectedName);
 
-            var payment_typeSelected = document.querySelector('input[name="payment_type"]:checked');
+            var payment_typeSelected = document.querySelector('input[name="payment_type_old"]:checked');
             if(payment_typeSelected.value == 'COD'){
                 var payment_mode = 'Cash on Delivery';
                 $("#frequency_summary_cod_div").attr("style", "display: block !important;");
@@ -2988,6 +2990,16 @@ $("#userDetailForm").submit();
                     UserWalletAmount = TotalwalletAmount;
                 } else {
                     order_total_new1 = TotalwalletAmount - UserWalletAmount; // Remaining amount to be paid
+                }
+
+                if(order_total_new1 == 0){
+                    $('#payment_type_new').val('COD');
+                }else{
+                    var payment_typeSelected = document.querySelector('input[name="payment_type_old"]:checked');
+
+                    $('#payment_type_new').val(payment_typeSelected.value);
+                    
+
                 }
                  // Update the wallet amount display
                  $('#frequency_wallet_amount').text(`- AED ${UserWalletAmount.toFixed(2)}`);

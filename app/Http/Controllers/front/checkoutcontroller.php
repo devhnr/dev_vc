@@ -290,7 +290,7 @@ class checkoutcontroller extends Controller
                     'product_data' => [
                         'name' => 'Your Total'
                     ],
-                    'unit_amount' => session('order_total')*100,
+                    'unit_amount' => $order_total_new*100,
                   ],
                   'quantity' => 1,
                 ],
@@ -784,7 +784,7 @@ class checkoutcontroller extends Controller
                         'product_data' => [
                             'name' => 'Your Total'
                         ],
-                        'unit_amount' => $order_total *100,
+                        'unit_amount' => $order_total_new *100,
                     ],
                     'quantity' => 1,
                     ],
@@ -1435,9 +1435,7 @@ class checkoutcontroller extends Controller
 
         $Where = $order_item_data->city . ", ".$order_item_data->area. ", " .$order_item_data->building_street_no. ", " .$order_item_data->apartment_villa_no;
 
-        $total_new = $orderdata->sub_total * 5/100; 
-        
-        $total = $orderdata->sub_total + $total_new - $orderdata->front_wallet_amount; 
+        $total = $orderdata->sub_total * 5/100; 
         $total = floor($total);
                 
         $user_name = $userdata['name'];
@@ -1662,7 +1660,7 @@ class checkoutcontroller extends Controller
 
                     if($orderdata->paymentmode == '1' && $order_item_data->how_often_do_you_need_cleaning == "Weekly"){
                     $message_bodyy .='<h5 style="font-size: 14px;margin: 0;">Weekly Payment:</h5>
-                    <p>Since this is a <strong style="font-weight:700;">cash on delivery service </strong>, payment of amount AED <strong style="font-weight:1000;"> '.$total.'</strong>is due weekly in full upon completion of the service. Please have the payment ready for our team.</p>.';
+                    <p>Since this is a <strong style="font-weight:700;">cash on delivery service </strong>, payment of amount AED <strong style="font-weight:1000;"> '.$orderdata->order_total.'</strong>is due weekly in full upon completion of the service. Please have the payment ready for our team.</p>.';
                     }
                     if($orderdata->paymentmode == '2' && $order_item_data->how_often_do_you_need_cleaning == "Weekly"){
                     $message_bodyy .='<h5 style="font-size: 14px;margin: 0;">Weekly Payment:</h5>
@@ -1670,7 +1668,7 @@ class checkoutcontroller extends Controller
                     }
                     
                     if($orderdata->paymentmode == '1' && $order_item_data->how_often_do_you_need_cleaning == "Once"){
-                    $message_bodyy .='<p>Since this is a <strong style="font-weight:700;">cash on delivery service </strong>, payment of amount AED <strong style="font-weight:1000;">'.$total.'</strong> is due in full upon completion of the service. Please have the payment ready for our team.</p>.';
+                    $message_bodyy .='<p>Since this is a <strong style="font-weight:700;">cash on delivery service </strong>, payment of amount AED <strong style="font-weight:1000;">'.$orderdata->order_total.'</strong> is due in full upon completion of the service. Please have the payment ready for our team.</p>.';
                     }
 
                     $message_bodyy .='<h5 style="font-size: 14px;margin: 0;">Important Notes:</h5> 

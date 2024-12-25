@@ -999,6 +999,7 @@ $pacakges_data = DB::table('packages')->where('id',$items->id)->first();
 
                 if (UserWalletAmount >= order_total) {
                     order_total_new1 = 0; // Wallet covers the entire order
+                    document.getElementById("payment_type").checked = true;
                     UserWalletAmount = order_total;
                 } else {
                     order_total_new1 = order_total - UserWalletAmount; // Remaining amount to be paid
