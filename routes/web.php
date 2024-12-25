@@ -222,9 +222,6 @@ Route::post('update_cart', '\App\Http\Controllers\front\Cartcontroller@update_ca
 Route::post('add_to_cart_book','\App\Http\Controllers\front\Cartcontroller@add_to_cart_book');
 Route::post('cart_remove_book_now', '\App\Http\Controllers\front\Cartcontroller@cart_remove_book_now');
 
-
-
-
 Route::get('/checkout', '\App\Http\Controllers\front\checkoutcontroller@checkout');
 Route::post('/order_place', '\App\Http\Controllers\front\checkoutcontroller@order_place')->name('order_place');
 Route::get('thankyou', [checkoutcontroller::class, 'thankyou'])->name("thankyou");

@@ -269,7 +269,7 @@
                                                 @if ($order->front_wallet_amount != '' && $order->front_wallet_amount != 0)
                                                     <tr>
                                                         <th>Wallet Amount:</th>
-                                                        <td><span> - {{ $order->order_currency }}{{ $order->front_wallet_amount }}</span></td>
+                                                        <td><span> - {{ $order->order_currency }} {{ $order->front_wallet_amount }}</span></td>
                                                     </tr>
                                                 @endif
                                                 @php

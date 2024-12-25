@@ -222,7 +222,9 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td> --}}
+                                                
                                                 <td>
+                                                    @if($orders->payment_status == "Success")
                                                     <p>
                                                     @if($orders->vendor_id != 0 && $orders->vendor_id != '')
                                                         {!! Helper::vendorsname($orders->vendor_id) !!}
@@ -230,7 +232,11 @@
                                                     </p>
                                                     
                                                     <a class="btn btn-primary" href="javascript:void(0)" onclick="assign_vendor('{{$orders->order_id}}');">Assign Vendor</a>
+                                                    @else
+                                                    <lable>-</lable>
+                                                    @endif
                                                 </td>
+                                                
 												
 												
 												<td class="left">
@@ -340,7 +346,12 @@
             </div>
             <div class="modal-footer text-center">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="form_sub_vendor();">Submit</button>
+                <button class="btn btn-primary mb-1" type="button" disabled id="spinner_button"
+                    style="display: none;">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                    </button>
+                <button type="button" class="btn btn-primary" onclick="form_sub_vendor();" id="vedor_submit">Submit</button>
             </div>
             </form>
         </div>
@@ -480,6 +491,8 @@
                 
                 return false;
             }
+        $('#vedor_submit').hide();
+        $('#spinner_button').show();
         $('#order_vendor_form').submit();
     }
     function add_amount_popup(order_id) {
