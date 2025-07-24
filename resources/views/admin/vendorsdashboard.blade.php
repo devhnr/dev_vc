@@ -41,11 +41,11 @@
                $vendor_data = DB::table('users')->where('id', $vendor_id)->first();
 
                $subscription_data = DB::table('subscription')
-                   ->where('vendor_id', $vendor_id)
-                   ->where('is_deleted' , '=' ,'0')
-                   ->where('type_of_subscription', 0)
-                   ->orderBy('id', 'DESC')
-                   ->get();
+                                    ->where('vendor_id', $vendor_id)
+                                    ->where('is_deleted' , '=' ,'0')
+                                    ->where('type_of_subscription', 0)
+                                    ->orderBy('id', 'DESC')
+                                    ->get();
 
                 // echo '<pre>';print_r($subscription_data);echo '</pre>';
                 $no_of_inquiry = 0;
@@ -79,6 +79,7 @@
 
            @endphp
 
+        @if(Auth::user()->role_id == 8)
            <div class="row">
                <div class="col-xl-3 col-sm-6 col-12">
                    <div class="card">
@@ -171,7 +172,7 @@
                    </div>
                </div>
            </div>
-
+        @endif
 
            @php
                $vendor_id = Auth::user()->id;
@@ -190,6 +191,7 @@
 
            @endphp
 
+        @if(Auth::user()->role_id == 8)
            <div class="table-responsive">
 
                <table class="table table-stripped table-hover">
@@ -197,10 +199,15 @@
                        <tr>
                            <th>Subscription</th>
                            <th>Amount</th>
-                           <th>Start Date</th>
+                           <th>Type Of Package</th>
+                            <th>Type of Subscription</th>
+                            <th>Total Inquiry</th>
+                            <th>Accept Inquiry</th>
+                            <th>Pending Inquiry</th>
+                           {{-- <th>Start Date</th>
                            <th>End Date</th>
 
-                           <th>Status</th>
+                           <th>Status</th> --}}
                            <th>Details</th>
 
                            <th class="text-right">Action</th>
@@ -212,7 +219,78 @@
                                <tr>
                                    <th>{{ $subscription->subscription_name }}</th>
                                    <td>{{ $subscription->total }}</td>
-                                   <td>{{ date('d-m-Y', strtotime($subscription->startdate)) }}</td>
+
+                                   <td>
+                                    @php
+                                        if($subscription->type_of_package == 0){
+                                            $type_of_package = 'Local';
+                                        }elseif($subscription->type_of_package == 1){
+                                            $type_of_package = 'International';
+                                        }else{
+                                            $type_of_package ="";
+                                        }
+
+                                       
+                                    @endphp
+                                     {{ $type_of_package }}
+
+                               </td>
+
+                               <td>
+                                @php
+                                    if($subscription->type_of_subscription == 0){
+                                        $type_of_subscription = 'Package';
+                                    }elseif($subscription->type_of_subscription == 1){
+                                        $type_of_subscription = 'Leads';
+                                    }elseif($subscription->type_of_subscription == 2){
+                                        $type_of_subscription = 'Auto Accept Package';
+                                    }else{
+                                        $type_of_subscription ="";
+                                    }
+
+                                   
+                                @endphp
+                                 {{ $type_of_subscription }}
+
+                           </td>
+                           
+                           <td>
+                                @php
+                                    
+
+                                    if($subscription->type_of_subscription == 0 || $subscription->type_of_subscription == 2){
+                                        $totalInquiry = $subscription->no_of_inquiry_package;
+                                    }else{
+                                        $totalInquiry = '0';
+                                    }
+                                @endphp
+                                        {{ $totalInquiry }}
+                           </td>
+                           <td>
+                            @php
+                                
+
+                                if($subscription->type_of_subscription == 0 || $subscription->type_of_subscription == 2){
+
+                                    $package_inquiry_accepted = DB::table('package_inquiry_accepted')->where('subscription_id',$subscription->id)->count();
+                                    $acceptInquiry = $package_inquiry_accepted;
+                                }else{
+                                    $acceptInquiry = '0';
+                                }
+                            @endphp
+                                    {{ $acceptInquiry }}
+                       </td>
+
+                       <td>
+                        @php
+                            
+                            $pendingInquiry = $totalInquiry - $acceptInquiry;
+
+                        @endphp
+                        {{ $pendingInquiry }}
+                   </td>
+
+                                   {{-- <td>{{ date('d-m-Y', strtotime($subscription->startdate)) }}</td>
                                    <td>{{ date('d-m-Y', strtotime($subscription->enddate)) }}</td>
 
                                    <td>
@@ -223,7 +301,7 @@
                                            <span class="badge badge-pill bg-success-light">Active</span>
                                        @endif
 
-                                   </td>
+                                   </td> --}}
                                    <td>
                                        <a class="btn btn-primary" href="javascript:void('0');"
                                            onclick="delete_category('{{ $subscription->id }}');">View
@@ -251,14 +329,14 @@
                                </tr>
                            @endforeach
                            <tr>
-                               <td colspan="7" style="text-align: center">No Data Found!</td>
+                               {{-- <td colspan="7" style="text-align: center">No Data Found!</td> --}}
                            </tr>
                        @endisset
 
                    </tbody>
                </table>
            </div>
-
+@endif  
        </div>
 
    @stop
@@ -340,7 +418,7 @@
 
                                        </div>
                                    @else
-                                       <p>No Data Found</p>
+                                       {{-- <p>No Data Found</p> --}}
                                    @endif
 
                                </div>

@@ -8,15 +8,37 @@
 
         $get_user_data = Helper::get_user_data($userId);
 
-        $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
+        // $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
 
-        $edit_perm = [];
+        // $edit_perm = [];
 
-        if ($get_permission_data->editperm != '') {
-            $edit_perm = $get_permission_data->editperm;
+        // if ($get_permission_data->editperm != '') {
+        //     $edit_perm = $get_permission_data->editperm;
 
-            $edit_perm = explode(',', $edit_perm);
-        }
+        //     $edit_perm = explode(',', $edit_perm);
+        // }
+
+          $roleIds = explode(',', $get_user_data->role_id);
+
+			$edit_perm = [];
+
+			foreach ($roleIds as $roleId) {
+				$roleId = trim($roleId); // Clean any spaces
+				
+				$get_permission_data = Helper::get_permission_data($roleId);
+
+				if (
+					is_object($get_permission_data) &&
+					property_exists($get_permission_data, 'editperm') &&
+					$get_permission_data->editperm != ''
+				) {
+					$perms = explode(',', $get_permission_data->editperm);
+					$edit_perm = array_merge($edit_perm, $perms); // Combine permissions
+				}
+			}
+
+			// Optional: remove duplicates and reset array keys
+			$edit_perm = array_values(array_unique($edit_perm));
 
     @endphp
 
@@ -282,8 +304,8 @@
                                                 if(!empty($package_inquiry_data_to) && !empty($package_inquiry_data_from)){           
 
                                                     $form_attributes_data_to = DB::table('form_attributes')
-                                                                        ->where('id',$package_inquiry_data_to->formfield_value)
-                                                                        ->first();
+                                                    ->where('id',$package_inquiry_data_to->formfield_value)
+                                                    ->first();
 
                                                     $form_attributes_data_from = DB::table('form_attributes')
                                                     ->where('id',$package_inquiry_data_from->formfield_value)
@@ -357,13 +379,13 @@
                                             if(!empty($package_inquiry_data)){
 
                                                 $form_attributes_data = DB::table('form_attributes')
-                                                                        ->where('id',$package_inquiry_data->formfield_value)
-                                                                        ->first();
+                                                ->where('id',$package_inquiry_data->formfield_value)
+                                                ->first();
 
 
                                                 $city_data = DB::table('cities')
-                                                        ->where('name', $form_attributes_data->form_option)
-                                                        ->first();
+                                                ->where('name', $form_attributes_data->form_option)
+                                                ->first();
 
                                                 $subs_city = explode(',', $resultArray_data['city_id']);
 
@@ -465,13 +487,13 @@
                                             @foreach ($resultArray as $resultArray_data)
                                                 @php
 
-                                                    $packages_enquiry = DB::table('packages_enquiry')
-                                                        ->select('*')
-                                                        ->where('service_id', '=', $resultArray_data['service_id'])
-                                                        ->where('subservice_id', '=', $resultArray_data['subservice_id'])
-                                                        ->where('count', '<', 5)
-                                                        ->orderBy('id', 'desc')
-                                                        ->get();
+                                $packages_enquiry = DB::table('packages_enquiry')
+                                                    ->select('*')
+                                                    ->where('service_id', '=', $resultArray_data['service_id'])
+                                                    ->where('subservice_id', '=', $resultArray_data['subservice_id'])
+                                                    ->where('count', '<', 5)
+                                                    ->orderBy('id', 'desc')
+                                                    ->get();
 
                                                     //    echo '<pre>';
                                                     //    print_r($packages_enquiry);
@@ -493,16 +515,12 @@
                                                             ->where('packages_inquiry_id', $packages_enquiry_data->id)
                                                             ->where('vendor_id', $vendor_data->id)
                                                             ->first();
-                                                        //    echo '<pre>';
-                                                        //    print_r($vendors_data);
-                                                        //    echo '</pre>';
-                                                        //    exit();
                                                     @endphp
+
                                                     @if ($vendors_data == '')
                                                     @if (in_array($packages_enquiry_data->id,$combined_data))
                                                     
                                                         <tr>
-
                                                             <td style="display: none">{{ $packages_enquiry_data->id }}</td>
                                                             <td>{{ date('d-m-Y', strtotime($packages_enquiry_data->added_date))}}</td>
                                                             <td>{{ $packages_enquiry_data->inquiry_id }}</td>
@@ -519,10 +537,7 @@
                                                                 @endif
 
                                                             </td>
-                                                            {{-- @php
-                                                                $arrayVal = [$packages_enquiry_data->service_id,$packages_enquiry_data->subservice_id];
-                                                                Session::put('subscription_ids',$arrayVal);
-                                                            @endphp --}}
+                                                            
                                                             <td>
                                                                 <a class="btn btn-primary"
                                                                     href="{{ url('enquiry_detail', $packages_enquiry_data->id) }}">View Information</a>

@@ -1,6 +1,11 @@
 @extends('admin.includes.Template')
 
 @section('content')
+<style>
+    ul li {
+            list-style: inherit;
+        }
+</style>
 
     <div class="content container-fluid">
 
@@ -145,21 +150,60 @@
                                 <div class="col-lg-6"> 
                                     <div class="form-group">
 
-                                        <label for="name">Image (450px x 325px)</label>
+                                        <label for="name">Banner Title</label>
+
+                                        <input id="banner_title" name="banner_title" type="text" class="form-control"value="" placeholder="Enter Banner Title" />
+                                        <p class="form-error-text" id="banner_title_error" style="color: red; margin-top: 10px;">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6"> 
+                                    <div class="form-group">
+
+                                        <label for="name">Banner Subtitle</label>
+
+                                        <input id="banner_subtitle" name="banner_subtitle" type="text" class="form-control"value="" placeholder="Enter Banner Title"/>
+                                        <p class="form-error-text" id="banner_subtitle_error" style="color: red; margin-top: 10px;">
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4"> 
+                                    <div class="form-group">
+
+                                        <label for="name">Image (840px x 570px)</label>
 
                                         <input id="image" name="image" type="file" class="form-control"value="" />
                                         <p class="form-error-text" id="image_error" style="color: red; margin-top: 10px;">
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+
+                                
+
+                                <div class="col-lg-4">
                                     <div class="form-group">
 
-                                        <label for="name">Banner Image (1250px x 300px)</label>
+                                        <label for="name">Banner Image (1350px x 440px)</label>
 
                                         <input id="banner_image" name="banner_image" type="file"
                                             class="form-control"value="" />
                                         <p class="form-error-text" id="banner_image_error"
+                                            style="color: red; margin-top: 10px;">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+
+                                        <label for="name">Mobile Banner Image (400px x 475px)</label>
+
+                                        <input id="mobile_banner_image" name="mobile_banner_image" type="file"
+                                            class="form-control"value="" />
+                                        <p class="form-error-text" id="mobile_banner_image_error"
                                             style="color: red; margin-top: 10px;">
                                         </p>
                                     </div>
@@ -201,7 +245,7 @@
                                         <label for="name">No Of Inquiry</label>
 
                                         <input id="no_of_inquiry" name="no_of_inquiry" type="text"
-                                            class="form-control" placeholder="No Of Inquiry" value=""
+                                            class="form-control" placeholder="Enter No Of Inquiry" value=""
                                             onkeypress="return validateNumber(event)" />
                                         <p class="form-error-text" id="inquiry_error"
                                             style="color: red; margin-top: 10px;"></p>
@@ -212,13 +256,67 @@
 
                                         <label for="name">Booking Service Percentage</label>
                                         <input id="servicepercentage" name="servicepercentage" type="text"
-                                            class="form-control" placeholder="Booking Service Percentage" value=""
+                                            class="form-control" placeholder="Enter Booking Service Percentage" value=""
                                             onkeypress="return validateNumber(event)" />
                                         <p class="form-error-text" id="servicepercentage_error"
                                             style="color: red; margin-top: 10px;"></p>
                                     </div>
                                 </div>
 
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="name">Additional Charge Popup</label>
+                                        <textarea id="additional_charge_popup" name="additional_charge_popup" type="text"
+                                            class="form-control" placeholder="Enter Additional Charge Discription" value=""/></textarea>
+                                        <p class="form-error-text" id="additional_charge_popup_error"
+                                            style="color: red; margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="name">Timing Fee Popup</label>
+                                        <textarea id="timing_fee_popup" name="timing_fee_popup" type="text"
+                                            class="form-control" placeholder="Enter Timing Fee Discription" value=""/></textarea>
+                                        <p class="form-error-text" id="timing_fee_popup_error"
+                                            style="color: red; margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="name">Delivery Charge Popup</label>
+                                        <textarea id="delivery_charge_popup" name="delivery_charge_popup" type="text"
+                                            class="form-control" placeholder="Enter Delivery Charge Discription" value=""/></textarea>
+                                        <p class="form-error-text" id="delivery_charge_popup_error"
+                                            style="color: red; margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="name">Service fee Popup</label>
+                                        <textarea id="service_fee_popup" name="service_fee_popup" type="text"
+                                            class="form-control" placeholder="Enter Service Fee Popup Discription" value=""/></textarea>
+                                        <p class="form-error-text" id="service_fee_popup_error"
+                                            style="color: red; margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="form-group">
+
+                                    <label for="description" style="margin:15px 0 5px 0px; width:100%;">Cancel Policy Description</label>
+
+                                    <textarea id="cancel_policy" name="cancel_policy" class="form-control" placeholder="Enter Cancel Policy"></textarea>
+
+                                </div>
+                                
                                 <div class="form-group">
 
                                     <label for="description" style="margin:15px 0 5px 0px; width:100%;">Top
@@ -227,6 +325,7 @@
                                     <textarea id="top_description" name="top_description" class="form-control" placeholder="Enter Top Description"></textarea>
 
                                 </div>
+                                
 
                                 {{-- Packages more Start --}}
                                 <div class="row">
@@ -330,6 +429,55 @@
                                     <textarea id="description" name="description" class="form-control" placeholder="Enter Description"></textarea>
 
                                 </div>
+
+                                
+                                <div class="col-lg-12"> 
+                                    <div class="form-group">
+
+                                        <label for="name">Service Detail Image (513px x 180px)</label>
+
+                                        <input id="service_detail_image" name="service_detail_image" type="file" class="form-control"value="" />
+                                        <p class="form-error-text" id="service_detail_image_error" style="color: red; margin-top: 10px;">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12"> 
+                                <div class="form-group">
+                                    <label for="service_detail_short_description" style="margin:15px 0 5px 0px; width:100%;">Service Detail Short Description</label>
+                                    <textarea id="service_detail_short_description" name="service_detail_short_description" class="form-control" placeholder="Enter Service Detail Short Description"></textarea>
+                                </div>
+                                </div>
+
+                                <div class="col-lg-12"> 
+                                <div class="form-group">
+                                    <label for="service_detail_popup_description" style="margin:15px 0 5px 0px; width:100%;">Service Detail Description</label>
+                                    <textarea id="service_detail_popup_description" name="service_detail_popup_description" class="form-control" placeholder="Enter Service Detail Description"></textarea>
+                                </div>
+                                </div>
+
+                                <div class="col-lg-12"> 
+                                    <div class="form-group">
+                                        <label for="service_detail_popup_description" style="margin:15px 0 5px 0px; width:100%;">Meta Title</label>
+                                        <input id="meta_title" name="meta_title" type="text" class="form-control">
+
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-12"> 
+                                        <div class="form-group">
+                                            <label for="service_detail_popup_description" style="margin:15px 0 5px 0px; width:100%;">Meta Keyword</label>
+                                            <input id="meta_keyword" name="meta_keyword" type="text" class="form-control">
+    
+                                            
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-12"> 
+                                            <div class="form-group">
+                                                <label for="meta_description" style="margin:15px 0 5px 0px; width:100%;">Meta Description</label>
+                                                <textarea id="meta_description" name="meta_description" class="form-control" placeholder="Enter Meta Description"></textarea>
+                                            </div>
+                                            </div>
 
 
                             </div>
@@ -445,6 +593,28 @@
                 return false;
             }
 
+            // var banner_title = jQuery("#banner_title").val();
+            // if (banner_title == '') {
+            //     jQuery('#banner_title_error').html("Please Enter Banner Title");
+            //     jQuery('#banner_title_error').show().delay(0).fadeIn('show');
+            //     jQuery('#banner_title_error').show().delay(2000).fadeOut('show');
+            //     $('html, body').animate({
+            //         scrollTop: $('#banner_title').offset().top - 150
+            //     }, 1000);
+            //     return false;
+            // }
+
+            // var banner_subtitle = jQuery("#banner_subtitle").val();
+            // if (banner_subtitle == '') {
+            //     jQuery('#banner_subtitle_error').html("Please Enter Banner Sub Title");
+            //     jQuery('#banner_subtitle_error').show().delay(0).fadeIn('show');
+            //     jQuery('#banner_subtitle_error').show().delay(2000).fadeOut('show');
+            //     $('html, body').animate({
+            //         scrollTop: $('#banner_subtitle').offset().top - 150
+            //     }, 1000);
+            //     return false;
+            // }
+
 
 
             var image = jQuery("#image").val();
@@ -457,6 +627,28 @@
                 }, 1000);
                 return false;
             }
+            var mobile_image = jQuery("#mobile_image").val();
+            if (mobile_image == '') {
+                jQuery('#mobile_image_error').html("Please Select Mobile Image");
+                jQuery('#mobile_image_error').show().delay(0).fadeIn('show');
+                jQuery('#mobile_image_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#mobile_image').offset().top - 150
+                }, 1000);
+                return false;
+            }
+			
+            var mobile_banner_image = jQuery("#mobile_banner_image").val();
+            if (mobile_banner_image == '') {
+                jQuery('#mobile_banner_image_error').html("Please Select Mobile Banner-Image");
+                jQuery('#mobile_banner_image_error').show().delay(0).fadeIn('show');
+                jQuery('#mobile_banner_image_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#mobile_banner_image').offset().top - 150
+                }, 1000);
+                return false;
+            }
+
             var banner_image = jQuery("#banner_image").val();
             if (banner_image == '') {
                 jQuery('#banner_image_error').html("Please Select Banner-Image");
@@ -510,6 +702,48 @@
             //     }, 1000);
             //     return false;
             // }
+            var additional_charge_popup = jQuery("#additional_charge_popup").val();
+            if (additional_charge_popup == '') {
+                jQuery('#additional_charge_popup_error').html("Please Enter Additional Charge Popup Discription");
+                jQuery('#additional_charge_popup_error').show().delay(0).fadeIn('show');
+                jQuery('#additional_charge_popup_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#additional_charge_popup').offset().top - 150
+                }, 1000);
+                return false;
+            }
+
+            var timing_fee_popup = jQuery("#timing_fee_popup").val();
+            if (timing_fee_popup == '') {
+                jQuery('#timing_fee_popup_error').html("Please Enter Timing fee Popup Discription");
+                jQuery('#timing_fee_popup_error').show().delay(0).fadeIn('show');
+                jQuery('#timing_fee_popup_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#timing_fee_popup').offset().top - 150
+                }, 1000);
+                return false;
+            }
+
+            var delivery_charge_popup = jQuery("#delivery_charge_popup").val();
+            if (delivery_charge_popup == '') {
+                jQuery('#delivery_charge_popup_error').html("Please Enter Delivery Charge  Popup Discription");
+                jQuery('#delivery_charge_popup_error').show().delay(0).fadeIn('show');
+                jQuery('#delivery_charge_popup_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#delivery_charge_popup').offset().top - 150
+                }, 1000);
+                return false;
+            }
+            // var service_fee_popup = jQuery("#service_fee_popup").val();
+            // if (service_fee_popup == '') {
+            //     jQuery('#service_fee_popup_error').html("Please Enter Service fee Popup Discription");
+            //     jQuery('#service_fee_popup_error').show().delay(0).fadeIn('show');
+            //     jQuery('#service_fee_popup_error').show().delay(2000).fadeOut('show');
+            //     $('html, body').animate({
+            //         scrollTop: $('#service_fee_popup').offset().top - 150
+            //     }, 1000);
+            //     return false;
+            // }
 
 
 
@@ -518,14 +752,14 @@
 
             $('#submit_button').hide();
 
-
-
             $('#subservice_form').submit();
 
         }
     </script>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script> --}}
+    <script src="{{ asset('public/admin/assets/ckeditor/build/ckeditor.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
 
     <script>
         ClassicEditor
@@ -548,7 +782,25 @@
             });
         ClassicEditor
 
+            .create(document.querySelector('#cancel_policy'))
+
+            .catch(error => {
+
+                console.error(error);
+
+            });
+        ClassicEditor
+
             .create(document.querySelector('#description_addmore'))
+
+            .catch(error => {
+
+                console.error(error);
+
+            });
+        ClassicEditor
+
+            .create(document.querySelector('#service_detail_popup_description'))
 
             .catch(error => {
 

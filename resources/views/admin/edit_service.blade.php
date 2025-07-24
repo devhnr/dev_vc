@@ -194,11 +194,28 @@
                                     </div>
                                 </div>
 
+                                 <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        @php
+                                            $shortDescription = trim($service->sort_description);
+                                        @endphp
+
+                                        <label for="banner_url">Sort Discription</label>
+                                        <textarea class="form-control" name="sort_description" id="sort_description" placeholder="Enter Sort Discription">{{ $shortDescription }}
+                                        </textarea>
+
+                                        <p class="form-error-text" id="banner_url_error"
+                                            style="color: red; margin-top: 10px;"></p>
+
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-6">
 
                                     <div class="form-group">
 
-                                        <label for="name">Home Banner (350 x 197)</label>
+                                        <label for="name">Home Banner (1350px x 440px)</label>
 
                                         <input id="image" name="image" type="file" class="form-control"
                                             value="" />
@@ -207,6 +224,23 @@
                                                 style=" width: 10%;margin-top: 10px;" />
                                         @endif
                                         <p class="form-error-text" id="image_error"
+                                            style="color: red; margin-top: 10px;"></p>
+
+                                    </div>
+                                </div>
+
+                                 <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <label for="banner">Home Mobile Banner (400px x 475px)</label>
+
+                                        <input id="banner" name="banner" type="file" class="form-control"
+                                            value="" />
+                                            @if ($service->banner != '')
+                                            <img src="{{ asset('public/upload/service/banner/large/' . $service->banner) }}"
+                                                style=" width: 10%;margin-top: 10px;" />
+                                        @endif
+                                        <p class="form-error-text" id="banner_error"
                                             style="color: red; margin-top: 10px;"></p>
 
                                     </div>
@@ -239,39 +273,9 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
+                               
 
-                                        <label for="banner">Banner (400 x 300)</label>
-
-                                        <input id="banner" name="banner" type="file" class="form-control"
-                                            value="" />
-                                            @if ($service->banner != '')
-                                            <img src="{{ asset('public/upload/service/banner/large/' . $service->banner) }}"
-                                                style=" width: 10%;margin-top: 10px;" />
-                                        @endif
-                                        <p class="form-error-text" id="banner_error"
-                                            style="color: red; margin-top: 10px;"></p>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-
-                                        @php
-                                            $shortDescription = trim($service->sort_description);
-                                        @endphp
-
-                                        <label for="banner_url">Sort Discription</label>
-                                        <textarea class="form-control" name="sort_description" id="sort_description" placeholder="Enter Sort Discription">{{ $shortDescription }}
-                                        </textarea>
-
-                                        <p class="form-error-text" id="banner_url_error"
-                                            style="color: red; margin-top: 10px;"></p>
-
-                                    </div>
-                                </div>
+                               
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="city">Local Fields</label>

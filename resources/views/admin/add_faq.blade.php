@@ -62,6 +62,18 @@
                             @csrf
 
                             <div class="row">
+							
+								<div class="form-group">
+                                       <label for="packages">Service</label>
+                                       <select class="form-control" id="services" name="services[]" multiple="multiple">
+                                           <option value="">Select Service</option>
+                                           @foreach ($allservices as $allservices_data)
+                                               <option value="{{ $allservices_data->id }}">{{ $allservices_data->servicename }}</option>
+                                           @endforeach
+                                       </select>
+                                       <p class="form-error-text" id="services_error" style="color: red; margin-top: 10px;">
+                                       </p>
+                                   </div>
 
                                 <div class="form-group">
                                        <label for="packages">Sub Service</label>
@@ -154,7 +166,7 @@
         function faq_validation() {
 
 
-            var selectedValues = $("#packages").val();
+            /* var selectedValues = $("#packages").val();
                if (selectedValues == '') {
                    jQuery('#packages_error').html("Please Select Sub Service");
                    jQuery('#packages_error').show().delay(0).fadeIn('show');
@@ -163,7 +175,7 @@
                        scrollTop: $('#packages').offset().top - 150
                    }, 1000);
                    return false;
-               }
+               } */
 
 
             var question = jQuery("#question").val();
@@ -177,17 +189,18 @@
                 }, 1000);
                 return false;
             }
-            // var answer = jQuery("#answer").val();
+			
+           /*  var answer = jQuery("#answer").val();
 
-            // if (answer == '') {
-            //     jQuery('#answer_error').html("Please Enter Answer");
-            //     jQuery('#answer_error').show().delay(0).fadeIn('show');
-            //     jQuery('#answer_error').show().delay(2000).fadeOut('show');
-            //     $('html, body').animate({
-            //         scrollTop: $('#answer').offset().top - 150
-            //     }, 1000);
-            //     return false;
-            // }
+            if (answer == '') {
+                jQuery('#answer_error').html("Please Enter Answer");
+                jQuery('#answer_error').show().delay(0).fadeIn('show');
+                jQuery('#answer_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#answer').offset().top - 150
+                }, 1000);
+                return false;
+            } */
 
 
 
@@ -203,6 +216,10 @@
 
         $("#packages").select2({
                placeholder: "Select a Sub Service" // Replace with your desired placeholder text
+           });
+		   
+		   $("#services").select2({
+               placeholder: "Select a Service" // Replace with your desired placeholder text
            });
     </script>
 

@@ -74,6 +74,18 @@
                                     <p class="form-error-text" id="name_error" style="color: red; margin-top: 10px;"></p>
                                 </div>
 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Image (Size : 491px X 183px )</label>
+                                        <input type="file" class="form-control" id="image" name="image" value="{{ $packagecategory->image }}">
+                                        @if ($packagecategory->image != '')
+                                        <img src="{{ asset('public/upload/packagecategory/large/' . $packagecategory->image) }}"
+                                            style="width: 15%;margin-top: 10px;" />
+                                         @endif
+                                        <p class="form-error-text" id="image_error" style="color: red; margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="text-end mt-4">
                                 <a class="btn btn-primary" href="{{ route('packagecategory.index') }}"> Cancel</a>

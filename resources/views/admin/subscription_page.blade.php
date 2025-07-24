@@ -117,6 +117,9 @@
                    </div>
                </div>
 
+
+               
+
                
                @php
                    $currentDate = now();
@@ -137,7 +140,7 @@
                        ->orderBy('id', 'desc')
                        ->get();
                    $result_new = $result->toArray();
-                   //echo "<pre>";print_r($result_new);echo "</pre>";
+                //    echo "<pre>";print_r($result_new);echo "</pre>";
                @endphp
                <div class="col-lg-12">
                    <div class="card">
@@ -150,11 +153,17 @@
                                    <table class="table table-striped mb-0" id="subs_table">
                                        <thead>
                                            <tr>
+                                               <th>Subscription Id</th>
                                                <th>Subscription Name</th>
+                                               <th>Type Of Package</th>
+                                               <th>Type of Subscription</th>
+                                               <th>Total Inquiry</th>
+                                               <th>Accept Inquiry</th>
+                                               <th>Pending Inquiry</th>
                                                {{-- <th>Total</th> --}}
-                                               <th>Start Date</th>
+                                               {{-- <th>Start Date</th>
                                                <th>End Date</th>
-                                               <th>Status</th>
+                                               <th>Status</th> --}}
                                                <th>Detail</th>
                                                <th>Copy Package</th>
                                                <th>Action</th>
@@ -163,11 +172,81 @@
                                        <tbody>
                                            @foreach ($result_new as $subs_data)
                                                <tr>
-                                                   <td>{{ $subs_data->subscription_name }}</td>
+                                                   <td>{{ $subs_data->id }}</td><td>{{ $subs_data->subscription_name }}</td>
+                                                   <td>
+                                                        @php
+                                                            if($subs_data->type_of_package == 0){
+                                                                $type_of_package = 'Local';
+                                                            }elseif($subs_data->type_of_package == 1){
+                                                                $type_of_package = 'International';
+                                                            }else{
+                                                                $type_of_package ="";
+                                                            }
+
+                                                           
+                                                        @endphp
+                                                         {{ $type_of_package }}
+
+                                                   </td>
+
+                                                   <td>
+                                                    @php
+                                                        if($subs_data->type_of_subscription == 0){
+                                                            $type_of_subscription = 'Package';
+                                                        }elseif($subs_data->type_of_subscription == 1){
+                                                            $type_of_subscription = 'Leads';
+                                                        }elseif($subs_data->type_of_subscription == 2){
+                                                            $type_of_subscription = 'Auto Accept Package';
+                                                        }else{
+                                                            $type_of_subscription ="";
+                                                        }
+
+                                                       
+                                                    @endphp
+                                                     {{ $type_of_subscription }}
+
+                                               </td>
+                                               
+                                               <td>
+                                                    @php
+                                                        
+
+                                                        if($subs_data->type_of_subscription == 0 || $subs_data->type_of_subscription == 2){
+                                                            $totalInquiry = $subs_data->no_of_inquiry_package;
+                                                        }else{
+                                                            $totalInquiry = '0';
+                                                        }
+                                                    @endphp
+                                                            {{ $totalInquiry }}
+                                               </td>
+                                               <td>
+                                                @php
+                                                    
+
+                                                    if($subs_data->type_of_subscription == 0 || $subs_data->type_of_subscription == 2){
+
+                                                        $package_inquiry_accepted = DB::table('package_inquiry_accepted')->where('subscription_id',$subs_data->id)->count();
+                                                        $acceptInquiry = $package_inquiry_accepted;
+                                                    }else{
+                                                        $acceptInquiry = '0';
+                                                    }
+                                                @endphp
+                                                        {{ $acceptInquiry }}
+                                           </td>
+
+                                           <td>
+                                            @php
+                                                
+                                                $pendingInquiry = $totalInquiry - $acceptInquiry;
+
+                                            @endphp
+                                            {{ $pendingInquiry }}
+                                       </td>
+
                                                    {{-- <td>{{ $subs_data->total }}</td> --}}
-                                                   <td>{{ date('d-m-Y', strtotime($subs_data->startdate)) }}</td>
+                                                   {{-- <td>{{ date('d-m-Y', strtotime($subs_data->startdate)) }}</td>
                                                    <td>{{ date('d-m-Y', strtotime($subs_data->enddate)) }}</td>
-                                                   <td> <span class="badge badge-pill bg-success-light">Active</span></td>
+                                                   <td> <span class="badge badge-pill bg-success-light">Active</span></td> --}}
                                                    
                                                     
                                                    <td><a class="btn btn-primary" href="javascript:void('0');"
@@ -213,6 +292,8 @@
            </div>
        </div>
    @stop
+
+   @section('footer_js')
    <!-- Delete  Modal -->
    @if ($result_new != '')
        @foreach ($result_new as $data)
@@ -289,3 +370,4 @@
        }
    </script>
 
+@stop

@@ -8,15 +8,37 @@
 
            $get_user_data = Helper::get_user_data($userId);
 
-           $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
+        //    $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
 
-           $edit_perm = [];
+        //    $edit_perm = [];
 
-           if ($get_permission_data->editperm != '') {
-               $edit_perm = $get_permission_data->editperm;
+        //    if ($get_permission_data->editperm != '') {
+        //        $edit_perm = $get_permission_data->editperm;
 
-               $edit_perm = explode(',', $edit_perm);
-           }
+        //        $edit_perm = explode(',', $edit_perm);
+        //    }
+        $roleIds = explode(',', $get_user_data->role_id);
+
+			$edit_perm = [];
+
+			foreach ($roleIds as $roleId) {
+				$roleId = trim($roleId); // Clean any spaces
+				
+				$get_permission_data = Helper::get_permission_data($roleId);
+
+				if (
+					is_object($get_permission_data) &&
+					property_exists($get_permission_data, 'editperm') &&
+					$get_permission_data->editperm != ''
+				) {
+					$perms = explode(',', $get_permission_data->editperm);
+					$edit_perm = array_merge($edit_perm, $perms); // Combine permissions
+				}
+			}
+
+			// Optional: remove duplicates and reset array keys
+			$edit_perm = array_values(array_unique($edit_perm));
+
 
        @endphp
 
@@ -84,7 +106,7 @@
 
             <input type="hidden" name="enddate_fil" id="enddate_fil" value="{{ $enddate ?: '' }}">
 
-            <input type="hidden" name="filter_vendor_id_fil" id="filter_vendor_id_fil" value="{{ $filter_vendor_id ?: '' }}">
+            <input type="hidden" name="filter_vendor_id_fil" id="filter_vendor_id_fil" value="{{ is_array($filter_vendor_id) ? implode(', ', $filter_vendor_id) : ($filter_vendor_id ?: '') }}">
 
         </form>
 
@@ -139,18 +161,18 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                               <label>Vendor</label>
-                                <select class="select select2-hidden-accessible" id="vendor_id" name="vendor_id">
-                                    <option value ="">Select Vendor</option>
+                                <label>Vendor</label>
+                                <select multiple="multiple" class="select select2-hidden-accessible" id="vendor_id" name="vendor_id[]">
+                                    <option value="all">All Vendors</option>
                                     @if(!empty($all_vendor))
                                         @foreach($all_vendor as $all_vendor_data)
-                                            <option value="{{ $all_vendor_data->id }}" @if($filter_vendor_id == $all_vendor_data->id ) {{ 'selected' }} @endif>{{ $all_vendor_data->name }}</option>
+                                            <option value="{{ $all_vendor_data->id }}" @if(!empty($filter_vendor_id) && in_array($all_vendor_data->id, $filter_vendor_id)) selected @endif>{{ $all_vendor_data->name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
-                                <p class="form-error-text" id="vendor_id_error"
-                                            style="color: red; margin-top: 10px;"></p>
+                                <p class="form-error-text" id="vendor_id_error" style="color: red; margin-top: 10px;"></p>
                             </div>
+                            
 
                        </div>
                        <div class="col-sm-6 col-md-3">
@@ -572,10 +594,26 @@
            function excel_download() {
             $('#filter_data').submit();
         }
+            $('#vendor_id').select2({
+                placeholder: "Select Vendors", 
+                allowClear: false              
+            });
 
-           
-
-            $('#vendor_id').select2();
+            $('#vendor_id').on("select2:select", function (e) { 
+           var data = e.params.data.text;
+           if(data ==='All Vendors'){
+            $("#vendor_id > option").prop("selected","selected");
+            $("#vendor_id").trigger("change");
+           }
+        });
+            $('#vendor_id').on("select2:unselect", function (e) { 
+            var data = e.params.data.text;
+            if (data === 'All Vendors') {
+                // Deselect all options
+                $("#vendor_id > option").prop("selected", false);
+                $("#vendor_id").trigger("change");
+            }
+        0});
 
             function filter_validation(){
                 

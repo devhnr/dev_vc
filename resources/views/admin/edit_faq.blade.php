@@ -64,6 +64,23 @@
                             @method('PUT')
 
                             <div class="row">
+							
+							@php
+                                    $services_array = explode(',',$faq->services);
+                                 @endphp
+
+                                <div class="form-group">
+                                       <label for="packages">Sub Service</label>
+                                       <select class="form-control" id="services" name="services[]" multiple="multiple">
+                                           <option value="">Select Service</option>
+                                           @foreach ($allservices as $allservices_data)
+                                               <option value="{{ $allservices_data->id }}" @php  if(in_array($allservices_data->id, $services_array)) {echo "selected";} @endphp>{{ $allservices_data->servicename }}</option>
+                                           @endforeach
+                                       </select>
+                                       <p class="form-error-text" id="packages_error" style="color: red; margin-top: 10px;">
+                                       </p>
+                                   </div>
+								   
                                 @php
                                     $package_array = explode(',',$faq->packages);
                                  @endphp
@@ -149,7 +166,7 @@
     <script>
         function faq_validation() {
 
-            var selectedValues = $("#packages").val();
+            /* var selectedValues = $("#packages").val();
                if (selectedValues == '') {
                    jQuery('#packages_error').html("Please Select Sub Service");
                    jQuery('#packages_error').show().delay(0).fadeIn('show');
@@ -159,7 +176,7 @@
                    }, 1000);
                    return false;
                }
-
+ */
 
             var question = jQuery("#question").val();
 
@@ -185,6 +202,9 @@
 
         $("#packages").select2({
                placeholder: "Select a Sub Service" // Replace with your desired placeholder text
+           });
+		   $("#services").select2({
+               placeholder: "Select a Service" // Replace with your desired placeholder text
            });
 
     </script>

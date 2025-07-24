@@ -147,9 +147,9 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-3">
                                     <div class="form-group">
-                                        <label for="name">Image (332px x 256px)</label>
+                                        <label for="name">Image (97px x 97px)</label>
                                         <input id="image" name="image" type="file" class="form-control"
                                             placeholder="Enter" value="" />
                                         @if ($packages->image != '')
@@ -158,6 +158,18 @@
                                         @endif
                                         <p class="form-error-text" id="image_error"
                                             style="color: red; margin-top: 10px;"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="name">Popup Image (500px x 160px)</label>
+                                        <input id="popup_image" name="popup_image" type="file" class="form-control"
+                                            placeholder="Enter" value="" />
+                                            @if ($packages->popup_image != '')
+                                            <img src="{{ url('public/upload/packages/popupimage/' . $packages->popup_image) }}"
+                                                style="height: 50px;width: 50px;">
+                                        @endif
                                     </div>
                                 </div>
 

@@ -8,15 +8,37 @@
 
         $get_user_data = Helper::get_user_data($userId);
 
-        $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
+        // $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
 
-        $edit_perm = [];
+        // $edit_perm = [];
 
-        if ($get_permission_data->editperm != '') {
-            $edit_perm = $get_permission_data->editperm;
+        // if ($get_permission_data->editperm != '') {
+        //     $edit_perm = $get_permission_data->editperm;
 
-            $edit_perm = explode(',', $edit_perm);
-        }
+        //     $edit_perm = explode(',', $edit_perm);
+        // }
+        $roleIds = explode(',', $get_user_data->role_id);
+
+			$edit_perm = [];
+
+			foreach ($roleIds as $roleId) {
+				$roleId = trim($roleId); // Clean any spaces
+				
+				$get_permission_data = Helper::get_permission_data($roleId);
+
+				if (
+					is_object($get_permission_data) &&
+					property_exists($get_permission_data, 'editperm') &&
+					$get_permission_data->editperm != ''
+				) {
+					$perms = explode(',', $get_permission_data->editperm);
+					$edit_perm = array_merge($edit_perm, $perms); // Combine permissions
+				}
+			}
+
+			// Optional: remove duplicates and reset array keys
+			$edit_perm = array_values(array_unique($edit_perm));
+
 
     @endphp
 
@@ -52,7 +74,7 @@
 
 
 
-                @if (in_array('23', $edit_perm))
+                @if (in_array('15', $edit_perm))
                     <div class="col-auto">
 
 
@@ -194,6 +216,7 @@
 
                                             <th>Select</th>
 
+                                            <th>Service</th>
                                             <th>Sub Service</th>
 
                                             <th>Question</th>
@@ -218,6 +241,20 @@
                                                     <input name="selected[]" id="selected[]" value="{{ $data->id }}"
                                                         type="checkbox" class="minimal-red"
                                                         style="height: 20px;width: 20px;border-radius: 0px;color: red;">
+                                                </td>
+												<td>
+                                                    @if ($data->services != '')
+                                                        @php
+                                                            $services_array = explode(',', $data->services);
+                                                        @endphp
+
+                                                        @foreach ($services_array as $services_id)
+                                                            {!! Helper::servicename($services_id) !!} @php echo "<br>"; @endphp
+                                                        @endforeach
+                                                    @else
+                                                        {{ '-' }}
+                                                    @endif
+
                                                 </td>
                                                 <td>
                                                     @if ($data->packages != '')
