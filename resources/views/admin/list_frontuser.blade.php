@@ -8,15 +8,37 @@
 
         $get_user_data = Helper::get_user_data($userId);
 
-        $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
+        // $get_permission_data = Helper::get_permission_data($get_user_data->role_id);
 
-        $edit_perm = [];
+        // $edit_perm = [];
 
-        if ($get_permission_data->editperm != '') {
-            $edit_perm = $get_permission_data->editperm;
+        // if ($get_permission_data->editperm != '') {
+        //     $edit_perm = $get_permission_data->editperm;
 
-            $edit_perm = explode(',', $edit_perm);
-        }
+        //     $edit_perm = explode(',', $edit_perm);
+        // }
+        $roleIds = explode(',', $get_user_data->role_id);
+
+			$edit_perm = [];
+
+			foreach ($roleIds as $roleId) {
+				$roleId = trim($roleId); // Clean any spaces
+				
+				$get_permission_data = Helper::get_permission_data($roleId);
+
+				if (
+					is_object($get_permission_data) &&
+					property_exists($get_permission_data, 'editperm') &&
+					$get_permission_data->editperm != ''
+				) {
+					$perms = explode(',', $get_permission_data->editperm);
+					$edit_perm = array_merge($edit_perm, $perms); // Combine permissions
+				}
+			}
+
+			// Optional: remove duplicates and reset array keys
+			$edit_perm = array_values(array_unique($edit_perm));
+
 
     @endphp
 
@@ -93,7 +115,7 @@
 
                 <div class="col">
 
-                    <h3 class="page-title">Front User</h3>
+                    <h3 class="page-title">Customer User</h3>
 
                     <ul class="breadcrumb">
 
@@ -101,13 +123,13 @@
 
                         </li>
 
-                        <li class="breadcrumb-item active">Front User</li>
+                        <li class="breadcrumb-item active">Customer User</li>
 
                     </ul>
 
                 </div>
 
-                @if (in_array('4', $edit_perm))
+                @if (in_array('16', $edit_perm))
                     <div class="col-auto">
 
                         <a class="btn btn-primary me-1" href="{{ route('export-excel') }}">

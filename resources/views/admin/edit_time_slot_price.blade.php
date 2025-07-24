@@ -59,26 +59,56 @@
 
                         <!-- <h4 class="card-title">Basic Info</h4> -->
 
-                        <form id="time_slot_price_form" action="{{ route('time_slot_price.update',2) }}" method="POST"
+                        <form id="time_slot_price_form" action="{{ route('time_slot_price.update',$id) }}" method="POST"
                             enctype="multipart/form-data">
 
-                            @php
-                            $time_slot_price_data = DB::table('time_slots')->get();  
-                            @endphp
-
+                           
                             @csrf
                             @method('PUT')
 
                             <div class="row">
+
+                                <div class="form-group">
+                                    <label for="service">Service</label>
+                                    <select class="form-control" id="service_id" name="service_id"
+                                        onchange="subservice_change(this.value);">
+                                        <option value="">Select Service</option>
+                                        @foreach ($service_data as $service)
+                                            <option value="{{ $service->id }}"
+                                                {{ $service->id == $time_data->service_id ? 'selected' : '' }}>
+                                                {{ $service->servicename }}</option>
+                                        @endforeach
+                                    </select>
+                                    <p class="form-error-text" id="service_error" style="color: red; margin-top: 10px;"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subservice">Sub Service</label>
+                                    <span id="subservice_chang">
+                                        <select class="form-control" id="subservice_id" name="subservice_id">
+                                            <option value="">Select Sub Service</option>
+                                            @foreach ($subservice_data as $subservice)
+                                                <option value="{{ $subservice->id }}"
+                                                    {{ $subservice->id == $time_data->subservice_id ? 'selected' : '' }}>
+                                                    {{ $subservice->subservicename }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </span>
+                                    <p class="form-error-text" id="subservice_error" style="color: red; margin-top: 10px;">
+                                    </p>
+                                </div>
+
                                 @php
                                 $i=0;
                                 @endphp
-                                @foreach ($time_slot_price_data as $data)
+                                @foreach ($time_slot as $data)
 
                                 @php
                                    $subservice_timeslot_price =  DB::table('subservice_timeslot_price')
                                                 ->where('time_slot_id',$data->id)
-                                                ->where('subservice_id',28)
+                                                ->where('service_id',$time_data->service_id)
+                                                ->where('subservice_id',$time_data->subservice_id)
                                                 ->first();
                                 if(isset($subservice_timeslot_price) && !empty($subservice_timeslot_price)){
                                    $value =  $subservice_timeslot_price->price;
@@ -87,7 +117,7 @@
                                 }
                                 @endphp
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         @if($i == 0)
                                         <label for="name"><b>Hours</b></label>
                                         @endif
@@ -95,11 +125,20 @@
 
                                         <input type="text" name="time_slot_name[]" value="{{$data->name}}" class="form-control" style="margin-top: 10px;" readonly>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         @if($i == 0)
                                         <label for="name"><b>Price</b></label>
                                         @endif
                                         <input type="text" name="price[]" id="{{$data->id}}" value="{{$value}}" placeholder="Enter Price" class="form-control" style="margin-top: 10px;" >
+                                    </div>
+                                    <div class="col-md-4">
+                                        @if($i == 0)
+                                        <label for="name"><b>Slot Status</b></label>
+                                        @endif
+                                        <select name="is_active[]" class="form-control" style="margin-top: 10px;">
+                                            <option value="1" @if(isset($subservice_timeslot_price) && $subservice_timeslot_price->is_active == 1) selected @endif>Active</option>
+                                            <option value="0" @if(isset($subservice_timeslot_price) && $subservice_timeslot_price->is_active == 0) selected @endif>Inactive</option>
+                                        </select>
                                     </div>
                                 </div>
                                 @php
@@ -115,7 +154,7 @@
 
                             <div class="text-end mt-4">
 
-                                <a class="btn btn-primary" href="{{ url('/admin') }}"> Cancel</a>
+                                <a class="btn btn-primary" href="{{ route('time_slot_price.index') }}"> Cancel</a>
 
 
 
@@ -155,15 +194,65 @@
 
 @section('footer_js')
 
-    <script>
-        function category_validation() {
+<script type="text/javascript">
+    function subservice_change(service_id) {
 
-            $('#spinner_button').show();
-            $('#submit_button').hide();
-            $('#time_slot_price_form').submit();
+        var url = '{{ url('subservice_show') }}';
 
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "service_id": service_id
+            },
+            success: function(msg) {
+                document.getElementById('subservice_chang').innerHTML = msg;
+            }
+        });
+    }
+</script>
+
+<script>
+    function category_validation() {
+        var service_id = jQuery("#service_id").val();
+        if (service_id == '') {
+            jQuery('#service_error').html("Please Select Service");
+            jQuery('#service_error').show().delay(0).fadeIn('show');
+            jQuery('#service_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#service_id').offset().top - 150
+            }, 1000);
+            return false;
         }
-    </script>
+        var subservice_id = jQuery("#subservice_id").val();
+        if (subservice_id == '') {
+            jQuery('#subservice_error').html("Please Select Sub Service");
+            jQuery('#subservice_error').show().delay(0).fadeIn('show');
+            jQuery('#subservice_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#subservice_id').offset().top - 150
+            }, 1000);
+            return false;
+        }
+        // var name = jQuery("#name").val();
+        // if (name == '') {
+        //     jQuery('#name_error').html("Please Enter Package Category Name");
+        //     jQuery('#name_error').show().delay(0).fadeIn('show');
+        //     jQuery('#name_error').show().delay(2000).fadeOut('show');
+        //     $('html, body').animate({
+        //         scrollTop: $('#name').offset().top - 150
+        //     }, 1000);
+        //     return false;
+        // }
+
+
+        $('#spinner_button').show();
+        $('#submit_button').hide();
+
+        $('#time_slot_price_form').submit();
+    }
+</script>
 
 
 @stop

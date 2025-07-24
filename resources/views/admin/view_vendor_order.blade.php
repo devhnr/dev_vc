@@ -49,11 +49,24 @@
                                         <strong class="customer-text">Billing details</strong>
                                         <p class="invoice-details invoice-details-two">
                                             {{ $order->first_name }} {{ $order->last_name }} <br>
+                                            @if ($order->address2 != '')
+                                                {{ $order->address2 }},
+                                            @endif
+
                                             @if ($order->address1 != '')
                                                 {{ $order->address1 }},
                                             @endif
-                                            @if ($order->address2 != '')
-                                                {{ $order->address2 }},
+                                            </br>
+                                            @if ($order->area != '')
+                                                {{ $order->area }},
+                                            @endif
+
+                                            @if ($order->emirate != '')
+                                                {{ $order->emirate }},
+                                            @endif
+                                            </br>
+                                            @if ($order->country != '')
+                                                {{ Helper::countryname($order->country) }}
                                             @endif
 
                                             @if ($order->city != '')
@@ -66,10 +79,6 @@
 
                                             @if ($order->zipcode != '')
                                                 {{ $order->zipcode }},
-                                            @endif
-
-                                            @if ($order->country != '')
-                                                {{ Helper::countryname($order->country) }}
                                             @endif
 
                                         </p>
@@ -102,10 +111,10 @@
                                                                     
                                                                     <p class="invoice-details invoice-details-two">
                                                                         @if ($order->paymentmode == '1')
-    Cash On Delivery
-@elseif ($order->paymentmode == '2')
-    Online Payment
-    @endif
+                                                                        Cash On Delivery
+                                                                    @elseif ($order->paymentmode == '2')
+                                                                        Online Payment
+                                                                        @endif
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -258,7 +267,10 @@
                                                     <tr>
                                                         <th>Discount:</th>
                                                         <td><span>{{ $order->order_currency }}
-                                                                {{ $order->coupondiscount }}</span></td>
+                                                                {{ $order->coupondiscount }}</span>
+                                                            @if($order->coupan_to_wallet == 1)
+                                                                <span>(Credited to User Wallet)</span>
+                                                            @endif</td>
                                                     </tr>
                                                 @endif
 
@@ -336,6 +348,7 @@
                                                                                     ->where('order_id',$item->order_id)
                                                                                     ->where('order_item_id',$item->id)
                                                                                     ->get()->toArray();
+                                                        // echo"<pre>";print_r($item);echo"</pre>";exit;
                                                          }
                                                     @endphp
 
@@ -449,11 +462,28 @@
                                                 </tr>
                                                 <tr>
                                                 @php
-                                                $sub_total_new = $order->service_charge - $order->promo_discount + $order->additional_charge + $order->timing_charge + $order->service_fee + $order->cod_charge ;
+                                                $sub_total_new = 
+                                                        (float)$order->service_charge + 
+                                                        (float)$order->promo_discount + 
+                                                        (float)$order->additional_charge + 
+                                                        (float)$order->timing_charge + 
+                                                        (float)$order->service_fee + 
+                                                        (float)$order->cod_charge;
+
                                                 @endphp
                                                     <th>Sub Total:</th>
                                                     <td><span>{{ $sub_total_new }}</span></td>
                                                 </tr>
+                                                @if ($order->coupondiscount != '' && $order->coupondiscount != 0)
+                                                <tr>
+                                                    <th>Discount:</th>
+                                                    <td><span> - {{ $order->order_currency }} {{ $order->coupondiscount }}</span>
+                                                    @if($order->coupan_to_wallet == 1)
+                                                        <span>(Credited to User Wallet)</span>
+                                                    @endif
+                                                    </td>
+                                                </tr>
+                                                @endif 
                                                 <tr>
                                                     <th>VAT (5%):</th>
                                                     <td><span>{{ $order->vatcharge }}</span></td>

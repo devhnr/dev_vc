@@ -37,11 +37,25 @@
                                         <strong class="customer-text">Billing details</strong>
                                         <p class="invoice-details invoice-details-two">
                                             {{ $order->first_name }} {{ $order->last_name }} <br>
+
+                                             @if ($order->address2 != '')
+                                                {{ $order->address2 }},
+                                            @endif
+
                                             @if ($order->address1 != '')
                                                 {{ $order->address1 }},
                                             @endif
-                                            @if ($order->address2 != '')
-                                                {{ $order->address2 }},
+                                            </br>
+                                            @if ($order->area != '')
+                                                {{ $order->area }},
+                                            @endif
+
+                                            @if ($order->emirate != '')
+                                                {{ $order->emirate }},
+                                            @endif
+                                            </br>
+                                            @if ($order->country != '')
+                                                {{ Helper::countryname($order->country) }}
                                             @endif
 
                                             @if ($order->city != '')
@@ -56,9 +70,7 @@
                                                 {{ $order->zipcode }},
                                             @endif
 
-                                            @if ($order->country != '')
-                                                {{ Helper::countryname($order->country) }}
-                                            @endif
+                                            
 
                                         </p>
                                     </div>
@@ -155,6 +167,7 @@
                                             </thead>
                                             <tbody>
                                                 @php
+                                                // echo"here";exit;
                                                     $sub_total = 0;
                                                 @endphp
                                                 @foreach ($order->items as $item)
@@ -245,8 +258,11 @@
                                                 @if ($order->coupondiscount != '' && $order->coupondiscount != 0)
                                                     <tr>
                                                         <th>Discount:</th>
-                                                        <td><span>{{ $order->order_currency }}
-                                                                {{ $order->coupondiscount }}</span></td>
+                                                        <td><span> - {{ $order->order_currency }}
+                                                            {{ $order->coupondiscount }}</span>
+                                                            @if($order->coupan_to_wallet == 1)
+                                                            <span>(Credited to User Wallet)</span>
+                                                            @endif</td>
                                                     </tr>
                                                 @endif
 
@@ -303,6 +319,7 @@
                                             <tbody>
                                                 @php
                                                     $sub_total = 0;
+                                                    
                                                 @endphp
                                                 @foreach ($order->items as $item)
                                                     @php
@@ -328,6 +345,17 @@
                                                         <td class="text-end">{!! Helper::subservicename(strval($item->subservice_id)) !!}  </td>
                                                     </tr>
 
+                                                    @if($item->cleaner_id != '')
+                                                    <tr>
+                                                        <td class="text-center">Cleaner Name</td>
+                                                        <td class="text-end">
+                                                        @php
+                                                        $cleaner_Id = explode(",",$item->cleaner_id);
+                                                        @endphp
+                                                            {!! Helper::cleanername_new($cleaner_Id) !!} </td>
+                                                        </tr>
+                                                    @endif
+
                                                     @if($item->how_often_do_you_need_cleaning != '')
                                                     <tr>
                                                         
@@ -335,11 +363,13 @@
 
                                                         <td class="text-end"> {{ $item->how_many_cleaners_do_you_need  }} </td>
                                                     </tr>
-
+                                                   
                                                     <tr>                                                       
                                                         <td class="text-center">No. of Hours</td>
                                                         <td class="text-end"> {{ $item->how_many_hours_should_they_stay  }} </td>
                                                     </tr>
+
+                                                    
 
                                                     <tr>                                                       
                                                         <td class="text-center">Frequency</td>
@@ -431,6 +461,19 @@
                                                     <th>Sub Total:</th>
                                                     <td><span>{{ $order->sub_total }}</span></td>
                                                 </tr>
+                                                @if ($order->coupondiscount != '' && $order->coupondiscount != 0)
+                                                <tr>
+                                                    <th>Discount:</th>
+                                                    <td>
+                                                        
+                                                        <span> - {{ $order->order_currency }} {{ $order->coupondiscount }}</span>
+
+                                                        @if($order->coupan_to_wallet == 1)
+                                                        <span>(Credited to User Wallet)</span>
+                                                        @endif</td>
+
+                                                </tr>
+                                                @endif
                                                 <tr>
                                                     <th>VAT (5%):</th>
                                                     <td><span>{{ $order->vatcharge }}</span></td>
@@ -483,19 +526,20 @@
                                                             $order_item_package_data = array();
                                                          }else{
                                                             $order_item_package_data = DB::table('ci_order_item_packages')
-                                                                                    ->where('order_id',$item->order_id)
-                                                                                    ->where('order_item_id',$item->id)
-                                                                                    ->get()->toArray();
-                                                         }
+                                                            ->where('order_id',$item->order_id)
+                                                            ->where('order_item_id',$item->id)
+                                                            ->get()->toArray();
+                                                          }
                                                     @endphp
 
 
 
                                                     <tr>
                                                                                                             
-                                                        <td class="text-center">Service Type</td>
+                                                    <td class="text-center">Service Type</td>
 
-                                                        <td class="text-end">{!! Helper::subservicename(strval($item->subservice_id)) !!}  </td>
+                                                    <td class="text-end">{!! Helper::subservicename(strval($item->subservice_id)) !!}</td>
+                                                    
                                                     </tr>
 
                                                     @if($item->type_of_painting != '')
@@ -600,6 +644,7 @@
                                                     <th>Sub Total:</th>
                                                     <td><span>{{ $order->sub_total }}</span></td>
                                                 </tr>
+                                             
                                                 <tr>
                                                     <th>VAT (5%):</th>
                                                     <td><span>{{ $order->vatcharge }}</span></td>

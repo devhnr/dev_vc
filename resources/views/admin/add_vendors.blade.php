@@ -93,14 +93,14 @@
                                 <div class="col-md-6" style="display: none;">
                                     <div class="form-group">
                                         <label for="category">User Category</label>
-                                        <select class="form-control" id="role_id" name="role_id" disabled>
+                                        {{-- <select class="form-control" id="role_id" name="role_id" disabled>
                                             @foreach ($permission_data as $permission)
                                                 <option value="{{ $permission->id }}" data-value="{{ $permission->id }}">
                                                     {{ $permission->cname }}
                                                 </option>
                                             @endforeach
-                                        </select>
-                                        <input type="hidden" name="hidden_role_id" id="hidden_role_id" value="">
+                                        </select> --}}
+                                        <input type="hidden" name="hidden_role_id" id="hidden_role_id" value="10">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -421,11 +421,11 @@
         placeholder: "Select a Cities" // Replace with your desired placeholder text
     });
 
-        $(document).ready(function() {
-            var role_id = jQuery("#role_id").val();
+        // $(document).ready(function() {
+        //     var role_id = jQuery("#role_id").val();
 
-            $("#hidden_role_id").val(role_id);
-        });
+        //     $("#hidden_role_id").val(role_id);
+        // });
 
 
 

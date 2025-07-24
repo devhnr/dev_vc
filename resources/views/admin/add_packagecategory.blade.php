@@ -67,6 +67,13 @@
                                     <p class="form-error-text" id="name_error" style="color: red; margin-top: 10px;"></p>
                                 </div>
 
+                                
+                                <div class="form-group">
+                                    <label>Image (Size : 491px X 183px )</label>
+                                    <input type="file" class="form-control" id="image" name="image">
+                                    <p class="form-error-text" id="image_error" style="color: red; margin-top: 10px;"></p>
+                                </div>
+
                             </div>
                             <div class="text-end mt-4">
                                 <a class="btn btn-primary" href="{{ route('packagecategory.index') }}"> Cancel</a>
@@ -141,10 +148,20 @@
                 return false;
             }
 
+            var image = jQuery("#image").val();
+            if (image == '') {
+                jQuery('#image_error').html("Please Select Image");
+                jQuery('#image_error').show().delay(0).fadeIn('show');
+                jQuery('#image_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#image').offset().top - 150
+                }, 1000);
+                return false;
+            }
+
 
             $('#spinner_button').show();
             $('#submit_button').hide();
-
             $('#category_form_new').submit();
         }
     </script>

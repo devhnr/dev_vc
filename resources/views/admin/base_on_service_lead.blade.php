@@ -282,6 +282,7 @@
        <script>
 
             function updateTotal_new(loop_id,sub_serviceid) {
+            
                 var no_of_inquiry = $('#no_of_inquiry_'+ loop_id).val();
                 var price = $('#price_'+ loop_id).val();
 
@@ -493,7 +494,7 @@
                 // Get subs_id from the URL (if it exists)
                 let subs_id = getQueryParam('subs_id') || 0; // Use 0 as the default value
 
-           function city_change(state_id,country_id) {
+    function city_change(state_id,country_id) {
             // alert(country_id);
                var url = '{{ url('city_show') }}';
                // alert(url);
@@ -515,8 +516,8 @@
                });
            }
 
-           function subservice_change() {
-               var selectedValues = $("#services").val();
+    function subservice_change() {
+            var selectedValues = $("#services").val();
                 //  alert(selectedValues);
                var url = '{{ url('subservice_change') }}';
                // alert(url);
@@ -532,6 +533,7 @@
 
                    },
                    success: function(msg) {
+                    // alert(msg);
                        document.getElementById('subservice_option').innerHTML = msg;
 
                        chnage_moving_price(selectedValues);
@@ -546,7 +548,7 @@
                //alert(selectedValues);
            }
 
-           function chnage_moving_price(id){
+     function chnage_moving_price(id){
 
             var url = '{{ url('chnage_moving_price') }}';
 
@@ -559,6 +561,8 @@
                        "subs_id": subs_id
                    },
                    success: function(msg) {
+
+                    // alert(msg);
 
                     document.getElementById('moving_change_div').innerHTML = msg;
                     // $('#moving_change_div').show();

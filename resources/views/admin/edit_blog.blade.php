@@ -140,7 +140,7 @@
                                     <div class="form-group">
                                         <label>Blog Category</label>
                                             <select class="form-control" id="blog_category" name="blog_category">
-                                           
+                                            <option value="">Select Blog Category</option>
                                             @foreach ($blog_category_data as $data)
                                             <option value="{{ $data->id }}"
                                                 {{ $data->id == $blog->blog_category ? 'selected' : '' }}>
@@ -183,7 +183,7 @@
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="short_description" style="margin:15px 0 5px 0px; width:100%;">Short Description</label>
-                                        <textarea id="short_description" name="short_description" class="form-control" placeholder="Enter Short Description">{{ $blog->description }}</textarea>
+                                        <textarea id="short_description" name="short_description" class="form-control" placeholder="Enter Short Description">{{ $blog->short_description }}</textarea>
                                         <p class="form-error-text" id="short_description" style="color: red; margin-top: 10px;"></p>
                                     </div>
                                 </div>
