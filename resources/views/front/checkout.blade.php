@@ -16,6 +16,33 @@
      overflow: auto;
 
   }
+  .ud-btn-apply{
+        border-radius: 4px;
+        display: inline-block;
+        font-family: var(--title-font-family);
+        font-weight: 700;
+        font-size: 15px;
+        font-style: normal;
+        letter-spacing: 0em;
+        padding: 5px 20px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        z-index: 0;
+}
+.form-control-coupan{
+    border-radius: 8px;
+    border: 2px solid transparent;
+    box-shadow: none;
+    height: 40px;
+    outline: 1px solid #E9E9E9;
+    padding-left: 5px;
+    width: 70%;
+}
+.form-control-coupan:focus {
+    border: 2px solid transparent; /* Keep the same border on focus */
+    outline: 1px solid #E9E9E9;
+}
 @media only screen and (max-width: 768px){
 #modal-digi{
  max-width: 100% !important;   
@@ -173,7 +200,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="mb25">
-                                            <h6 class="mb15">Emirate<span style="color: red">*</span></h6>
+                                    When would you like to move?*        <h6 class="mb15">Emirate<span style="color: red">*</span></h6>
                                             <div class="">
                                                 <select class="form-control search_emirate" name="emirate" id="emirate">
                                                     <option value="">Select Emirate</option>
@@ -280,7 +307,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <div class="mb25">
                                             <h6 class="mb15">When would you like to move?<span style="color: red">*</span></h6>
                                         
@@ -290,6 +317,32 @@
                                         </p>
                                     </div>
                                     </div>
+                                    @php
+                                        $subserviceIds = Cart::content()->pluck('options.subservice_id')->unique()->toArray();
+
+                                        $availableSlots = DB::table('subservice_timeslot_price')
+                                            ->whereIn('subservice_id', $subserviceIds)
+                                            ->where('is_active', '1')
+                                            ->get()
+                                            ->unique('time_slot_id'); // Optional: Prevent duplicate time slot IDs
+                                    @endphp
+                                    <div class="col-sm-6">
+                                        <div class="mb25">
+                                            <h6 class="mb15">What time would you like to reschedule to?<span style="color: red">*</span></h6>
+                                        
+                                            <select id="time_slot" name="time_slot" class="form-control">
+                                                <option value="">Select Time Slot</option>
+                                                @foreach($availableSlots as $slot)
+                                                <option value="{{ $slot->time_slot_id }}">{{ Helper::timeslotname(strval($slot->time_slot_id)) }}</option>
+
+                                                @endforeach
+                                            </select>
+                                        <p class="form-error-text" id="time_slot_error" style="color: red; margin-top: 10px;">
+                                        </p>
+                                    </div>
+                                    </div>
+
+                                    {{-- @endforeach --}}
                                     <div class="col-sm-12">
                                         <div class="mb25">
                                             <h4 class="mb15" class="mb15">Additional information</h4>
@@ -373,26 +426,34 @@
 
                                         $coupon_discounted = 0;
 
-                                        if (
-                                            session('coupan_data.discount') != '' &&
-                                            session('coupan_data.coupanvalue') == 0
-                                        ) {
+                                        if(session('coupan_data.discount') != '' &&
+                                            session('coupan_data.coupanvalue') == 0) {
                                             $coupon_discounted = round(
-                                                ($subtotal * session('coupan_data.discount')) / 100,
-                                            );
+                                                ($subtotal * session('coupan_data.discount')) / 100,);
+                                            if(session('coupan_data.coupan_apply_wallet') === 1){
+                                            $coupon_discounted = $coupon_discounted;
+                                            }else{
+                                            $coupon_discounted = 0;
+                                            echo "<script>alert('Congratulations! The coupon amount will be added to your wallet after this order.');</script>";
+                                            }
+                                            $coupan_code = session('coupan_data.coupancode');
                                         }
 
-                                        if (
-                                            session('coupan_data.discount') != '' &&
-                                            session('coupan_data.coupanvalue') == 1
-                                        ) {
+                                        if (session('coupan_data.discount') != '' &&
+                                            session('coupan_data.coupanvalue') == 1) {
                                             $coupon_discounted = session('coupan_data.discount');
+                                            if(session('coupan_data.coupan_apply_wallet') === 1){
+                                            $coupon_discounted = $coupon_discounted;
+                                            }else{
+                                            $coupon_discounted = 0;
+                                            echo "<script>alert('Congratulations! The coupon amount will be added to your wallet after this order..');</script>";
+                                            }
+                                            $coupan_code = session('coupan_data.coupancode');
                                         }
+
                                         $shippingcahrge = 0;
 
                                         $vatcharge = round(($subtotal * 5) / 100);
-                                        // $vatcharge = 10;
-
                                     
                                         $order_total = round(
                                             $sub_total_round - $coupon_discounted + $shippingcahrge + $vatcharge,
@@ -410,17 +471,15 @@
 
                                     $userId = Session::get('user')['userid'];
                                      $wallet_plus_amount = DB::table('front_user_wallet')
-                                        ->where('refer_id', $userData['userid'])
-                                        ->where('added_from',0)
-                                        ->sum('wallet_amount');
+                                                        ->where('refer_id', $userData['userid'])
+                                                        ->where('added_from',0)
+                                                        ->sum('wallet_amount');
 
                                     $wallet_minus_amount = DB::table('front_user_wallet')
-                                        ->where('refer_id', $userData['userid'])
-                                        ->where('added_from',1)
-                                        ->sum('wallet_amount');
+                                                        ->where('refer_id', $userData['userid'])
+                                                        ->where('added_from',1)
+                                                        ->sum('wallet_amount');
 
-                                    // echo"<pre>";print_r($wallet_plus_amount);echo"</pre>";
-                                    // echo"<pre>";print_r($wallet_minus_amount);echo"</pre>";
 
                                     $plusAmountWallet = $wallet_plus_amount ?? 0;
                                     $minusAmountWallet = $wallet_minus_amount ?? 0;
@@ -428,9 +487,7 @@
                                     $total_wallet_amount = max($plusAmountWallet - $minusAmountWallet, 0);
                                     $total_wallet_amount_old = $wallet_plus_amount - $wallet_minus_amount;
 
-                                    // echo"<pre>";print_r($total_wallet_amount);echo"</pre>";
-                                    // echo"<pre>";print_r($total_wallet_amount_old);echo"</pre>";
-                                    
+                                  
 
                                     $walletDifferencePlus = 0;
                                     $walletDifferenceMinus = 0;
@@ -494,19 +551,47 @@
                                         </li>
                                     @endif
                                     
+                                    @if($total_wallet_amount > 0)
                                      <li class=" bdrb1 mb15">
                                         <h6>Wallet ( AED.{{ $total_wallet_amount }} )
                                             <!-- <button type="button" class="wallet_apply">Apply</button> -->
-                                            @if($total_wallet_amount > 0)
+                                            
 
                                             <button  onclick="apply_wallet_discount('{{ $order_total }}','{{ $total_wallet_amount }}');" type="button" class="wallet_apply">Apply</button>
                                             
                                             <button id="cancel_wallet_discount" onclick="cancelWalletDiscount('{{ $order_total }}','{{ $total_wallet_amount }}');" type="button" class="wallet_cancel" style="display: none;">Cancel</button>
 
-                                            @endif
+                                           
 
                                             <span class="float-end" id="walletr_amount_display">- AED 0</span></h6>
                                     </li>
+                                    @endif
+                                    @if(session()->has('coupan_data'))
+           
+                                    <li class=" bdrb1 mb15">
+                                    <div class="d-flex justify-content-between"><h6>PromoCode</h6>
+                                    <a href="javascript:void(0)"
+                                        onclick="checkout_remove_coupon();" style="margin-left:35%;"><span class="flaticon-delete"></span></a>
+
+                                    <div  class="float-end">-AED <span id="checkout_promocode_replace">{{ $coupon_discounted }}</span></div></div>
+                                    </li>
+                                    <li class=" bdrb1 mb15">
+                                    <div class="d-flex justify-content-between"><h6>Applied Promocode Name:</h6>
+
+                                    <div  class="float-end"><span id="checkout_promocode_name_replace">{{ $coupan_code }}</span></div></div>
+                                    </li>
+                                    @endif
+
+                                    <li class="bdrb1 mb15 d-flex align-items-center">
+                                        <div class="d-flex align-items-center w-100">
+                                            <input type="text" name="checkout_promocode" class="form-control-coupan me-2" id="checkout_promocode" placeholder="Enter Promocode">
+
+                                            <button type="button" class="ud-btn-apply btn-thm" onclick="checkout_apply_promocode();">Apply</button>
+                                        </div>
+                                    </li>
+                                    <div id="checkout_promocode_error" class="alert-message valierror" style="display:none; margin-bottom: 0px; width: 100%; margin-top: 5px;"></div>
+                                    <div id="checkout_promocode_success" class="successmain alert-message" style="display:none; margin-bottom: 0px; width: 100%; margin-top: 5px;"></div>
+
                                     <li>
                                         <h6>Total <span class="float-end" id="order_grand_total">AED {{ $order_total }}</span></h6>
                                     </li>
@@ -859,7 +944,17 @@ $pacakges_data = DB::table('packages')->where('id',$items->id)->first();
             }, 1000);
             return false;
         }
-
+ 
+        var time_slot = jQuery("#time_slot").val();
+        if (time_slot == '') {
+            jQuery('#time_slot_error').html("Please Select Time Slot");
+            jQuery('#time_slot_error').show().delay(0).fadeIn('show');
+            jQuery('#time_slot_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#time_slot').offset().top - 150
+            }, 1000);
+            return false;
+        }
 
         var payment_method = $("input[name='payment_method']:checked").val();
         if (payment_method == '' || payment_method == undefined) {
@@ -1047,6 +1142,87 @@ function cancelWalletDiscount(orderTotal, userWalletAmount) {
             }
         }
     });
+}
+
+function checkout_apply_promocode(){
+
+var promo_code = $("#checkout_promocode").val();
+// alert(promo_code);
+
+if (promo_code === '') {
+        $("#checkout_promocode_error").html("Enter Coupon Code.");
+        $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+        $("#checkout_promocode_success").html("");
+    return false;
+}
+
+var url = '{{ url('checkout_promo_codecheck') }}';
+
+$.ajax({
+    url: url,
+    type: 'POST',
+    data: {
+        '_token': '{{ csrf_token() }}',
+        'promo_code': promo_code,
+        },
+    success: function(result) {
+        console.log(result);
+
+        // Handle response
+        if (result === 'invalid') {
+            $("#checkout_promocode_error").html("Invalid Coupon Code.");
+            $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+            $("#checkout_promocode_success").html("");
+        } else if (result === 'Already') {
+            $("#checkout_promocode_error").html("Coupon Code is Already Applied.");
+            $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+            $("#checkout_promocode_success").html("");
+        } else if (result === 'invalid_date') {
+            $("#checkout_promocode_error").html("Coupon Code Expired.");
+            $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+            $("#checkout_promocode_success").html("");
+        } else if (result === 'invalid_user_count') {
+            $("#checkout_promocode_error").html("Coupon Code Expired.");
+            $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+            $("#checkout_promocode_success").html("");
+        }else if (result === 'success') {
+            
+            $("#checkout_promocode_error").html("");
+            $("#checkout_promocode_success").html("Coupan Code Applied Successfully.");
+            $('#checkout_promocode_success').show().delay(2000).fadeOut('show');
+            setTimeout(location.reload.bind(location), 2000);
+            }
+            else if (result === 'grater') {
+            $("#checkout_promocode_error").html("Coupan Code Value Greater Than Your Total.");
+            $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+            } 
+            else {
+            $("#checkout_promocode_error").html("Minimum order amount should be AED. " + result);
+            $('#checkout_promocode_error').show().delay(2000).fadeOut('show');
+        }
+    }
+});
+}
+
+function checkout_remove_coupon(){
+
+var answer = window.confirm("Do you want to remove this Coupon Code?");
+if (answer) {
+
+    var url = '{{ url('checkout_remove_coupon') }}';
+    $.ajax({
+
+        type : 'POST',
+        url : url,
+        data :{'_token': '{{ csrf_token() }}'},
+
+        success : function(msg){
+            setTimeout(location.reload.bind(location), 0);
+        }
+
+    });
+
+}
 }
 </script>
 

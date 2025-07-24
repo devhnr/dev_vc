@@ -86,6 +86,9 @@
         width: 100%;
         padding-top: 30px;
     }
+    .ol-points li{
+        list-style-type: decimal !important;
+    }
 </style>
 
 
@@ -115,8 +118,16 @@
                         <div class="tab-pane fade show active">
                             <div class="myaccount-content dashboad">
 
-                                <h4>Exclusive Offer: Earn 10% Discount by Referring Friends to VendorsCity!*</h4>
-                                <p>Get Rewarded with a 10% Discount by Inviting Friends to Experience VendorsCity! When your referred friend completes an order, both of you enjoy the exclusive discount as a token of our appreciation for your support and loyalty. Start spreading the word and sharing the benefits of VendorsCity today!</p>
+                                <h4><b>Earn a 10% Discount by Referring Friends to VendorsCity!</b></h4>
+                                <p>It’s simple! Here’s how you and your friends can enjoy exclusive savings:</p>
+
+                                <ol class="ol-points">
+                                    <li>Share Your Referral Link – Use the unique referral link provided below and send it to your friends via WhatsApp, social media, or email.</li>
+                                    <li>Friend Registers & Books – Your friend must sign up and book a service using the same referral link.</li>
+                                    <li> Enjoy the Discount! – Once your friend completes their first order, both of you will receive a 10% discount on your next service.</li>
+                                </ol>
+
+                                <p> <span>📩</span> Start Referring & Saving Now! Share below link and enjoy the rewards! <span>🚀</span></p>
 
                                 <div class="myaccount-tab-list nav">
                                     {{-- <a href="{{ url('refer_and_earn/' . $userData) }}">

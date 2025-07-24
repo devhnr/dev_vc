@@ -9,13 +9,14 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-ML9CL33C');</script>
     <!-- End Google Tag Manager -->
-<link
-     rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
-   />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+   <link rel="stylesheet" href="{{ asset('public/site/css/intlTelInput.css') }}">
+
+   <script src="{{ asset('public/site/js/intlTelInput.min.js') }}"></script>
+
    
     <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -24,6 +25,7 @@
     <!-- <meta name="CreativeLayers" content="ATFN"> -->
     <!-- css file -->
     <link rel="stylesheet" href="{{ asset('public/site/css/bootstrap.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('public/site/css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/site/css/ace-responsive-menu.css') }}">
     <link rel="stylesheet" href="{{ asset('public/site/css/menu.css') }}">
@@ -40,6 +42,7 @@
     <link rel="stylesheet" href="{{ asset('public/site/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/site/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css">
     <link
       rel="stylesheet"
       {{-- href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" --}}
@@ -50,7 +53,7 @@
     <meta property="og:title" content="{{$meta_title}}" />
     @else
         <title>VendorsCity</title>
-        <meta property="og:title" content="Vendors City" />
+        <meta property="og:title" content="VendorsCity" />
     @endif
 
     @if(!empty($meta_keyword))
@@ -63,7 +66,7 @@
     @endif
     <!-- Favicon -->
 
-    <meta property="og:site_name" content="Vendors City">
+    <meta property="og:site_name" content="VendorsCity">
    
     
 
@@ -92,6 +95,13 @@
     {{-- <link href="https://db.onlinewebfonts.com/c/060fd297f19446447a9a1325ad5b889b?family=SF+Pro+Rounded"
         rel="stylesheet"> --}}
     <style>
+header.nav-homepage-style.stricky.stricky-fixed {
+    box-shadow: none !important;
+}
+        header.header-nav.slideInDown {
+            -webkit-animation-name: slideInDown;
+            animation-name: none !important;
+        }
         .valierror {
             background-color: #ee2e34;
             border-color: #ee2e34;
@@ -211,14 +221,15 @@
         #gets_button_book_now {
             font-size: 25px;
             font-family: var(--title-font-family);
-            font-weight: 500;
-            height: 40px;
-            padding: 7px 23px 23px 27px;
+            font-weight: 600;
+            height: 45px;
+            padding: 10px 23px 23px 27px;
             margin-left: -288%;
             background-color: #FFD312;
             color: #000;
             margin-bottom: -20%;
-            font-style: italic !important;
+            
+            /* font-style: italic !important; */
         }
         #gets_button_book_now:hover:before{
         background-color: #FFD312 !important;
@@ -227,14 +238,14 @@
             font-size: 25px;
             font-family: var(--title-font-family);
             font-weight: 500;
-            height: 40px;
-            padding: 7px 23px 23px 27px;
+            height: 45px;
+            padding: 10px 23px 23px 27px;
             margin-left: -221%;
             background-color: #0040E6;
             color: #fff;
             text-align: center;
             margin-bottom: -13%;
-            font-style: italic !important;
+            /* font-style: italic !important; */
         }
         
         #gets_button_sticky_get_quote{
@@ -274,14 +285,16 @@
         background-color: #F9D54B !important;
         }
         #mega-menu {
-            cursor: pointer;
-            height: 40px !important;
-            line-height: 40px !important;
-            max-width: 150px;
+		   cursor: pointer;
+			height: 39px !important;
+			line-height: 30px !important;
+			width: 100%;
+			padding-top: 5px !important;
+            margin-left: 20px !important; 
         }
 
         .mega-menu-custom {
-            margin-top: 6px;
+            /* margin-top: 6px; */
             /* background-color: #FFD312 !important; */
         }
 
@@ -448,18 +461,18 @@ header.nav-homepage-style .ace-responsive-menu .megamenu_style a.list-item:befor
 /* for ipad mini */
 @media (max-width: 768px) {
     #gets_button_get_quote{
-        margin-left: -15px !important;
+        /* margin-left: -15px !important; */
         margin-bottom: -15% !important;
-        font-size: 16px;
-        padding: 5px 7px 0px 7px !important;
-        top: 18px;
+        font-size: 17px;
+        padding: 3px 10px 10px 10px !important;
+        top: 0px;
     }
     #gets_button_book_now{
         margin-left: -16px !important;
-        margin-bottom: -6% !important;
+        margin-bottom: 0% !important;
         font-size: 20px;
-        font-weight: 500;
-        top: 25px !important;
+        font-weight: 600;
+        /* top: 25px !important; */
     }
 }
  /* for ipad air */
@@ -473,9 +486,9 @@ header.nav-homepage-style .ace-responsive-menu .megamenu_style a.list-item:befor
     }
     #gets_button_book_now{
         margin-left: -18px !important;
-        margin-bottom: -7% !important;
+        margin-bottom: -4% !important;
         font-size: 17px;
-        font-weight: 500;
+        font-weight: 600;
         top: 25px !important;
     }
 }
@@ -494,8 +507,8 @@ header.nav-homepage-style .ace-responsive-menu .megamenu_style a.list-item:befor
         margin-left: 0px !important;
         /* margin-bottom: -18% !important; */
         font-size: 25px;
-        font-weight: 1000;
-        top: 18px !important;
+        font-weight: 600;
+        top: 0px !important;
     }
 }
 
@@ -614,20 +627,22 @@ header.nav-homepage-style .ace-responsive-menu .megamenu_style a.list-item:befor
     #gets_button_get_quote{
         margin-left: -12px !important;
         /* margin-bottom: -12% !important; */
-        font-size: 20px;
+        font-size: 17px;
     }
     #gets_button_book_now{
-        margin-left: -12px !important;
+        margin-left: 0px !important;
         /* margin-bottom: -20% !important; */
-        font-size: 20px;
-        font-weight: 500;
+        font-size: 22px !important; 
+        font-weight: 600 !important;
+        width: 100%;
+        padding: 8px 23px 23px 27px !important;  
+
     }
     #gets_button_booknow{
-        top: 18px !important;
-        margin-left: -76px !important;
-        margin-bottom: -50% !important;
-        font-size: 20px !important; 
-        padding: 5px 7px 0px 7px !important;
+        font-size: 22px !important;
+        font-weight: 600 !important;
+        width: 100%;
+        padding: 8px 23px 23px 27px !important;
     }
     .scrollButton-h3-get-quote{
      display: none !important;
@@ -844,6 +859,30 @@ cursor: pointer;
     transition: .9s ease-in-out;
         margin: auto;
 }
+.otp-login-form-modal .my_btn{
+      font-size: 14px;
+    color: #000;
+    font-family: Avenir-Medium;
+    text-transform: uppercase;
+    border-style: solid;
+    border-image-source: linear-gradient(270deg,#FCFF00, #18f0b8, #18a2f0, #FCFF00);
+    border-image-slice: 1;
+    border-width: 2px;
+    margin-top: 0;
+    padding: 14px 18px 10px 16px;
+    position: relative;
+    text-align: center;
+    --borderWidth: 2px;
+    border-radius: 0;
+    /* border: none; */
+    background: #fff;
+    display: block;
+    max-width: fit-content;
+    margin-bottom: 10px;
+    line-height: 20px;
+    transition: .9s ease-in-out;
+        margin: auto;
+}
 
 .modal-footer {
     margin-top: -20px;
@@ -869,6 +908,22 @@ cursor: pointer;
     }
      .login-form-modal {
     padding: 50px 0 0 0;
+    margin: auto;
+    z-index:999999999;
+}
+ .otp-login-form-modal form {
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    /* padding-top: 20px; */
+    }
+    .otp-login-form-modal h3{
+        font-size: 22px;
+        line-height: 32px;
+    }
+    .otp-login-form-modal {
     margin: auto;
     z-index:999999999;
 }
@@ -899,17 +954,30 @@ body.modal-open {
 .login-form-modal{
     padding-top: 10%;
 }
+.otp-login-form-modal{
+    overflow-x: inherit !important;
+    overflow-y: inherit !important;
+}
 
 @media (max-width: 768px) {
     .user-modal-dialog{
        max-width:100% !important;
        padding-top:20%;
     }
+    .web_whatsapp a{
+        z-index: 99 !important;
+    }
 }
 
-.owl-item.active {
-    width: auto !important;
+@media only screen and (max-width: 767px) {
+
+.body_content{margin-top: 80px}
+.body_content .our-register{margin-top: 121px}
 }
+
+//.owl-item.active {
+  //  width: auto !important;
+//}
 .modal-title{
     color: #000000;
     font-size: 30px;
@@ -973,6 +1041,10 @@ body.modal-open {
     border-radius: 15px;
 }
 
+    .container{
+        max-width: 1120px !important;
+    }
+
 /* End Enquiry User Popup Modal Style */
 
 
@@ -980,7 +1052,126 @@ body.modal-open {
 
 /* .btn-thm2-custom{background-color: #FFD312 !important;} */
     </style>
+<style>
+    
+    
+.dropdownnew {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-content-new {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 700px;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 9999;
+}
+
+.dropdown-content-new a {
+  color: #333;
+  padding: 0 0 0 0px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content-new a:hover {
+  background-color: #f0f0f0;
+}
+
+#myDropdownnew h6 {
+  font-weight: 600;
+  padding: 00px 0 5px 30px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+#myDropdownnew {
+  min-width: 1130px;
+  max-width: 1000px;
+  padding: 10px;
+  overflow: hidden;
+  max-height: 700px;
+  margin-top:8px !important;
+}
+
+.show-new {
+  display: block;
+}
+
+.btn-mega {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.dropdown-item {
+    white-space: normal;
+    word-wrap: break-word;
+}
+.cleaning-subservice{
+    font-weight: 600 !important;
+}
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    #mega-menu {
+        max-width: 100% !important;
+    }
+}
+
+.stricky-fixed .head_search_sticky{
+    display: block !important;
+}
+
+.mobilie_header_nav.stylehome1 {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: white;
+}
+
+.custom_menu_withotcontainer{
+	padding-left: 40px;
+    padding-right: 40px;
+}
+
+.custom_menu_withotcontainer .ace-responsive-menu > li > ul.sub-menu{right: 0 !important}
+
+.custom_menu_withotcontainer .head_search_sticky{width: 40%;}
+
+.custom_menu_withotcontainer .resfix a.mx30{
+	margin-left: 20px !important;
+}
+.closeBtn {
+    background: none;
+    font-size: 50px;
+    color: #000;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+}
+#modalStepTitle{
+    font-size:20px !important;
+}
+#mobilename-label{
+    font-size:16px !important;
+}
+
+.otp-input{
+    padding-left: 0px !important;   
+}
+</style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -998,6 +1189,28 @@ body.modal-open {
   gtag('config', 'G-DY0D858TVF');
 </script>
 
+<!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '483748947894350'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+     <img height="1" width="1" 
+    src="https://www.facebook.com/tr?id=483748947894350&ev=PageView
+    &noscript=1"/>
+    </noscript>
+<!-- End Facebook Pixel Code -->
+
+
+
 </head>
 
 <body>
@@ -1006,6 +1219,8 @@ body.modal-open {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ML9CL33C"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+  
 
     <div class="wrapper ovh">
         <div id="message_succsess" class="successmain alert-message topalert"
@@ -1021,10 +1236,10 @@ body.modal-open {
         <div class="preloader"></div>
 
         <!-- Main Header Nav -->
-        <header class="header-nav nav-homepage-style stricky main-menu slideIn animated">
+        <header class="header-nav nav-homepage-style stricky main-menu">
             <!-- Ace Responsive Menu -->
             <nav class="posr">
-                <div class="container posr menu_bdrt1">
+                <div class="posr menu_bdrt1 custom_menu_withotcontainer">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto px-0">
                             <div class="d-flex align-items-center justify-content-between">
@@ -1046,79 +1261,174 @@ body.modal-open {
 
                                 @endphp
                                 <div class="home1_style">
-                                    <div id="mega-menu" class="mega-menu-custom">
-                                        <a class="btn-mega fw500 text-white" href="#"><span
-                                                class="pl30 pl10-xl pr5 fz15 vam flaticon-menu"></span> All Services</a>
-                                        @if ($service_data != '')
-                                            <ul class="menu ps-0">
-                                                @foreach ($service_data as $service)
-                                                    <li>
-                                                        <a class="dropdown"
-                                                            href="{{ url('service/' . $service->page_url) }}">
-                                                            {{-- <span
-                                                                class="menu-icn flaticon-developer"></span> --}}
-                                                            <span
-                                                                class="menu-title">{{ $service->servicename }}</span>
-                                                        </a>
-
+                                    <div id="mega-menu" class="mega-menu-custom dropdown">
+                                        <a class="btn-mega fw500 text-white dropbtnnew" onclick="myFunction()"><span
+                                            class="pl20 pl10-xl pr5 fz15 vam flaticon-menu"> </span> All Services</a>
+                                        <div id="myDropdownnew" class="dropdown-content-new">
+                                           
+                                            <div class="row">
+                                                
+                                                <div class="col-md-3">
+                                                <ul>
+                                                     <li><h6><a href="{{ url('service/cleaning')}}">Cleaning</a></h6></li>
+                                                    @php
+                                                    $subservice_data = DB::table('subservices')
+                                                        ->where('serviceid', 45)
+                                                        ->where('is_active', 0)
+                                                        ->orderBy('set_order')
+                                                        ->get();
+                                                    @endphp
+                                        
+                                                @if ($subservice_data != '' && count($subservice_data) > 0)
+                                                <ul>
+                                                    @foreach ($subservice_data as $subservice)
+												   <li> <a class="dropdown-item cleaning-subservice" href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                            {{ $subservice->subservicename }}
+                                                        </a></li>
+                                        
                                                         @php
-
-                                                            $subservice_data = DB::table('subservices')
-                                                                ->where('serviceid', $service->id)
-                                                                ->where('is_active', 0)
-                                                                ->orderBy('set_order')
-                                                                ->get();
-
+                                                            // Check if the subservice ID is in the allowed list
+                                                            $allowed_ids = [29, 70, 71,72];
                                                         @endphp
-
-                                                        <div
-                                                            class="drop-menu d-flex justify-content-between hover_effect_add">
-                                                            @if ($subservice_data != '' && count($subservice_data) > 0)
-                                                            <div class="one-third " style="width: 100%;display: block;">
-                                                                    @foreach ($subservice_data as $subservice)
-                                                                        <a
-                                                                            href="{{ url('package-lists/' . $subservice->page_url) }}">
-                                                                            <div class="h6 cat-title">
-                                                                                {{ $subservice->subservicename }}
-                                                                            </div>
-                                                                        </a>
+                                        
+                                                        @if (in_array($subservice->id, $allowed_ids))
+                                                            @php
+                                                                $package_categories = DB::table('package_categories')
+                                                                    ->where('subservice_id', $subservice->id)
+                                                                    ->get();
+                                                            @endphp
+                                        
+                                                            @if ($package_categories != '' && count($package_categories) > 0)
+                                                                
+                                                                    @foreach ($package_categories as $category)
+                                                                        <li>
+                                                                            <a href="{{ url('package-lists/' . $subservice->page_url) }}?category={{ $category->id }}">
+                                                                                {{ $category->name }}
+                                                                            </a>
+                                                                        </li>
                                                                     @endforeach
-                                                                </div>
                                                             @endif
+                                                        @endif
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                                </ul>
+                                                </div>
 
-                                                            {{-- <a id="get_button"
-                                                                href="{{ url('enquiry/' . $service->id) }}"
-                                                                class="ud-btn btn-thm2 add-joining">
+                                                <div class="col-md-3">
+                                                <ul>
+                                                   <li><h6><a href="{{ url('service/moving')}}">Moving</a></h6></li>
+                                                    @php
+                                                    $subservice_data = DB::table('subservices')
+                                                        ->where('serviceid', 30)
+                                                        ->where('is_active', 0)
+                                                        ->orderBy('set_order')
+                                                        ->get();
+                                                    @endphp
+                                        
+                                                @if ($subservice_data != '' && count($subservice_data) > 0)
+                                                <ul>
+                                                    @foreach ($subservice_data as $subservice)
+                                                       <li> <a class="dropdown-item" href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                            {{ $subservice->subservicename }}
+                                                        </a></li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                                </ul>
 
-                                                                Get Free Quotes
+                                                <ul>
+                                                <li><h6><a href="{{ url('service/salon-spa-at-home')}}">Salon & Spa at Home</a></h6></li>
+                                                @php
+                                                    $subservice_data = DB::table('subservices')
+                                                        ->where('serviceid', 48)
+                                                        ->where('is_active', 0)
+                                                        ->orderBy('set_order')
+                                                        ->get();
+                                                @endphp
+                                    
+                                                @if ($subservice_data != '' && count($subservice_data) > 0)
+                                                <ul>
+                                                    @foreach ($subservice_data as $subservice)
+                                                    <li> <a class="dropdown-item" href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                            {{ $subservice->subservicename }}
+                                                        </a></li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                                 </ul>
 
-                                                            </a> --}}
+                                                </div>
 
-                                                            {{-- <a id="get_button"
-                                                                href="{{ route('enquiry', ['id' => 0, 'service_id' => $service->id]) }}"
-                                                                class="ud-btn btn-thm2 add-joining">
+                                                <div class="col-md-3">
+                                                <ul>
+                                                    <li><h6><a href="{{ url('service/storage')}}">Storage</a></h6></li>
+                                                    @php
+                                                    $subservice_data = DB::table('subservices')
+                                                        ->where('serviceid', 44)
+                                                        ->where('is_active', 0)
+                                                        ->orderBy('set_order')
+                                                        ->get();
+                                                    @endphp
+                                        
+                                                @if ($subservice_data != '' && count($subservice_data) > 0)
+                                                <ul>
+                                                    @foreach ($subservice_data as $subservice)
+                                                       <li> <a class="dropdown-item" href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                            {{ $subservice->subservicename }}
+                                                        </a></li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                                </ul>
+												
+												
+                                                <ul>
+                                                 <li><h6><a href="{{ url('service/pest-control-gardening')}}">Pest Control & Gardening</a></h6></li>
+                                                @php
+                                                    $subservice_data = DB::table('subservices')
+                                                        ->where('serviceid', 47)
+                                                        ->where('is_active', 0)
+                                                        ->orderBy('set_order')
+                                                        ->get();
+                                                @endphp
+                                    
+                                                @if ($subservice_data != '' && count($subservice_data) > 0)
+                                                <ul>
+                                                    @foreach ($subservice_data as $subservice)
+                                                    <li> <a class="dropdown-item" href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                            {{ $subservice->subservicename }}
+                                                        </a></li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                                 </ul>
+                                                </div>
 
-                                                                Get Free Quotes
-
-                                                            </a> --}}
-
-
-                                                            {{-- <a href="">
-                                                                <div class="h6 cat-title">
-                                                                    Top 10 Vendors
-                                                                </div>
-                                                            </a> --}}
-
-
-
-                                                        </div>
-
-                                                    </li>
-                                                @endforeach
-
-
-                                            </ul>
-                                        @endif
+                                                <div class="col-md-3">
+                                                <ul>
+                                                    <li><h6><a href="{{ url('service/handyman-maintainence')}}">Handyman & Maintainence</a></h6></li>
+                                                    @php
+                                                    $subservice_data = DB::table('subservices')
+                                                        ->where('serviceid', 34)
+                                                        ->where('is_active', 0)
+                                                        ->orderBy('set_order')
+                                                        ->get();
+                                                    @endphp
+                                        
+                                                    @if ($subservice_data != '' && count($subservice_data) > 0)
+                                                    <ul>
+                                                        @foreach ($subservice_data as $subservice)
+                                                        <li> <a class="dropdown-item" href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                                {{ $subservice->subservicename }}
+                                                            </a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                    @endif
+                                                </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Responsive Menu Structure-->
@@ -1158,14 +1468,20 @@ body.modal-open {
                             }else{
                                 $display_div_head = 1;
                             }
+
+                            if($display_div_head == 0){
+                                $style_div_head = 'display: none;';
+                            }else{
+                                $style_div_head = 'display: block;';
+                            }
+
                         @endphp
-                        @if($display_div_head == 1)
-                        <div class="col-auto px-0" style="width: 30%;
-    position: relative;">
+                        {{-- @if($display_div_head == 1) --}}
+                        <div class="col-auto px-0 head_search_sticky" style="position: relative;{{$style_div_head}}">
                             <div
-                            class="advance-search-tab bgc-white p10 bdrs4-sm bdrs60 banner-btn position-relative zi1 animate-up-3 mt20 ">
+                            class="advance-search-tab bgc-white p5 bdrs4-sm bdrs60 banner-btn position-relative zi1  mt20 ">
                             <div class="row">
-                                <div class="col-md-4 col-lg-7 col-xl-7">
+                                <div class="col-md-4 col-lg-9 col-xl-9">
                                     <div class="advance-search-field mb10-sm">
                                         <form action="{{ url('search-package') }}" method="get" id="search_banner_header"
                                             class="form-search position-relative">
@@ -1176,7 +1492,7 @@ body.modal-open {
                                                     placeholder="What service are you looking for?" id="search_auto_header" autocomplete="off" style="
                                                     padding: 4px;
                                                     height: 30px;
-                                                    font-size: 13px;
+                                                    font-size: 11px;
                                                 ">
         
                                                   
@@ -1190,7 +1506,7 @@ body.modal-open {
                                     
                                 </div>
                                 
-                                <div class="col-md-5 col-lg-5 col-xl-5">
+                                <div class="col-md-5 col-lg-3 col-xl-3">
 
                                     @php
 
@@ -1235,10 +1551,10 @@ body.modal-open {
                             <i class="fa-solid fa-phone custom_font_awesome"></i>056 836 3677</a>
                             </div>
                         </div> --}}
-                        @endif
+                        {{-- @endif --}}
                         
                         
-                        <div class="col-auto px-0 resfix mt10">
+                        <div class="col-auto px-0 resfix">
                             <div class="d-flex align-items-center">
                                 <a class="ud-btn btn-thm2 add-joining ml10 btn-thm2-custom" href="tel:0568363677" style="
                                 padding: 5px 18px !important;
@@ -1262,7 +1578,10 @@ body.modal-open {
                                               <!-- Level Two-->
                                               <ul>
                                                 <li><a href="{{ route('Sign-in') }}">Customer Login</a></li>
-                                                <li><a href="{{ url('/login') }}">Vendor Login</a></li>
+
+                                                <!-- <li> <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#otp_popup_Modal">Customer Login</a></li> -->
+
+                                                <li><a href="{{ url('/vendor/login') }}">Vendor Login</a></li>
                                               </ul>
                                             </li> 
                                         </ul>
@@ -1274,10 +1593,10 @@ body.modal-open {
                                 @endif
 
 
-                               {{-- <a class="ud-btn btn-thm2 add-joining" href="{{ url('/services') }}">Book Now!</a>--}}
+                               {{-- <a class="ud-btn btn-thm2 add-joining" href="{{ url('/services') }}">Book Now!</a>
                                 <a class="ud-btn btn-thm2 add-joining ml10 btn-thm2-custom" href="{{ url('/cart') }}" style="
-    padding: 5px 18px !important;
-"><span class="fa-solid fa-cart-shopping  "></span> Cart</a>
+                                    padding: 5px 18px !important;
+                                "><span class="fa-solid fa-cart-shopping  "></span> Cart</a>--}}
                             </div>
                         </div>
                     </div>
@@ -1454,15 +1773,45 @@ body.modal-open {
             <nav id="menu" class="">
                 <ul>
                     
-                    {{-- <li><a class="list-item" href="{{ url('/') }}"><span>Home</span></a></li>
-                    <li><a class="list-item" href="{{ url('/vendor-database') }}"><span>Vendor Database</span></a>
-                    </li>
-                    <li><a class="list-item" href="{{ url('/services') }}"><span>Services</span></a></li>
-                    <li><a class="list-item" href="{{ url('/become-a-vendor') }}"><span>Become a Vendor</a></li> --}}
+                     @php
+                        $staticServiceIds = [45, 30 , 44 , 34 , 48, 47];
+                    @endphp
 
+                    @foreach ($staticServiceIds as $staticServiceId)
+                        @php
+                            $service = DB::table('services')->where('id', $staticServiceId)->first();
+                            $subservices = DB::table('subservices')
+                                ->where('serviceid', $staticServiceId)
+                                ->where('is_active', 0)
+                                ->orderBy('set_order')
+                                ->get();
+                        @endphp
+
+                        @if ($service)
+                            <li>
+                                <span>{{ $service->servicename }}</span>
+                                @if ($subservices->isNotEmpty())
+                                    <ul>
+                                        @foreach ($subservices as $sub)
+                                            <li>
+                                                <a class="dropdown-item" href="{{ url('package-lists/' . $sub->page_url) }}">
+                                                    {{ $sub->subservicename }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
+                        @endif
+                    @endforeach
+
+
+                    <li><a class="list-item" href="{{ url('/become-a-vendor') }}"><span>Become a Vendor</a></li>
+                    {{-- <li><a class="list-item" href="{{ url('/cart') }}"><span>Cart</span></a></li> --}}
+                    <li><a class="list-item" href="{{ url('/my-account') }}"><span>My Account</span></a></li>
                     @php
-                        $userData = Session::get('user');
-                        // $userData = Session::get('user');
+                    $userData = Session::get('user');
+                    // $userData = Session::get('user');
                     @endphp
 
                     @if ($userData == '')
@@ -1470,54 +1819,13 @@ body.modal-open {
                         <li><span>Login</span>
                             <ul>
                                 <li><a href="{{ route('Sign-in') }}">Customer Login</a></li>
-                                <li><a href="{{ url('/login') }}">Vendor Login</a></li>
+                                <li><a href="{{ url('/vendor/login') }}">Vendor Login</a></li>
                             </ul>
                         </li>
                     @else
                         <li><a class="list-item" href="{{ url('user_signout') }}"><span>Log out</span></a></li>
-                    @endif
-                    {{-- <li><a class="list-item" href="{{ url('/services') }}"><span>Book Now</span></a></li> --}}
-
-                    @if ($service_data != '')
-
-
-                        @foreach ($service_data as $service)
-                                    @php
-
-                                        $subservice_data = DB::table('subservices')
-                                            ->where('serviceid', $service->id)
-                                            ->where('is_active', 0)
-                                            ->orderBy('id', 'DESC')
-                                            ->get();
-
-                                    @endphp
-                                    <li><span>{{ $service->servicename }}</span>
-                                        @if ($subservice_data != '' && count($subservice_data) > 0)
-                                            <ul>
-                                                @foreach ($subservice_data as $subservice)
-                                                    <li><a
-                                                            href="{{ url('package-lists/' . $subservice->page_url) }}">{{ $subservice->subservicename }}</a>
-                                                    </li>
-                                                @endforeach
-                                                <!-- <li><a href="page-service-v2.html">Service v2</a></li>
-                                    <li><a href="page-service-v3.html">Service v3</a></li>
-                                    <li><a href="page-service-v4.html">Service v4</a></li>
-                                    <li><a href="page-service-v5.html">Service v5</a></li>
-                                    <li><a href="page-service-v6.html">Service v6</a></li>
-                                    <li><a href="page-service-v7.html">Service v7</a></li>
-                                    <li><a href="page-service-all.html">Service All</a></li>
-                                    <li><a href="page-service-single.html">Service Single</a></li>
-                                    <li><a href="page-service-single-v1.html">Single V1</a></li>
-                                    <li><a href="page-service-single-v2.html">Single V2</a></li> -->
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-
-                    @endif
-
-                    <li><a class="list-item" href="{{ url('/become-a-vendor') }}"><span>Become a Vendor</a></li>
-                    <li><a class="list-item" href="{{ url('/cart') }}"><span>Cart</span></a></li>
+                     @endif
+					 
 
                     
                 </ul>
@@ -1526,4 +1834,11 @@ body.modal-open {
             
         </div>
 
-        <div class="body_content">
+      
+
+
+
+<div class="body_content">
+
+
+

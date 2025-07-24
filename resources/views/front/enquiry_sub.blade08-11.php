@@ -1,4 +1,4 @@
- @include('front.includes.header')
+@include('front.includes.header')
 <style>
     /* Enquiry User Popup Modal Style */
 
@@ -292,7 +292,7 @@ body.modal-open {
                         @endphp
 
                         <input type="hidden" name="form_type" id="form_type" value="Local Move">
-                        {{-- @php
+                        @php
                             $userdata = Session::get('user');
                             // echo"<pre>";print_r($userdata);echo"</pre>";exit;
                         @endphp
@@ -328,7 +328,7 @@ body.modal-open {
 
                             {{-- <p class="form-error-text" id="email_new_error" style="color: red; margin-top: 10px;"> --}}
                         </div>
-                        @endif --}}
+                        @endif
                         <div class="row" id="localform">
                             @for ($i = 0; $i < count($result1); $i++)
                                 @for ($k = 0; $k < count($formFields); $k++)
@@ -1423,6 +1423,73 @@ $("#userDetailForm").submit();
         // var localFormValid = true;
         // alert(localFormValid);
 
+        
+        var name_new = jQuery("#name_new").val();
+        if (name_new == '') {
+
+            jQuery('#name_new_error').html("Please Enter Name");
+            jQuery('#name_new_error').show().delay(0).fadeIn('show');
+            jQuery('#name_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#name_new').offset().top - 150
+            }, 1000);
+            return false;
+
+        }
+        var mobile_new = jQuery("#mobile_new").val();
+        if (mobile_new == '') {
+
+            jQuery('#mobile_new_error').html("Please Enter Mobile");
+            jQuery('#mobile_new_error').show().delay(0).fadeIn('show');
+            jQuery('#mobile_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#mobile_new').offset().top - 150
+            }, 1000);
+            return false;
+
+        }
+        if (mobile_new != '') {
+            // var filter = /^\d{7}$/;
+            if (mobile_new.length < 7 || mobile_new.length > 15) {
+                jQuery('#mobile_new_error').html("Please Enter Valid Mobile Number");
+                jQuery('#mobile_new_error').show().delay(0).fadeIn('show');
+                jQuery('#mobile_new_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#mobile_new').offset().top - 150
+                }, 1000);
+                return false;
+            }
+        }
+
+
+        var email_new = jQuery("#email_new").val();
+
+        if (email_new == '') {
+            jQuery('#email_new_error').html("Please Enter Email");
+            jQuery('#email_new_error').show().delay(0).fadeIn('show');
+            jQuery('#email_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#email_new').offset().top - 150
+            }, 1000);
+            return false;
+        }
+
+
+
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email_new)) {
+
+            jQuery('#email_new_error').html("Please Enter Valid Email");
+            jQuery('#email_new_error').show().delay(0).fadeIn('show');
+            jQuery('#email_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#email_new').offset().top - 150
+            }, 1000);
+            return false;
+
+        }
+
 
         // Example: Validate a text field
         @for ($i = 0; $i < count($result1); $i++)
@@ -1612,6 +1679,71 @@ $("#userDetailForm").submit();
 
     function validateInternationalForm() {
 
+        var name_new = jQuery("#name_new").val();
+        if (name_new == '') {
+
+            jQuery('#name_new_error').html("Please Enter Name");
+            jQuery('#name_new_error').show().delay(0).fadeIn('show');
+            jQuery('#name_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#name_new').offset().top - 150
+            }, 1000);
+            return false;
+
+        }
+        var mobile_new = jQuery("#mobile_new").val();
+        if (mobile_new == '') {
+
+            jQuery('#mobile_new_error').html("Please Enter Mobile");
+            jQuery('#mobile_new_error').show().delay(0).fadeIn('show');
+            jQuery('#mobile_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#mobile_new').offset().top - 150
+            }, 1000);
+            return false;
+
+        }
+        if (mobile_new != '') {
+            // var filter = /^\d{7}$/;
+            if (mobile_new.length < 7 || mobile_new.length > 15) {
+                jQuery('#mobile_new_error').html("Please Enter Valid Mobile Number");
+                jQuery('#mobile_new_error').show().delay(0).fadeIn('show');
+                jQuery('#mobile_new_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#mobile_new').offset().top - 150
+                }, 1000);
+                return false;
+            }
+        }
+
+
+        var email_new = jQuery("#email_new").val();
+
+        if (email_new == '') {
+            jQuery('#email_new_error').html("Please Enter Email");
+            jQuery('#email_new_error').show().delay(0).fadeIn('show');
+            jQuery('#email_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#email_new').offset().top - 150
+            }, 1000);
+            return false;
+        }
+
+
+
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email_new)) {
+
+            jQuery('#email_new_error').html("Please Enter Valid Email");
+            jQuery('#email_new_error').show().delay(0).fadeIn('show');
+            jQuery('#email_new_error').show().delay(2000).fadeOut('show');
+            $('html, body').animate({
+                scrollTop: $('#email_new').offset().top - 150
+            }, 1000);
+            return false;
+
+        }
 
         // var intFormValid = true;
         @for ($i = 0; $i < count($result2); $i++)

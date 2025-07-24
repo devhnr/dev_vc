@@ -298,6 +298,28 @@
                                 
                             </div>
 
+                            @php
+                            $vendor_captcha = rand('1111','9999');
+
+                            session::put('vendor_captcha',$vendor_captcha);
+                            @endphp
+
+                         <div class="col-md-6">
+                            <div class="mb15">
+                                <label class="form-label fw500 dark-color requiredStar">Enter This code below: {{$vendor_captcha}}</label>
+                                <input id="vendor_captcha" name="vendor_captcha" type="text" class="form-control"
+                                    placeholder="Enter This code" onkeypress="return validateNumber(event)">
+                                <p class="form-error-text" id="code_error" style="color: red; margin-top: 10px;">
+                                </p>
+                                
+                            @error('vendor_captcha')
+                                <p class="form-error-text" id="code_error"
+                                    style="color: red; margin-top: 10px;">{{ $message }}</p>
+                                
+                            @enderror
+
+                            </div>
+                         </div>
                         </div>
 
 
@@ -523,6 +545,29 @@
                         }, 1000);
                         return false;
 
+                    }
+
+                    var captcha_store = '{{session::get('vendor_captcha')}}';
+
+                    var captcha = jQuery("#vendor_captcha").val();
+                    if (captcha == '') {
+                        jQuery('#code_error').html("Please Enter Captcha Code");
+                        jQuery('#code_error').show().delay(0).fadeIn('show');
+                        jQuery('#code_error').show().delay(2000).fadeOut('show');
+                        $('html, body').animate({
+                            scrollTop: $('#vendor_captcha').offset().top - 150
+                        }, 1000);
+                        return false;
+
+                    }
+                    if (captcha != captcha_store) {
+                            jQuery('#code_error').html("Please Enter Valid Captcha Number");
+                            jQuery('#code_error').show().delay(0).fadeIn('show');
+                            jQuery('#code_error').show().delay(2000).fadeOut('show');
+                            $('html, body').animate({
+                                scrollTop: $('#vendor_captcha').offset().top - 150
+                            }, 1000);
+                            return false;
                     }
 
 

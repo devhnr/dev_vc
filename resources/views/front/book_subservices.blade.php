@@ -1,265 +1,193 @@
 @include('front.includes.header')
 <style>
-.banner_sec{margin-left: 9%;}
+.banner_sec{
+    margin-left: 85%;
+    text-align: center;
+}
 .cta-service-v3{background-image: inherit;background-color: #eee;}
+
+ .listing-style1{
+        border:none !important; 
+        margin-bottom: 15px !important;
+    }
+	
+	.serviceimage_desktop{
+        display: block;
+    }
+    .serviceimage_mobile {
+        display: none;
+    }
+	
+	.review-stars{
+        justify-content: center;
+    }
+	.custom_splide.main-title{margin-bottom: 0px;} 
+@media (max-width: 767px) {
+    .google-button {
+        font-size: 13px !important;
+        padding: 5px 5px !important;
+    }
+    .google-text{
+        font-size: 20px !important;
+    }
+    .googlereview p{
+        font-size: 15px !important;
+    }
+	
+	    .mobile-splide {
+        padding: 10px !important;
+    }
+	
+	.serviceimage_desktop{
+            display: none !important;
+        }
+        .serviceimage_mobile{
+            display: block !important;
+        }
+   .review-description{
+        font-size: 12px !important;
+        max-height: 9em !important;
+        height: 50px !important;
+        margin-bottom: 0px !important;
+    }
+    .body_content {
+        margin-top: 144px !important;
+    }
+    .mobile_img{
+        display:block !important; 
+      }
+    .desktop_img{
+        display:none !important;
+     }
+     .content-title{
+        margin-top: 80% !important;
+     }
+
+    .banner-content-center {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        padding: 0 15px;
+        width: 100% !important;
+    }
+    .banner_static_title{
+        font-size: 22px !important;
+    }
+      .banner_static_subtitle{
+        font-size: 12px !important;
+    }
+
+   
+
+
+
+}
+    .content-title{
+        margin-top: 0%;
+    }
+    .mobile_img{
+        display:none; 
+    }
+    .desktop_img{
+        display:block;
+    }
+
+
+    .review-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 10em; 
+        height: 90px;
+        margin-bottom: 0px !important;
+    }
+
+.service-v3-vector{
+    top: 0% !important;
+    right: 0% !important;
+}
+.cta-service-v3{
+    height: 440px !important;
+}
+.list-content h5{
+    font-size: 15px !important;
+}
+.popular_service{
+    font-size: 24px !important;
+    font-weight: 700;
+}
+ .freelancer-style1{
+    padding: 15px;
+}
+ .banner-content-center {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 0 15px;
+    width: 55%;
+}
+.banner_static_title{
+    font-size: 32px;
+    width: 100% !important;
+}
+	
+
+
 </style>
-<section class="breadcumb-section pt-4 mt120">
-  <div class="container">
+<section class="breadcumb-section pt0 mt120">
+  <div>
   
       <div
-          class="cta-service-v3 cta-banner mx-auto maxw1700 pt120 pb120 bdrs16 position-relative overflow-hidden d-flex align-items-center mx20-lg px30-lg">
+          class="cta-service-v3 cta-banner mx-auto maxw1700 pt120 pb120 position-relative overflow-hidden d-flex align-items-center px30-lg">
          
-        @if ($service_data->banner != '')
-         <img class="service-v3-vector d-none d-lg-block" src="{{ asset('public/upload/service/banner/large/' . $service_data->banner) }}" alt=""></a>
-          @else
-           <img class="service-v3-vector d-none d-lg-block" src="{{ asset('public/upload/service/banner/large/Image_Available.jpg') }}" alt=""></a>
+        @if (isset($service_data->banner))
+         <img class="service-v3-vector desktop_img" src="{{ asset('public/upload/service/' . $service_data->image) }}" alt="" style="width:100%;">
+
+         <img class="service-v3-vector mobile_img" src="{{ asset('public/upload/service/banner/' .$service_data->banner) }}" alt="" style="width:100%;">
+        @else
+           <img class="service-v3-vector  d-lg-block" src="{{ asset('public/upload/service/banner/large/Image_Available.jpg') }}" alt="" style="width:100%;"> 
        @endif
   
-              <div class="row wow fadeInUp">
-                  <div class="col-xl-10 banner_sec">
-                      <div class="position-relative">
-                          <h2 class=" banner_title" >{{"$service_data->title"}}</h2>
-                          <!-- <p class="text mb30 text-white">Give your visitor a smooth online experience with a solid UX design</p> -->
-                          <div class="d-flex align-items-center">
-  
-                              <h6 class="mb-0">{{"$service_data->sub_title"}}
+              {{-- <div class="row col-lg-12 wow fadeInUp" style="text-align:center;">
+                  <div class="col-xl-12"> --}}
+                      {{-- <div class="position-relative content-title">
+                          <h2 class=" banner_title" style="color: #fff;" >{{"$service_data->title"}}</h2>
+                          <div class="align-items-center">
+                              <h6 class="mb-0" style="color: #fff;">{{"$service_data->sub_title"}}
                               </h6>
                           </div>
-                      </div>
-                  </div>
-              </div>
+                      </div> --}}
+
+                       <div class="banner-content-center">
+                                <h2 class="banner_title text-white banner_static_title">{{ $service_data->title }}</h2>
+                                <h6 class="text-white banner_static_subtitle">
+                                    {{$service_data->sub_title}}
+                                </h6>
+                       </div>
+
+                  {{-- </div>
+              </div> --}}
           </div>
       </div>
   </section>
 
 
 <!-- Listings All Lists -->
-<section class="pt30 pb90">
+<section class="pt5 pb10">
     <div class="container">
         <div class="row">
-            {{-- <div class="col-lg-3">
-                <div class="list-sidebar-style1 d-none d-lg-block">
-                    <div class="accordion" id="accordionExample"> --}}
-            {{-- <div class="card mb20 pb5">
-                            <div class="card-header active" id="heading2">
-                                <h4>
-                                    <button class="btn btn-link ps-0" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse2" aria-expanded="true"
-                                        aria-controls="collapse2">Category</button>
-                                </h4>
-                            </div>
-                            <div id="collapse2" class="collapse show" aria-labelledby="heading2"
-                                data-parent="#accordionExample">
-                                <div class="card-body card-body px-0 pt-0">
-                                    <div class="checkbox-style1 mb15">
-                                        <label class="custom_checkbox">Category 1
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                            <!-- <span class="right-tags">(1,945)</span> -->
-                                        </label>
-                                        <label class="custom_checkbox">Category 2
-                                            <input type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                            <!-- <span class="right-tags">(8,136)</span> -->
-                                        </label>
-                                        <label class="custom_checkbox">Category 3
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                            <!-- <span class="right-tags">(917)</span> -->
-                                        </label>
-                                        <label class="custom_checkbox">Category 4
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                            <!-- <span class="right-tags">(240)</span> -->
-                                        </label>
-
-                                    </div>
-                                    <a class="text-thm" href="">+Show more</a>
-                                </div>
-                            </div>
-                        </div> --}}
-            {{-- <div class="card mb20 pb0">
-                            <div class="card-header active" id="heading1">
-                                <h4>
-                                    <button class="btn btn-link ps-0" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true"
-                                        aria-controls="collapse1">Budget</button>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="collapse show" aria-labelledby="heading1"
-                                data-parent="#accordionExample">
-                                <div class="card-body card-body px-0 pt-0">
-                                    <!-- Range Slider Desktop Version -->
-                                    <div class="range-slider-style1">
-                                        <div class="range-wrapper">
-                                            <div class="slider-range mb10 mt15"></div>
-                                            <div class="text-center">
-                                                <input type="text" class="amount" placeholder="$20"><span
-                                                    class="fa-sharp fa-solid fa-minus mx-2 dark-color"></span>
-                                                <input type="text" class="amount2" placeholder="$70987">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-            {{-- <div class="card mb20 pb5">
-                  <div class="card-header active" id="heading2">
-                    <h4>
-                      <button class="btn btn-link ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">Region</button>
-                    </h4>
-                  </div>
-                  <div id="collapse2" class="collapse show" aria-labelledby="heading2" data-parent="#accordionExample">
-                    <div class="card-body card-body px-0 pt-0">
-                      <div class="checkbox-style1 mb15">
-                        <label class="custom_checkbox">Dubai
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <!-- <span class="right-tags">(1,945)</span> -->
-                        </label>
-                        <label class="custom_checkbox">Sharjah
-                          <input type="checkbox" checked="checked">
-                          <span class="checkmark"></span>
-                          <!-- <span class="right-tags">(8,136)</span> -->
-                        </label>
-                        <label class="custom_checkbox">Qatar
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <!-- <span class="right-tags">(917)</span> -->
-                        </label>
-                        <label class="custom_checkbox">Saudi Arabia
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <!-- <span class="right-tags">(240)</span> -->
-                        </label>
-                        <label class="custom_checkbox">Jordan
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <!-- <span class="right-tags">((2,460)</span> -->
-                        </label>
-                      </div>
-                      <a class="text-thm" href="">+Show more</a>
-                    </div>
-                  </div>
-                </div> --}}
-            <!-- <div class="card mb20 pb5">
-                  <div class="card-header active" id="heading3">
-                    <h4>
-                      <button class="btn btn-link ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">Location</button>
-                    </h4>
-                  </div>
-                  <div id="collapse3" class="collapse show" aria-labelledby="heading3" data-parent="#accordionExample">
-                    <div class="card-body card-body px-0 pt-0">
-                      <div class="search_area mb15">
-                        <input type="text" class="form-control" placeholder="What are you looking for?">
-                        <label><span class="flaticon-loupe"></span></label>
-                      </div>
-                      <div class="checkbox-style1 mb15">
-                        <label class="custom_checkbox">United States
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(1,945)</span>
-                        </label>
-                        <label class="custom_checkbox">United Kingdom
-                          <input type="checkbox" checked="checked">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(8,136)</span>
-                        </label>
-                        <label class="custom_checkbox">Canada
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(917)</span>
-                        </label>
-                        <label class="custom_checkbox">Germany
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(240)</span>
-                        </label>
-                        <label class="custom_checkbox">Turkey
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">((2,460)</span>
-                        </label>
-                      </div>
-                      <a class="text-thm" href="">+20 more</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card mb20 pb5">
-                  <div class="card-header active" id="heading4">
-                    <h4>
-                      <button class="btn btn-link ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">Speaks</button>
-                    </h4>
-                  </div>
-                  <div id="collapse4" class="collapse show" aria-labelledby="heading4" data-parent="#accordionExample">
-                    <div class="card-body card-body px-0 pt-0">
-                      <div class="checkbox-style1 mb15">
-                        <label class="custom_checkbox">Turkish
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(1,945)</span>
-                        </label>
-                        <label class="custom_checkbox">English
-                          <input type="checkbox" checked="checked">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(8,136)</span>
-                        </label>
-                        <label class="custom_checkbox">Italian
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(917)</span>
-                        </label>
-                        <label class="custom_checkbox">Spanish
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(240)</span>
-                        </label>
-                      </div>
-                      <a class="text-thm" href="">+20 more</a>
-                    </div>
-                  </div>
-                </div> -->
-            <!--  <div class="card mb20 pb0">
-                  <div class="card-header active" id="heading5">
-                    <h4>
-                      <button class="btn btn-link ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">Level</button>
-                    </h4>
-                  </div>
-                  <div id="collapse5" class="collapse show" aria-labelledby="heading5" data-parent="#accordionExample">
-                    <div class="card-body card-body px-0 pt-0">
-                      <div class="checkbox-style1">
-                        <label class="custom_checkbox">Top Rated Seller
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(1,945)</span>
-                        </label>
-                        <label class="custom_checkbox">Level Two
-                          <input type="checkbox" checked="checked">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(8,136)</span>
-                        </label>
-                        <label class="custom_checkbox">Level One
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(917)</span>
-                        </label>
-                        <label class="custom_checkbox">New Seller
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          <span class="right-tags">(240)</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-            {{-- </div>
-                </div>
-            </div> --}}
             <div class="col-lg-12">
                 <div class="row align-items-center mb20">
                     <div class="col-md-6">
                         <div class="text-center text-md-start">
-                            <p class="text mb-0 mb10-sm"><span class="fw500">{{ $subservice_count }}</span> services
+                            <p class="text mb-0 mb10-sm popular_service">Popular services
                                 available</p>
                         </div>
                     </div>
@@ -288,28 +216,29 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($subservice_data as $subservice)
-                        <div class="col-sm-6 col-xl-4">
+				
+				 @foreach ($subservice_data as $subservice)
+                        <div class="col-sm-6 col-xl-3 col-6 col-lg-3">
                             <div class="listing-style1">
 
-                                <div class="list-thumb">
+                                <div class="list-thumb bdrs12">
                                     @if ($subservice->image != '')
-                                    <a
-                                    href="{{ url('package-lists/' . $subservice->page_url) }}"><img class="w-100"
-                                            src="{{ asset('public/upload/subservice/large/' . $subservice->image) }}"
-                                            alt=""></a>
+                                    <a href="{{ url('package-lists/' . $subservice->page_url) }}">
+										<img src="{{ asset('public/upload/subservice/' . $subservice->image) }}" alt="" class="serviceimage_desktop w-100">
+                                        <img src="{{ asset('public/upload/subservice/' . $subservice->image) }}" alt="" class="serviceimage_mobile w-100">
+                                    </a>
                                     @else
                                     <a
                                     href="{{ url('package-lists/' . $subservice->page_url) }}"> <img class="w-100"
                                             src="{{ asset('public/upload/service/large/Image_Available.jpg') }}"
                                             alt=""></a>
                                     @endif
-                                    <a href="" class="listing-fav fz12"><span class="far fa-heart"></span></a>
+                                    
                                 </div>
-
-                                <div class="list-content">
+                            </div>
+                              <div class="list-content">
                                     <h5 class="list-title"><a
-                                            href="{{ url('package-lists/' . $subservice->page_url) }}">{{ $subservice->subservicename }}
+                                            href="{{ url('package-lists/' . $subservice->page_url) }}" style="font-weight:600;">{{ $subservice->subservicename }}
                                         </a></h5>
                                     @if ($subservice->sort_description != '')
                                         <div class="review-meta d-flex align-items-center">
@@ -317,50 +246,209 @@
 
                                         </div>
                                     @endif
-                                    {{-- <hr class="my-2">
-                                    <div class="list-meta d-flex justify-content-between align-items-center mt15">
-                                        <a href="">
-                                            <span class="fz14">AED 1200</span>
-                                        </a>
-                                        <div class="budget">
-                                            <a class="ud-btn btn-thm add-joining" href="javascript:void(0)">Add To
-                                                Cart</a>
-                                        </div>
-                                    </div> --}}
                                 </div>
-                            </div>
                         </div>
-                    @endforeach
+				@endforeach 
                 </div>
-                {{-- <div class="row">
-                    <div class="mbp_pagination mt30 text-center">
-                        <ul class="page_navigation">
-                            <li class="page-item">
-                                <a class="page-link" href="#"> <span class="fas fa-angle-left"></span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active" aria-current="page">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item d-inline-block d-sm-none"><a class="page-link"
-                                    href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item d-none d-sm-inline-block"><a class="page-link"
-                                    href="#">...</a></li>
-                            <li class="page-item d-none d-sm-inline-block"><a class="page-link" href="#">20</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
-                            </li>
-                        </ul>
-                        <p class="mt10 mb-0 pagination_page_count text-center">1 – 20 of 300+ property
-                            available</p>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
 </section>
+
+
+    <div class="container mt25">
+        <div class="row align-items-center wow fadeInUp">
+          <div class="col-lg-9">
+            <div class="main-title">
+              <h2 class="title">Read Our Verified Reviews</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+          <div class="col-lg-12">
+		  
+		  <div id="review-slider" class="splide">
+			  <div class="splide__track">
+				<ul class="splide__list">
+			@if(!empty($googleReview))
+						 @foreach($googleReview as $googleReview_data)
+				  <li class="splide__slide text-center" >
+					<div class="freelancer-style1 text-center bdr1 bdrs16 hover-box-shadow review-card-fixed">
+							  
+							  <div class="details">
+								@if($googleReview_data->name != '')
+								<h5 class="title mb-1">{{$googleReview_data->name}}</h5>
+								@endif
+								
+								<div class="review">
+									 @if($googleReview_data->label != '')
+									<div class="d-flex review-stars">
+											@for ($i = 1; $i <= 5; $i++)
+												@if ($i <= $googleReview_data->label)
+													<i class="fas fa-star review-color"></i>
+												@else
+													<i class="far fa-star review-color ms-2"></i>
+												@endif
+											@endfor
+										  </div>
+									@endif 
+								</div>
+								
+								<hr class="opacity-100 mt20 mb15">
+								@if($googleReview_data->description != '')
+                                @php
+                                $shortDescription = Str::limit($googleReview_data->description, 80);
+                                @endphp
+                                    
+                                <p class="review-description">“{{ $shortDescription }}”</p>
+								@endif 
+							  </div>
+							</div>
+				  </li>
+			@endforeach
+						  @endif
+
+				  <!-- Add more slides as needed -->
+
+				</ul>
+			  </div>
+			</div>
+            
+          </div>
+        </div>
+    </div>
+ 
+
+      <div class="container pb10">
+          <div class="googlereview ">
+              <div class="row align-items-md-center">
+                  <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
+                      <h3 class="google-text">Curious about what sets apart?</h3>
+                      <p>Explore our Google Reviews and discover why customers trust us with home service needs</p>
+                  </div>
+                  <div class="col-lg-3 col-6 wow fadeInUp" data-wow-delay="300ms">
+                      <a style="width: 100%;" href="https://www.google.com/search?q=vendorscity+dubai&sca_esv=e472bba1732e8ddb&sca_upv=1&rlz=1C5CHFA_enAE1014AE1015&sxsrf=ADLYWIKMm77ohxWtSjtB2FywHuiQPICeBA%3A1716628559794&ei=T6xRZquOMNCVxc8Ph-eCsAo&ved=0ahUKEwjr8ZHcu6iGAxXQSvEDHYezAKYQ4dUDCBA&uact=5&oq=vendorscity+dubai&gs_lp=Egxnd3Mtd2l6LXNlcnAiEXZlbmRvcnNjaXR5IGR1YmFpMgQQIxgnMggQABgIGA0YHjIIEAAYCBgNGB4yCBAAGAgYDRgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIESMAKUMoEWN8GcAF4AZABAJgB_wGgAcYDqgEFMC4xLjG4AQPIAQD4AQGYAgOgAtMDwgIKEAAYsAMY1gQYR8ICBxAAGIAEGA3CAggQABgFGA0YHsICChAAGAUYDRgeGA-YAwDiAwUSATEgQIgGAZAGCJIHBTEuMC4yoAeUEA&sclient=gws-wiz-serp#lrd=0x4c30ffdf4bf81567:0xaf176b54bfc73c00,1" target="_blank" class="ud-btn btn-thm google-button">Read More Reviews</a>
+                  </div>
+                  <div class="col-lg-4 col-6 wow fadeInUp" data-wow-delay="300ms" style="text-align: right;">
+                      <img class="w100" src="{{ asset('public/site/images/googlereview.png') }}" alt="" style="max-width: 400px;">
+                  </div>
+              </div>
+          </div>
+      </div>
+	@if(isset($faq) && count($faq) > 0)
+    <section class="our-faq pt60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 m-auto wow fadeInUp" data-wow-delay="300ms">
+                <div class="main-title mb30">
+                    <h2 class="title">Have Questions?<br>Get Answers.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+            <div class="col-lg-12 mx-auto">
+                <div class="ui-content">
+                    <div class="accordion-style1 faq-page mb-4 mb-lg-5">
+                        <div class="accordion" id="accordionExample">
+
+                             @php
+                                    $i = 0;
+                                @endphp
+
+                                @foreach ($faq as $faq_data)
+                                    <div class="accordion-item @php if($i == 0){echo 'active';} @endphp">
+                                        <h2 class="accordion-header" id="headingOne_{{ $faq_data->id }}">
+                                            <button
+                                                class="accordion-button @php if($i != 0){echo 'collapsed';} @endphp"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne_{{ $faq_data->id }}"
+                                                aria-expanded="true"
+                                                aria-controls="collapseOne">{{ $faq_data->question }}</button>
+                                        </h2>
+                                        <div id="collapseOne_{{ $faq_data->id }}"
+                                            class="accordion-collapse collapse @php if($i == 0){echo 'show';} @endphp"
+                                            aria-labelledby="headingOne_{{ $faq_data->id }}"
+                                            data-parent="#accordionExample">
+                                            <div class="accordion-body">{!! html_entity_decode($faq_data->answer) !!}</div>
+                                        </div>
+                                    </div>
+
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section> 
+
+@endif
+
 @include('front.includes.footer')
+
+ <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#review-slider', {
+            type: 'slide',
+            perPage: 4,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+            768: {
+               fixedWidth: '65%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '1rem',
+                    arrows: false,
+            },
+            },
+        }).mount();
+        });
+
+ document.querySelectorAll('.custom_splide.splide:not(#feature-slider)').forEach(function (splideElement) {
+
+        splideElement.classList.add('custom-splide');
+        const splideId = splideElement.id;
+
+        const subserviceCount = parseInt(splideElement.getAttribute('data-subservice-count')) || 0;
+        const showArrows = subserviceCount > 5;
+
+        const splideInstance = new Splide('#' + splideId, {
+            type: 'slide',
+            perPage: 5,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: showArrows,
+            breakpoints: {
+                768: {
+                    fixedWidth: '34%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '0.5rem',
+                    arrows: false,
+                    },
+            },
+        });
+
+        splideInstance.mount();
+        
+       // Bind custom buttons using ID extracted from splideElement
+        const prevButton = document.querySelector('.custom-prev-' + splideId.replace('splide_', ''));
+        const nextButton = document.querySelector('.custom-next-' + splideId.replace('splide_', ''));
+
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => splideInstance.go('<'));
+            nextButton.addEventListener('click', () => splideInstance.go('>'));
+        }
+    });
+
+
+</script>

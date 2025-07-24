@@ -182,6 +182,12 @@
                             </p>
                         </div>
 
+                        @error('captcha')
+                            <p class="form-error-text" id="code_error"
+                                style="color: red; margin-top: 10px;">{{ $message }}</p>
+                            
+                        @enderror
+
                         <div class="d-grid mb20">
                             <button class="btn btn-primary mb-1" type="button" disabled id="spinner_button"
                                 style="display: none;">
@@ -374,28 +380,28 @@
                         }
                     }
 
-                    var captcha_store = '{{session::get('captcha')}}';
+                    // var captcha_store = '{{session::get('captcha')}}';
 
-                    var captcha = jQuery("#captcha").val();
-                    if (captcha == '') {
-                        jQuery('#code_error').html("Please Enter Mobile");
-                        jQuery('#code_error').show().delay(0).fadeIn('show');
-                        jQuery('#code_error').show().delay(2000).fadeOut('show');
-                        $('html, body').animate({
-                            scrollTop: $('#captcha').offset().top - 150
-                        }, 1000);
-                        return false;
+                    // var captcha = jQuery("#captcha").val();
+                    // if (captcha == '') {
+                    //     jQuery('#code_error').html("Please Enter Captcha Number");
+                    //     jQuery('#code_error').show().delay(0).fadeIn('show');
+                    //     jQuery('#code_error').show().delay(2000).fadeOut('show');
+                    //     $('html, body').animate({
+                    //         scrollTop: $('#captcha').offset().top - 150
+                    //     }, 1000);
+                    //     return false;
 
-                    }
-                    if (captcha != captcha_store) {
-                            jQuery('#code_error').html("Please Enter Valid Captcha Number");
-                            jQuery('#code_error').show().delay(0).fadeIn('show');
-                            jQuery('#code_error').show().delay(2000).fadeOut('show');
-                            $('html, body').animate({
-                                scrollTop: $('#captcha').offset().top - 150
-                            }, 1000);
-                            return false;
-                    }
+                    // }
+                    // if (captcha != captcha_store) {
+                    //         jQuery('#code_error').html("Please Enter Valid Captcha Number");
+                    //         jQuery('#code_error').show().delay(0).fadeIn('show');
+                    //         jQuery('#code_error').show().delay(2000).fadeOut('show');
+                    //         $('html, body').animate({
+                    //             scrollTop: $('#captcha').offset().top - 150
+                    //         }, 1000);
+                    //         return false;
+                    // }
 
 
                     $('#spinner_button').show();

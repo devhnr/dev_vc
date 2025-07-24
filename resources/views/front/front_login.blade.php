@@ -92,6 +92,12 @@
     color: #6B7177 !important;
 }
 
+@media only screen and (max-width: 600px) {
+    .mt120 {
+        margin-top: 120px !important;
+    }
+}
+
 </style>
 <div class="body_content">
     <!-- Our LogIn Area -->

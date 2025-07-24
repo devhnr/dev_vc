@@ -6,6 +6,31 @@
     }
 </style>
 <style type="text/css">
+    .listing-style1{
+        border:none !important; 
+        margin-bottom: 15px !important;
+    }
+    .without_cut_out_paragraph {
+        font-size: 20px !important;
+        line-height: 35px;
+        padding-left: 25px;
+        font-weight: 500;
+        color: #000;
+    }
+    .learn-more-btn {
+        padding: 10px 20px;
+        background: #FFD312;
+        color: #000;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        font-weight: 550;
+        font-size: 25px;
+    }
+    #banner_url a.learn-more-btn:hover{
+        color: #000 !important;
+    }
+
     .home11-hero-img .iconbox-small1 {
         padding: 10px;
         bottom: 90px;
@@ -75,14 +100,68 @@
     .funfact_one_borderleft {
         border-right: 2px solid #000;
         border-left: none;
+        padding-left: 0;
     }
 
+    .browse_our_service{
+        margin-top: 5%;
+    padding-bottom: 0 !important;
+    }
+
+    .serviceimage_desktop{
+        display: block;
+        height: 160px !important;
+    }
+    .serviceimage_mobile {
+        display: none;
+    }
+
+    .we_do_heading{
+        font-size: 35px;
+        line-height: normal;
+    }
+
+    .we_do_section{
+        padding-top: 45px;
+    }
+
+    .new_search_banner{
+        border: unset !important;
+        background-color : inherit !important;
+
+    }
+
+    .new_search_banner .advance-search-field .box-search .icon{bottom: 32% !important;}
 
     @media only screen and (max-width: 767px) {
+
+        #feature-slider .splide__arrow{
+            top: 29%;
+			margin-left: -5%;
+			margin-right: -5%;
+        }
+        .serviceimage_desktop{
+            display: none !important;
+        }
+        .serviceimage_mobile{
+            display: block !important;
+            height: 107px !important;
+        }
+
+         .service_desc{
+            font-size: 14px;
+        }
+        .subservice-title{
+            font-size: 13px !important;
+        }
+        .subservice-font{
+            font-size: 13px !important;
+        }
 
         .mobile-splide{
             padding: 10px !important;
         }
+        .mobile-splide ul li .list-content a{line-height: normal !important;}
         .home_slider_padding .home11-hero-content .title {
             line-height: normal;
             color: #fff;
@@ -206,7 +285,17 @@
             margin: 0 !important;
         }
         .ud-btn {
-            padding: 8px 30px;
+            padding: 10px 5px;
+        }
+        .google-button {
+            font-size: 13px !important;
+            padding: 5px 5px !important;
+        }
+        .google-text{
+            font-size: 20px !important;
+        }
+        .googlereview p{
+            font-size: 15px !important;
         }
         .reviewListBox {
             height: auto;
@@ -226,10 +315,26 @@
         .bgc-thm2 {
             border-radius: 13px !important;
         }
-        
+        .we-do-slider-desk{
+            display: none !important; 
+        }
+        .we-do-slider-mobile{
+            display: block !important;
+        }
+        .we-do-mobile-slider.owl-carousel .owl-item img{
+            width: 60% !important;
+            margin: 0 auto !important;
+        }
+        .we-do-mobile-slider .owl-stage-outer {
+             margin-left: -30px; /* Same as stagePadding value */
+         }
+         .mobile-head-text{
+            font-size: 18px !important;
+         }
     }
 
     @media screen and (min-width: 768px) and (max-width: 991px) {
+        
         .home_slider_padding .home11-hero-content .title {
             line-height: normal;
             color: #fff;
@@ -317,10 +422,10 @@
             padding-top: 20px !important;
         }
 
-        .we_do_heading {
+        /* .we_do_heading {
             font-size: 37px;
             line-height: 46px;
-        }
+        } */
 
         .bgc-thm3 {
             padding: 30px 0;
@@ -349,7 +454,7 @@
             margin: 0 !important;
         }
         .ud-btn {
-            padding: 8px 30px;
+            padding: 10px 5px;
         }
         .reviewListBox {
             height: auto;
@@ -369,6 +474,7 @@
         .bgc-thm2 {
             border-radius: 13px !important;
         }
+       
     }
     @media screen and (min-width: 992px) and (max-width: 1024px) {
         .home9-tags a {
@@ -381,6 +487,7 @@
         .bgc-thm2 {
             border-radius: 20px;
         }
+       
     }
 
     /* @media (min-width: 768px) and (max-width: 991px) {
@@ -430,9 +537,10 @@
       padding: 0 10px;
     }
     .we_cut_out_paragraph {
-        line-height: 35px;
+        line-height: 30px;
         border-left: 2px solid gray;
         padding-left: 25px;
+        font-size: 16px !important;
     }
 
 
@@ -466,7 +574,7 @@ ul.list {
 }
 
 .section3 .heading2{
-    font-size: 50px;
+    font-size: 40px;
     line-height: 53px;
 }
 
@@ -500,110 +608,387 @@ ul.list {
     color: #f2c300;
     margin-right: 2px;
 }
+
+.hero-banner-section {
+    position: relative;
+    width: 100%;
+    /* height: 55vh !important; Adjust height as needed */
+    /* overflow: hidden; */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 395px;
+    background: url('{{ asset("public/site/images/Homepage/bg.png") }}') no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+    top:17%;
+}
+
+.hero-content {
+    z-index: 1;
+}
+.hero-bottom-bar {
+    background-color: #000; /* black bar */
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    z-index: 0;
+    top: 0;
+    padding: 0;
+}
+.choose-city{
+    /* border-radius: 30px !important; */
+    border: none !important;
+    padding: 0px 25px 0 25px !important;
+    outline:none!important;
+    height:44px;
+    box-shadow: none !important;
+}
+.hero-bottom-bar i {
+    color: #fff; /* optional: icon color */
+}
+.bottom-content{
+    margin-right: 10px !important;
+}
+.bottom-content-logo{
+    margin-right: 5px !important;
+}
+.city-select{
+   border:none !important;
+   outline:none !important;
+   box-shadow: none !important;
+}
+.list_index {
+    position: absolute;
+    top: 100%; /* place directly under input */
+    left: 0;
+    right: 0;
+    z-index: 9999999;
+    background-color: white;
+    color: #000;
+    /*max-height: 200px;  so you can scroll if long */
+    overflow-y: auto;
+    /* border: 1px solid #ddd; */
+    border-radius: 4px;
+    margin-top: 2px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.list_index li {
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align:left;
+}
+
+.list_index li:hover {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 768px) {
+    .hero-bar-content  {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    .hero-bottom-bar{
+        font-size: 9px !important;
+    }
+
+    .hero-bg-image {
+        background: url('{{ asset("public/site/images/Homepage/mobile_bvanner.png") }}') no-repeat center center;
+        height: 284px;
+        background-size: cover !important;
+        top:0%;
+        
+    }
+    .hero-banner-section{
+         /* padding: 0 !important; */
+		 padding-bottom: 0;
+    }
+    .browse_our_service {
+        margin-top: 5%;
+        padding-bottom: 0 !important;
+    /* padding-top: 50% !important; */
+    
+    }
+    .service_desc{
+        display:none !important;
+    }
+    .list_index{
+        top:219% !important; 
+    }
+    .mobile_title_n_first {
+        font-size: 25px !important;
+         margin: 0 0 30px 0px !important;
+    }
+    .mobile_title_n_second {
+        font-size: 35px !important;
+        margin: 0 0 40px 0 !important;
+    }
+    .mobile_search_border_col9{border: 1px solid #ccc !important;}
+    .mobile_search_border_col3{border: 1px solid #ccc !important;}
+    .mobile_title_n_first{
+        font-size: 27px !important;
+    }
+    .home_view_all{
+        right: 0% !important;
+    }
+    .freelancer-style1{
+        padding : 20px 8px !important;
+    }
+    .freelancer-style12{
+        padding : 20px 5px !important;
+    }
+    .our-location-slider .owl-stage-outer {
+        margin-left: -30px; /* Same as stagePadding value */
+    }
+    .cta-banner-about2{
+        height:900px !important;
+    }
+    .review-description{
+        font-size: 12px !important;
+        max-height: 9em !important;
+        height: 50px !important;
+        margin-bottom: 0px !important;
+    }
+    .we_do_slider_p{
+        font-size: 12px !important;
+        max-height: 9em !important;
+        height: 50px !important;
+    }
+    .we_do_slider_h5{
+        font-size: 16px !important;
+    }
+    .banner-div-style{
+        top: 0px !important;
+    }
+     .service-slider h3{
+        font-size: 18px !important;
+    }
+    }
+    .review-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 10em; 
+        height: 90px;
+        margin-bottom: 0px !important;
+    }
+    .we_do_slider_p{
+        max-height: 10em; 
+        height: 150px;
+    }
+    .mobile_title_n_first{
+        font-style: italic;
+        color: white;
+        text-transform: uppercase;
+        font-size: 46px;
+        margin: 0 0 40px 0px;
+        line-height:0.3 !important;
+    }
+    .mobile_title_n_second{
+        font-style: italic;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 1000;
+        font-size: 73px;
+        line-height:0.3 !important;
+        margin:30px 0 40px 0;
+    }
+
+   
+    #feature-slider li .details p{
+        font-weight: 500;
+        color: #000;
+        line-height: normal !important;
+    }
+
+    .home_view_all{font-size: 12px;padding: 2px 10px;right: 30%;}
+
+    .custom-splide .splide__arrow--prev {
+        left: 93% !important;
+    }
+
+    .custom-splide .splide__arrow {
+        top: -16% !important;
+    }
+    .splide__arrow{
+        background: #fff;
+        border: 1px solid #0040E6;
+    }
+    .splide__arrow svg {
+        fill: #0040E6; /* this changes the arrow color */
+    }
+    .review-stars{
+        justify-content: center;
+    }
+    .review-card-fixed {
+        /* height: 250px; */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @media (min-width: 992px) {
+    .owl-carousel .owl-nav.disabled {
+        display: none !important;
+    }
+    .service-slider{
+        padding-left:0px !important;
+    }
+    }
+    .freelancer-style1{
+        padding: 15px;
+    }
+    .freelancer-style12{
+        padding: 15px;
+    }
+    
+    /* Our location CSS */
+    .feature-style1 .top-area{
+        top: auto !important;
+        bottom: 5px;
+        padding-left: 7px !important;
+    }
+      .feature-style1 .top-area p{
+        font-weight: 800 !important;
+      }
+    /* Our location CSS */
+    .cta-banner-about2 {
+        max-width: 1200px !important;
+    }
+    /* .big-cleaning{
+        width: 385px !important;
+        height: 450px !important;
+    } */
+    .box-padding{
+        padding : 20px 15px !important;
+    }
+    .iconbox-title{
+        font-size:17px !important;
+    }
+    .cta-banner-about2:before{
+        background-color: #EFEFEF !important;
+        border-radius: 10px;
+        width:80% !important;
+    }
+    .cta-banner-about2{
+        height:600px;
+    }
+    .banner-div-style{
+        top: 50px;
+    }
+
 /**/
 </style>
 
 
-<section class="hero-home11 pt70 pb0">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-lg-6 col-xl-6 mb30-md home_slider_padding">
-                <div class="home11-hero-content">
+<section class="hero-banner-section position-relative">
+    <div class="hero-bg-image"></div>
 
-                    <h2 class="title animate-up-2">Leave the Chores to Us. <br> Book Top-Rated Home Services!</h2>
-                    <p class="text animate-up-3 hideDiv">Effortlessly book trusted home services and reclaim your time in just a few clicks!</p>
-                    <p class="text animate-up-3 hideDiv"><span class="fa-regular fa-message-pen custom_icon"></span> Up to 5 Free Quotes |
-                    <span class="fa-regular fa-phone custom_icon"></span> Live Customer Support |
-                    <span class="fa-regular fa-user custom_icon"></span>Trusted Vendors
-                    </p>
-                </div>
-                <div
-                    class="advance-search-tab bgc-white p10 bdrs4-sm bdrs60 banner-btn position-relative zi1 animate-up-3 mt20 mb20">
-                    <div class="row">
-                        <div class="col-md-9 col-lg-9 col-xl-9">
-                            <div class="advance-search-field mb10-sm">
-                                <form action="{{ url('search-package') }}" method="get" id="search_banner"
-                                    class="form-search position-relative">
-                                    @csrf
-                                    <div class="box-search">
-                                        <span class="icon far fa-magnifying-glass"></span>
-                                        <input class="form-control bordermob" type="text" name="search" value="{{ session('search_content') }}"
-                                            placeholder="What service are you looking for?" id="search_auto" autocomplete="off">
-
-                                       
-                                    </div>
-                                    
-                                   <input type="hidden" name="search_city" value="17" id="search_city_index">
-                                </form>
-                            </div>
-                            
-                            
-                        </div>
-                        
-                        <div class="col-md-3 col-lg-3 col-xl-3">
-
-                            <div class="bselect-style1 bdrl1 bdrn-sm bordermob">
-                                <select class="selectpicker" data-width="100%" onchange="search_city(this.value);">
-                                    <option>Choose City</option>
-                                    @if ($city != '')
-                                        @foreach ($city as $city_data)
-                                            <option data-tokens="{{ $city_data->name }}"
-                                                value="{{ $city_data->id }}" @if($city_data->id == session('search_city_id')){{ 'selected' }}@endif>{{ $city_data->name }}
-                                            </option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-
-                        </div>
-                        {{-- <div class="col-md-3 col-lg-2 col-xl-3">
-                            <div class="text-center text-xl-start">
-                                <button class="ud-btn btn-thm w-100 bdrs60 mgtop20" type="button"
-                                    onclick="search_banner()">Search</button>
-                            </div>
-                        </div> --}}
-                    </div>
-                </div>
-                <p class="form-error-text" id="search_auto_error" style="color: red; margin-top: 10px;">
+    <div class="container position-relative z-1 banner-div-style">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-12 text-white hero-content">
+                <p class="title mobile_title_n_first">
+                    Everything you need,
                 </p>
-                 <ul class="list_index"></ul>
+                <p class="title mobile_title_n_second">
+                    ALL IN ONE PLACE!
+                </p>
 
-                <div class="row mt20 animate-up-4 hideDiv">
-                    <div class="col-xl-12 mt10">
-                        <p class="animate-up-2 ff-heading mt0 mb15">Frequently Searched</p>
-                        <div class="home9-tags d-md-flex align-items-center animate-up-4 mt10">
-                            <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/apartment-moving') }}">Apartment Moving</a>
-                            <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/villa-moving') }}">Villa Moving </a>
-                            <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/self-storage') }}">Self Storage</a>
-                            <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/ac-storage') }}">AC Storage</a>
-                        </div>
-                    </div>
-                </div>
+                <div class=" advance-search-tab bgc-white p10 bdrs4-sm bdrs60 banner-btn mt20 mb20 mx-auto" style="max-width: 700px;">
+                    <form action="{{ url('search-package') }}" method="get" id="search_banner">
+                        @csrf
+                       <div class="row justify-content-center align-items-center g-2">
+                            <div class="col-md-9 position-relative mobile_search_border_col9">
+                                
+                                <input class="form-control me-2 choose-city" type="text" name="search"
+                                    value="{{ session('search_content') }}"
+                                    placeholder="What service are you looking for?" id="search_auto" autocomplete="off">
+                                <ul class="list_index"></ul>
+                            </div>
 
-            </div>
-            <div class="col-lg-6 hideDiv">
-                <div class="home11-hero-img text-center text-xxl-end">
-                    <img class="bdrs20" src="{{ asset('public/site/images/about/about-1.png') }}" alt="">
-                    <div
-                        class="iconbox-small1 text-start d-flex wow fadeInRight default-box-shadow4 bounce-x animate-up-1" style="display: none !important;">
-                        <!-- <span class="icon flaticon-badge"></span> -->
-                        <div class="details pl20">
-                            <img class="bdrs20" src="{{ asset('public/site/images/customer.png') }}" alt="">
+                            <div class="col-md-3 bdrl1 mobile_search_border_col3">
+                            <select class="form-select me-2 city-select" onchange="search_city_new(this.value);" name="search_city" id="search_city_index">
+                                <option>Choose City</option>
+                                @if ($city != '')
+                                    @foreach ($city as $city_data)
+                                        <option value="{{ $city_data->id }}" @if($city_data->id == session('search_city_id')) selected @endif>
+                                            {{ $city_data->name }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            </select>
+                            </div>
+                        </div>
+                            
+							{{-- new_search_banner<div class="advance-search-tab bgc-white bdrs60 p10 bdrs4-sm bdr1 position-relative zi9 animate-up-3 ">
+                <div class="row">
+                  <div class="col-md-5 col-lg-6 col-xl-6">
+                    <div class="advance-search-field mb10-sm bdrr1 bdrn-sm">
+                      <div class="form-search position-relative">
+                        <div class="box-search">
+                          <span class="icon far fa-magnifying-glass"></span>
+                          <input class="form-control" type="text" name="search" placeholder="What are you looking for?" value="{{ session('search_content') }}" id="search_auto">
+                           <ul class="list_index"></ul>
                         </div>
                     </div>
-                    <div
-                        class="iconbox-small2 text-start d-flex wow fadeInLeft default-box-shadow4 bounce-y animate-up-2" style="display: none !important;">
-                        <!-- <span class="icon flaticon-security"></span> -->
-                        <div class="details pl20">
-                            <span style="font-size: 12px;" class="fa fa-star custom_icon">
-                            </span> Top-rated professionals
-                        </div>
                     </div>
+                    <p id="search_auto_error" style="color:red"></p>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-xl-4">
+                    <div class="bselect-style1">
+                      <select class="selectpicker" data-width="100%" onchange="search_city_new(this.value);">
+                        @if ($city != '')
+                            @foreach ($city as $city_data)
+                                <option value="{{ $city_data->id }}" @if($city_data->id == session('search_city_id')) selected @endif>
+                                    {{ $city_data->name }}
+                                </option>
+                            @endforeach
+                                @endif
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-lg-2 col-xl-2">
+                    <div class="text-center text-xl-start">
+                      <button class="ud-btn btn-dark bdrs60 bdrs4-sm w-100 px-0" type="button" onclick="search_banner();" style="color:#fff; background-color:#0040E6">Search</button>
+                    </div>
+                  </div>
                 </div>
+              </div> --}}
+                    </form>
+                </div>
+               
             </div>
+        </div>
+         
+    </div>
+</section>
+<section class="hero-bottom-bar">
+   <div class="container d-flex flex-wrap justify-content-center align-items-center text-white px-3 py-2  gap-md-5">
+
+        <div class="d-flex align-items-center bottom-content">
+            <i class="fa fa-check-circle bottom-content-logo"></i> Verified Vendors
+        </div>
+        <div class="d-flex align-items-center bottom-content">
+            <i class="fa fa-tags bottom-content-logo"></i> Get up to 5 free quotes
+        </div>
+        <div class="d-flex align-items-center bottom-content">
+            <i class="fa fa-headset bottom-content-logo"></i> Live Customer Support
         </div>
     </div>
 </section>
+
 
 <!-- Need something -->
 <section class="our-features pb40 pb30-md pt150 section2" style="display:none;">
@@ -668,195 +1053,113 @@ ul.list {
     </div>
 </section>
 
-<section class="pt0-lg pb0-lg pb0 section3 hideDiv">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-xl-7 wow fadeInRight">
-                <div class="cta-style6 mb30-sm">
-                    <h2 class="cta-title mb25 heading2">Explore millions of 
-                        offerings <br> tailored  to
-                        your specific needs</h2>
 
-                </div>
+ <section class="pt-0 browse_our_service" >
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-title text-center ">
+              <h3 class="mobile-head-text">Browse Our Services</h3>
             </div>
-            <div class="col-lg-6 col-xl-5 wow fadeInRight hideDiv">
-                <div class="row">
-                    <div class="col-3">
-                        <div class="funfact_one funfact_one_borderleft mb40">
-                            <div class="details">
-                                <ul class="ps-0 mb-0 d-flex">
-                                    <li>
-                                        <div class="timer text_blue">50</div>
-                                    </li>
-                                    <li><span class="text_blue">+</span></li>
-                                </ul>
-                                <p class="mb-0">services</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="funfact_one funfact_one_borderleft mb40">
-                            <div class="details">
-                                <ul class="ps-0 mb-0 d-flex" style="padding-left:8px !important">
-                                    <li>
-                                        <div class="timer text_blue">7</div>
-                                    </li>
-                                    <li><span class="text_blue">+</span></li>
-                                </ul>
-                                <p class="mb-0 pdl0" style="padding-left: 8px">Cities</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="funfact_one funfact_one_borderleft mb40" style="padding-left: 8px">
-                            <div class="details">
-                                <ul class="ps-0 mb-0 d-flex" >
-                                    <li>
-                                        <div class="timer text_blue">100</div>
-                                    </li>
-                                    <li><span class="text_blue">+</span></li>
-                                </ul>
-                                <p class="mb-0 pdl0" style="padding-left: 13px">Vendors</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="funfact_one funfact_one_borderleft mb40" style="border: none;">
-                            <div class="details">
-                                <ul class="ps-0 mb-0 d-flex">
-                                    <li>
-                                        <div class="timer text_blue">5 </div>
-                                    </li>
-                                    <li><span class="text_blue"><span class="fa-regular fa-star"></span></span></li>
-                                </ul>
-                                <p class="mb-0">Reviews
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- <div class="col-lg-12 mt50">
-                <div class="row wow fadeInUp">
-                    <div class="col-lg-12">
-                        <div
-                            class="slider-outer-dib vam_nav_style dots_none slider-4-grid owl-carousel owl-theme custom_slider_width" style="position:relative;z-index: inherit;
-">
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/localmoving.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Local Moving</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/womanssalon.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Women's Salon</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/womensspa.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Women's Spa</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/furniturecleaning.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Furniture Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/labathome.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Lab At Home</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/mensgrooming.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Men's Grooming</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/accleaning.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">A/C Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="iconbox-style1 bdr1 default-box-shadow1">
-                                    <div class="icon"><img class="bdrs20"
-                                            src="{{ asset('public/site/images/homecleaning.png') }}"
-                                            alt=""></span></div>
-                                    <div class="details mt20">
-                                        <!-- <p class="text mb5">1.853 skills</p> -->
-                                        <h5 class="title text_blue">Home Cleaning</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12 mx-auto">
-                    <a href="#" class="ud-btn btn-thm2">Book Now</a>
-                </div>
-            </div> --}}
-
+          </div>
         </div>
-    </div>
+        
+<div id="feature-slider" class="splide">
+  <div class="splide__track">
+    <ul class="splide__list">
 
+      <li class="splide__slide text-center" >
+        <div class="iconbox-style1 border-less p-0">
+          <div class="icon before-none">
+            <div class="details">
+               <a href="{{ url('service/cleaning')}}"> <img class="bdrs20" src="{{ asset('public/site/images/Homepage/subservice_logo/cleaning_icon.png') }}" alt="" width="60px;"></a>
+            </div>
+            </div>
+          <div class="details">
+            <a href="{{ url('service/cleaning')}}"><p class="title mb-3 subservice-title">Cleaning</p></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide text-center">
+        <div class="iconbox-style1 border-less p-0">
+          <div class="icon before-none">
+            <div class="details">
+                <a href="{{ url('service/moving')}}"><img class="bdrs20" src="{{ asset('public/site/images/Homepage/subservice_logo/moving_icon.png') }}" alt="" width="60px;"></a>
+            </div>
+            </div>
+          <div class="details">
+            <a href="{{ url('service/moving')}}"><p class="title mb-3 subservice-title">Moving</p></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide text-center">
+        <div class="iconbox-style1 border-less p-0">
+          <div class="icon before-none">
+            <div class="details">
+               <a href="{{ url('service/salon-spa-at-home')}}"> <img class="bdrs20" src="{{ asset('public/site/images/Homepage/subservice_logo/spa_salon_icon.png') }}" alt="" width="60px;"></a>
+            </div>
+          </div>
+          <div class="details">
+           <a href="{{ url('service/salon-spa-at-home')}}"> <p class="title mb-3 subservice-title">Salon & Spa</p></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide text-center">
+        <div class="iconbox-style1 border-less p-0">
+          <div class="icon before-none">
+            <div class="details">
+                <a href="{{ url('service/storage')}}"><img class="bdrs20" src="{{ asset('public/site/images/Homepage/subservice_logo/storage_icon.png') }}" alt="" width="60px;"></a>
+            </div>  
+          </div>
+          <div class="details">
+            <a href="{{ url('service/storage')}}"><p class="title mb-3 subservice-title">Storage</p></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide text-center">
+        <div class="iconbox-style1 border-less p-0">
+          <div class="icon before-none">
+            <div class="details">
+                <a href="{{ url('service/pest-control-gardening')}}"><img class="bdrs20" src="{{ asset('public/site/images/Homepage/subservice_logo/pest_control_icon.png') }}" alt="" width="60px;"></a>
+            </div>  
+          </div>
+          <div class="details">
+            <a href="{{ url('service/pest-control-gardening')}}"><p class="title mb-3 subservice-title">Pest Control & Gardening</p></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide text-center">
+        <div class="iconbox-style1 border-less p-0">
+          <div class="icon before-none">
+            <div class="details">
+                <a href="{{ url('service/handyman-maintainence')}}"><img class="bdrs20" src="{{ asset('public/site/images/Homepage/subservice_logo/handyman_icon.png') }}" alt="" width="60px;"></a>
+            </div>  
+          </div>
+          <div class="details">
+           <a href="{{ url('service/handyman-maintainence')}}"> <p class="title mb-3 subservice-title">Handyman & Maintenance</p></a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Add more slides as needed -->
+
+    </ul>
+  </div>
+</div>
+
+</div>
 </section>
 
-<section class="bgc-thm2 container pb0 pt0 mb30 mt50 sectionmarque1 hideDiv">
+
+
+{{-- <section class="bgc-thm2 container pb0 pt0 mb30 mt50 sectionmarque1 hideDiv">
     <div class="container">
-        <div class="row align-items-center custom_marquee">
+        <div class="row align-items-center custom_marquee"> --}}
 
 
             {{-- <marquee width="100%" direction="left">| 15,000+ Customers | <span class="flaticon-star custom_icon">
@@ -873,25 +1176,25 @@ ul.list {
                     class="flaticon-call custom_icon"> </span>Live Customer Support |
             </marquee> --}}
 
-            <div class="ticker-container">
+            {{-- <div class="ticker-container">
                 <div class="ticker-items">
                     <div class="ticker-item"><span class="fa-regular fa-message-pen custom_icon"></span> Up to 5 Free Quotes </div>
                     <div class="ticker-item"><span class="fa-regular fa-phone custom_icon"></span> Live Customer Support</div>
                     <div class="ticker-item"><span class="fa-regular fa-user custom_icon"></span>Trusted Vendors </div>
                     <!-- Add more items as needed -->
                   </div>
-            </div>
-
+            </div> --}}
+{{-- 
         </div>
     </div>
-</section>
+</section> --}}
 
 
 
 
 
 @if ($service != '')
-    <section class="pb90 pb20-md pt10">
+    <section class="pb40 pb20-md pt10">
 
 
         @foreach ($service as $service_data)
@@ -899,9 +1202,9 @@ ul.list {
                 $subservice_data = DB::table('subservices')
                     ->where('serviceid', $service_data->id)
                     ->where('is_active', 0)
-                    ->orderBy('id', 'DESC')
+                    ->orderBy('set_order', 'ASC')
                     ->get();
-
+                $subservice_count = count($subservice_data);
             @endphp
 
             @php
@@ -910,41 +1213,55 @@ ul.list {
             @if ($subservice_data != '' && count($subservice_data) > 0)
                 <div class="container">
                     <div class="row align-items-center wow fadeInUp" data-wow-delay="00ms">
-                        <div class="col-7 col-lg-9">
-                            <div class="main-title pt20">
-                                <h2 class="title">{{ $service_data->servicename }}</h2>
-                                {{-- <p class="paragraph">Get some Inspirations from 1800+ skills</p> --}}
+                        <div class="col-9 col-lg-9 service-slider">
+                            <div style="position: relative;">
+                                <h3 class="title">{{ $service_data->servicename }}</h3>
+                                {{-- <p class="service_desc">From Deep Cleaning to Dry Cleaning. We've Got You  Convered.</p> --}}
                             </div>
                         </div>
-                        <div class="col-5 col-lg-3">
+                        <div class="col-3 col-lg-3">
+                            @if($subservice_count > 5)
                             <div class="text-end text-lg-end mb-4 mb-lg-2 mrg0">
-                                <a class="ud-btn2 ud-btn btn-thm2" href="{{ url('service/' . $service_data->page_url) }}">View All</a>
+                                <a class="ud-btn2 ud-btn btn-thm2 home_view_all" href="{{ url('service/' . $service_data->page_url) }}">View All</a>
                             </div>
+                            @endif
                         </div>
+                        
                     </div>
 
                         @if ($subservice_data != '')
-                        <div id="splide_{{$service_data->id}}" class="splide mobile-splide row wow fadeInUp" data-wow-delay="300ms">
+                        <div id="splide_{{$service_data->id}}" class="custom_splide splide mobile-splide row wow fadeInUp main-title" data-wow-delay="300ms" data-subservice-count="{{ $subservice_count }}">
                             <div class="splide__track">
                                 <ul class="splide__list">
                                     @foreach ($subservice_data as $subservice)
                                         <li class="splide__slide">
                                             <div class="item">
-                                            <div class="listing-style1 bdrs12">
-                                                <div class="list-thumb">
-                                                    <a href="{{ url('package-lists/' . $subservice->page_url) }}">
-                                                        <img class="w-100"
-                                                            src="{{ asset('public/upload/subservice/large/' . $subservice->image) }}"
-                                                            alt="">
-                                                    </a>
+                                            <div class="listing-style1">
+                                                <div class="list-thumb bdrs12">
+                                                 @if($service_data->id == 50)
+                                                    <a href="{{ route('automobile.listing', ['page_url' => $subservice->page_url]) }}">
+                                                    @else
+                                                        <a href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                    @endif
+                                                        <img 
+                                                            src="{{ asset('public/upload/subservice/' . $subservice->image) }}"
+                                                            alt="" class="serviceimage_desktop">
+                                                        <img 
+                                                            src="{{ asset('public/upload/subservice/' . $subservice->image) }}"
+                                                            alt="" class="serviceimage_mobile">
+                                                         </a>
+                                                     </div>
                                                 </div>
                                                 <div class="list-content">
-                                                    <a class="d-flex align-items-center" 
-                                                    href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                  @if($service_data->id == 50)
+                                                    <a href="{{ route('automobile.listing', ['page_url' => $subservice->page_url]) }}">
+                                                    @else
+                                                        <a href="{{ url('package-lists/' . $subservice->page_url) }}">
+                                                    @endif
                                                         {{ $subservice->subservicename }}
                                                     </a>
                                                 </div>
-                                            </div>
+                                           
                                         </div>
                                         </li>
                                     @endforeach
@@ -953,13 +1270,9 @@ ul.list {
                         </div>
                     @endif
 
-                    @if (
-                        $service_data->title1 != '' ||
-                            $service_data->banner_url != '' ||
-                            $service_data->title2 != '' ||
-                            $service_data->image != '')
-                        <section class="our-about bgc-thm2 container pb0 pt0 mb30 hideDiv">
-                            <div class="container">
+                    @if ($service_data->image != '')
+                        <section class="our-about bgc-thm2 pb0 pt0 mb30 hideDiv">
+                            {{-- <div class="container">
                                 <div class="row align-items-center">
 
                                     <div class="col-xl-6 services_banner_text">
@@ -992,7 +1305,36 @@ ul.list {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
+
+
+
+                            {{-- <div class="row align-items-center">
+                                <div class="col-xl-12">
+                                    <div class="position-relative mb30-lg mrgb0">
+                                        <div class="about-img wow fadeInRight" data-wow-delay="300ms" style="position: relative;">
+                                            @if(isset($service_data->image))
+                                                <img style="width: 100%;" class="bdrs16 desktop_img"
+                                                    src="{{ asset('public/upload/service/' . $service_data->image) }}" alt="">
+                                                
+                                                    <div id="banner_url" style="position: absolute; bottom: 10px; left: 20px; padding: 10px;">
+                                                        @if ($service_data->banner_url != '')
+                                                            <a href="{{ $service_data->banner_url }}" class="learn-more-btn" style="padding: 15px 20px; display: inline-block;">Learn More</a>
+                                                        @endif
+                                                    </div>
+                                                    
+                            
+                                            @else
+                                                <img style="width: 100%;" class="bdrs16"
+                                                    src="{{ asset('public/upload/subservice/banner/no_image_subservice.png') }}" alt="">
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            
+                        
                         </section>
                     @endif
 
@@ -1003,171 +1345,191 @@ ul.list {
     </section>
 @endif
 
-<section class="pb90 pb30-md pt-0">
+<section class="pt0-lg pb0-lg pb40 pt0 section3 hideDiv">
     <div class="container">
-        <div class="row wow fadeInUp" data-wow-delay="00ms">
-            <div class="col-lg-6">
-                <div class="main-title2">
-                    <h2 class="title we_do_heading">We do the work,<br>so that you can chill.</h2>
-
-                </div>
-            </div>
-            <div class="col-lg-6">
-
-                <p class="paragraph we_cut_out_paragraph">Experience the freedom to prioritize family and leisure activities while we take care of your chores of your chores and errands, ensuring you have more time for what truly matters.
-                </p>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section class="our-about container pb0 pt0 mb30">
-    <div class="container bgc-thm2 pt20">
         <div class="row align-items-center">
-
-            <div class="col-xl-7">
-                <div class="position-relative wow fadeInLeft pl50" data-wow-delay="300ms">
-                    <h3 class="mb10">Step 1</h3>
-                    <h2 class=" mb35">Find your required service</h2>
-
-                    <div class="list-style2 light-style">
-                        <ul class="mb30">
-                            <li><i class="far fa-check fa-check-custom"></i>50+ Services to Discover</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Over 100 Verified Vendors</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Same-Day Availability</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Live Customer Support</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Easy Booking Process</li>
-                        </ul>
-                    </div>
-                    {{--<a href="{{ url('/services') }}" class="ud-btn btn-thm">Get Started</a> --}}
-                </div>
-            </div>
-            <div class="col-xl-5">
-                <div class="position-relative">
-
-                    <div class="about-img wow fadeInRight" data-wow-delay="300ms">
-                        <img class="w100" src="{{ asset('public/site/images/HomepageStep1.png') }}"
-                            alt="">
-                    </div>
+            <div class="col-lg-6 col-xl-7 wow fadeInRight">
+                <div class="cta-style6 mb30-sm">
+                    <h2 class="cta-title mb25 heading2">Explore millions of 
+                        offerings <br> tailored  to
+                        your specific needs</h2>
 
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="our-about container pb0 pt0 mb30">
-    <div class="container bgc-thm2 pt20">
-        <div class="row align-items-center">
-
-            <div class="col-xl-7">
-                <div class="position-relative wow fadeInLeft pl50" data-wow-delay="300ms">
-                    <h3 class="mb10 mt35">Step 2</h3>
-                    <h2 class=" mb35">Book your Service in Minutes</h2>
-
-                    <div class="list-style2 light-style">
-                        <ul class="mb30">
-                            <li><i class="far fa-check fa-check-custom"></i>Secure Payment Options</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Flexible Cancellation Policy</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Schedule Services at your Convenience</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Get Up to 5 Free Quotes</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Book Packages Managed by Us</li>
-                        </ul>
-                    </div>
-                   {{-- <div class="row mt20 animate-up-4">
-                        <div class="col-xl-12">
-                            <p class="animate-up-2 ff-heading mb15">Frequently Booked</p>
-                            <div class="home9-tags d-md-flex align-items-center animate-up-4 step-2-frenquently-booked mb35">
-                                <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/office-moving') }}">Office Moving</a>
-                                <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/home-cleaning') }}">Home Cleaning </a>
-                                <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/ac-storage') }}">Ac Storage</a>
-                                <a class="bdrs60 mb-2 mb-md-0" href="{{ url('package-lists/office-cleaning') }}">Office Cleaning</a>
+            <div class="col-lg-6 col-xl-5 wow fadeInRight hideDiv">
+                <div class="row" style="text-align:center;">
+                    <div class="col-3" style="padding-left:0 !important; padding-right: 0 !important" >
+                        <div class="funfact_one funfact_one_borderleft mb40">
+                            <div class="details">
+                                <ul class="ps-4 mb-0 d-flex">
+                                    <li>
+                                        <div class="timer text_blue">30</div>
+                                    </li>
+                                    <li><span class="text_blue">+</span></li>
+                                </ul>
+                                <p class="mb-0">services</p>
                             </div>
                         </div>
-                    </div> --}}
-
-                </div>
-            </div>
-            <div class="col-xl-5">
-                <div class="position-relative">
-
-                    <div class="about-img wow fadeInRight" data-wow-delay="300ms">
-                        <img class="w100" src="{{ asset('public/site/images/HomepageStep2.png') }}"
-                            alt="">
                     </div>
-
+                    <div class="col-3" style="padding-left:0 !important; padding-right: 0 !important">
+                        <div class="funfact_one funfact_one_borderleft mb40">
+                            <div class="details">
+                                <ul class="ps-5 mb-0 d-flex">
+                                    <li>
+                                        <div class="timer text_blue">7</div>
+                                    </li>
+                                    {{-- <li><span class="text_blue">+</span></li> --}}
+                                </ul>
+                                <p class="mb-0 pdl0" style="padding-left: 8px">Cities</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3" style="padding-left:0 !important; padding-right: 0 !important">
+                        <div class="funfact_one funfact_one_borderleft mb40" >
+                            <div class="details">
+                                <ul class="ps-4 mb-0 d-flex" >
+                                    <li>
+                                        <div class="timer text_blue">50</div>
+                                    </li>
+                                    <li><span class="text_blue">+</span></li>
+                                </ul>
+                                <p class="mb-0 pdl0">Vendors</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3" style="padding-left:0 !important; padding-right: 0 !important">
+                        <div class="funfact_one funfact_one_borderleft mb40" style="border: none;">
+                            <div class="details">
+                                <ul class="ps-4 mb-0 d-flex">
+                                    <li>
+                                        <div class="timer text_blue">5 </div>
+                                    </li>
+                                    <li><span class="text_blue"><span class="fa-regular fa-star"></span></span></li>
+                                </ul>
+                                <p class="mb-0">Reviews
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+
         </div>
     </div>
+
 </section>
 
-<section class="our-about container pb0 pt0 mb30">
-    <div class="container bgc-thm2 pt20">
-        <div class="row align-items-center">
-
-            <div class="col-xl-7">
-                <div class="position-relative wow fadeInLeft pl50" data-wow-delay="300ms">
-                    <h3 class="mb10">Step 3</h3>
-                    <h2 class=" mb35">Relax & Let Us Handle the Work</h2>
-
-                    <div class="list-style2 light-style">
-                        <ul class="mb30">
-                            <li><i class="far fa-check fa-check-custom"></i>100% Satisfaction Gauranteed</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Earn Rewards by Referring</li>
-                            <li><i class="far fa-check fa-check-custom"></i>No Hidden Fees</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Regular Quality Checks</li>
-                            <li><i class="far fa-check fa-check-custom"></i>Personalised Services</li>
-                        </ul>
-                    </div>
-                    {{--<a href="{{ url('/services') }}" class="ud-btn btn-thm">Book Now</a>--}}
-                </div>
+ <!-- CTA Banner -->
+    <section class="cta-banner-about2 at-home10 mx-auto position-relative pt60-lg pb30-lg we-do-slider-desk">
+      <img class="cta-about2-img big-cleaning at-home10 bdrs24 d-none d-xl-block" src="{{ asset('public/site/images/Homepage/bigcleaning.png') }}" alt="">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-7 offset-xl-5 wow fadeInUp" data-wow-delay="200ms">
+            <div class="main-title">
+              <h2 class="title text-capitalize mobile-head-text">We do the work, so that you can chill.</h2>
+              <p class="text">We cut out the unnecessary steps with our easy to order process that makes your to-do-lists for your home easy, fast, and stress-free.</p>
             </div>
-            <div class="col-xl-5">
-                <div class="position-relative">
-
-                    <div class="about-img wow fadeInRight" data-wow-delay="300ms">
-                        <img class="w100" src="{{ asset('public/site/images/HomepageStep3.png') }}"
-                            alt="">
-                    </div>
-
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
+        <div class="row wow fadeInDown" data-wow-delay="400ms">
+          <div class="col-xl-10 offset-xl-2">
+            <div class="row">
+              <div class="col-sm-6 col-lg-4">
+                <div class="iconbox-style9 default-box-shadow1 bgc-white box-padding bdrs12 position-relative mb30">
+                  <img  src="{{ asset('public/site/images/Homepage/search.png') }}" alt="">
+                  <h4 class="iconbox-title mt20">Find your required service</h4>
+                  <p class="text mb-0">Choose from 50+ services, 100+ vendors, same-day slots, live support, easy booking</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="iconbox-style9 default-box-shadow1 bgc-white box-padding bdrs12 position-relative mb30">
+                  <img  src="{{ asset('public/site/images/Homepage/verified.png') }}" alt="">
+                  <h4 class="iconbox-title mt20">Book your Service in Minutes</h4>
+                  <p class="text mb-0">Secure pay, easy cancel, flexible slots, free quotes, managed packages.</p>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="iconbox-style9 default-box-shadow1 bgc-white box-padding bdrs12 position-relative mb30">
+                  <img  src="{{ asset('public/site/images/Homepage/relax.png') }}" alt="">
+                  <h4 class="iconbox-title mt20">Relax & Let Us Handle the Work</h4>
+                  <p class="text mb-0">100% satisfaction, referral rewards,no hidden fees, quality checks, and personalized services</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 </section>
 
-{{-- <section class="pb90 pb30-md pt90">
-    <div class="container">
-        <div class="row align-items-center wow fadeInUp" data-wow-delay="00ms">
-            <div class="col-lg-6">
-                <div class="main-title2">
-                    <h2 class="title we_do_heading">Top Ranked Vendors</h2>
 
-                </div>
+<div class="container we-do-slider-mobile" style="display:none;" >
+        <div class="row align-items-center wow fadeInUp">
+          <div class="col-lg-9">
+            <div class="main-title">
+              <h2 class="title mobile-head-text">We do the work, so that you can chill.</h2>
+              <p class="paragraph">We cut out the unnecessary steps with our easy to order process that makes your to-do-lists for your home easy, fast, and stress-free.</p>
             </div>
-            <div class="col-lg-6">
-
-                <p class="paragraph we_cut_out_paragraph">Get your weekend back, we've got your to-do list
-                    covered. Hire our top rated verified vendors for the best
-                    in class stress free service and top class prices
-                </p>
-
-            </div>
+          </div>
+          
         </div>
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+          <div class="col-lg-12">
+		  
+		  <div id="we-do-slider-mobile" class="splide">
+			  <div class="splide__track">
+				<ul class="splide__list">
 
-    </div>
-</section> --}}
+				  <li class="splide__slide text-center" >
+					 <div class="freelancer-style12 text-center bdr1 bdrs16 hover-box-shadow">
+                  <div class="thumb w90 mb25 mx-auto position-relative rounded-circle">
+                    <img src="{{ asset('public/site/images/Homepage/search.png') }}" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 class="title mb-1 we_do_slider_h5">Find your required service</h5>
+                    <p class="mb-0 we_do_slider_p">Choose from 50+ services, 100+ vendors, same-day slots, live support, easy booking</p>
+                  </div>
+                </div>
+				  </li>
 
-<section class=" mt-30 pb-0">
+				  <li class="splide__slide text-center">
+					<div class="freelancer-style12 text-center bdr1 bdrs16 hover-box-shadow">
+                  <div class="thumb w90 mb25 mx-auto position-relative rounded-circle">
+                    <img  src="{{ asset('public/site/images/Homepage/verified.png') }}" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 class="title mb-1 we_do_slider_h5">Book your Service in Minutes</h5>
+                    <p class="mb-0 we_do_slider_p">Secure pay, easy cancel, flexible slots, free quotes, managed packages.</p>
+                  </div>
+                </div>
+				  </li>
+
+				  <li class="splide__slide text-center">
+					 <div class="freelancer-style12 text-center bdr1 bdrs16 hover-box-shadow">
+                  <div class="thumb w90 mb25 mx-auto position-relative rounded-circle">
+                    <img  src="{{ asset('public/site/images/Homepage/relax.png') }}" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 class="title mb-1 we_do_slider_h5">Relax & Let Us Handle the Work</h5>
+                    <p class="mb-0 we_do_slider_p">100% satisfaction, referral rewards,no hidden fees, quality checks, and personalized services</p>
+                  </div>
+                </div>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+          </div>
+        </div>
+      </div>
+
+  
+
+<section class=" mt-30 pb-0" style="display: none;">
     <div class="container">
         <div class="row wow fadeInUp" data-wow-delay="00ms">
             <div class="col-lg-6">
                 <div class="main-title2">
-                    <h2 class="title we_do_heading">Hear what Our Clients Have to say About Us</h2>
-
+                    <h2 class="title">Hear what Our Clients Have to say About Us</h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -1181,164 +1543,41 @@ ul.list {
     </div>
 </section>
 
-<section class="bgc-thm3" style="display: none;">
-    <div class="container">
-        <div class="row align-items-md-center">
-            <div class="col-md-6 col-lg-8 mb30-md wow fadeInUp" data-wow-delay="100ms">
-                <div class="main-title">
-                    <h2 class="title">Customers Love Us</h2>
-                    <p class="paragraph">100% Satisfaction guaranteed. Our customers are our
-                        priority which is why we are the best rated brand on
-                        Google.</p>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="funfact_one">
-                            <div class="details">
-                                
-                                <ul class="ps-0 d-flex mb-0">
-                                    <li>
-                                        <div class="timer">4.7</div>
-                                    </li>
-
-                                    <li><span>/</span></li>
-                                    <li>
-                                        <div class="timer">5</div>
-                                    </li>
-                                </ul>
-                                <p class="text mb-0">Ratings on Google </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="funfact_one">
-                            <div class="details">
-                                <ul class="ps-0 d-flex mb-0">
-                                    <li>
-                                        <div class="timer">300</div>
-                                    </li>
-                                    <li><span>+</span></li>
-                                </ul>
-                                <p class="text mb-0">Positive reviews</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+{{-- <section class="pb30 pb30-md"> --}}
+      <div class="container mt25">
+        <div class="row align-items-center wow fadeInUp">
+          <div class="col-lg-9">
+            <div class="main-title">
+              <h2 class="title mobile-head-text">Read Our Verified Reviews</h2>
+              {{-- <p class="paragraph">Most viewed and all-time top-selling services</p> --}}
             </div>
-            <div class="col-md-6 col-lg-4 col-xl-4">
-
-                @if(!empty($googleReview))
-                <div class="testimonial-slider2 mb15 navi_pagi_bottom_center slider-1-grid owl-carousel owl-theme wow fadeInUp"
-                    data-wow-delay="300ms">
-                    @foreach($googleReview as $googleReview_data)
-                    <div class="item">
-                        <div class="testimonial-style1 default-box-shadow1 position-relative bdrs16 mb35">
-                            <div class="testimonial-content">
-                                @if($googleReview_data->label != '')
-                                <div class="d-flex">
-                                       @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $googleReview_data->label)
-                                                <i class="fas fa-star review-color"></i>
-                                            @else
-                                                <i class="far fa-star review-color ms-2"></i>
-                                            @endif
-                                        @endfor
-                                      </div>
-                                    
-                                @endif 
-                                <span class="icon fas fa-quote-left"></span>
-                                @if($googleReview_data->description != '')
-                                <h4 class="t_content">“{{$googleReview_data->description}}”</h4>
-                                     @endif 
-                            </div>
-                            <div class="thumb d-flex align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="{{ asset('public/site/images/profileimage.png') }}"
-                                    alt="" style="width: 75px !important;">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    @if($googleReview_data->name != '')
-                                    <h6 class="mb-0">{{$googleReview_data->name}}</h6>
-                                    @endif 
-                                    <!-- <p class="fz14 mb-0">Web Designer</p> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    
-                    <!-- <div class="item">
-                        <div class="testimonial-style1 default-box-shadow1 position-relative bdrs16 mb35">
-                            <div class="testimonial-content">
-                                <h4 class="title text-thm text_blue">Great Service</h4>
-                                <span class="icon fas fa-quote-left"></span>
-                                <h4 class="t_content">“Really good service! Very importantly they came on time, they did their job quickly and cleaned up after. Highly recommend this company.”</h4>
-                            </div>
-                            <div class="thumb d-flex align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="{{ asset('public/site/images/profileimage.png') }}"
-                                        alt="" style="width: 75px !important;">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h6 class="mb-0">Anna B</h6>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="testimonial-style1 default-box-shadow1 position-relative bdrs16 mb35">
-                            <div class="testimonial-content">
-                                <h4 class="title text-thm text_blue">Professional Service</h4>
-                                <span class="icon fas fa-quote-left"></span>
-                                <h4 class="t_content">“Professional and friendly team moved all our goods and helped us with a few other odds and ends around the house - highly recommended”</h4>
-                            </div>
-                            <div class="thumb d-flex align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="{{ asset('public/site/images/profileimage.png') }}"
-                                        alt="" style="width: 75px !important;">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h6 class="mb-0">Tim Jaja</h6>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    
-
-                </div>
-                @endif
+          </div>
+          {{-- <div class="col-lg-3">
+            <div class="text-lg-end mb-3">
+              <a href="page-freelancer-v1.html" class="ud-btn2">All Freelancers <i class="fal fa-arrow-right-long"></i></a>
             </div>
-
-
+          </div> --}}
         </div>
-    </div>
-</section>
-
-<div class="container wow fadeInUp" data-wow-delay="300ms">
-    <div class="reviewList">
-        <div class="row align-items-md-center">
-            <div class="col-lg-12">
-                <h2>Read Our Verified Reviews</h2>
-            </div>
-        </div>
-        <div class="row" style="margin:0; ">
-            @if(!empty($googleReview))
-                @foreach($googleReview as $googleReview_data)
-                <div class="col-lg-3">
-                    <div class="reviewListBox">
-
-                        @if($googleReview_data->name != '')
-                        <h5 class="mb-0">{{$googleReview_data->name}}</h5>
-                        @endif 
-
-                        @if($googleReview_data->label != '')
-                        <div class="d-flex">
-                               @for ($i = 1; $i <= 5; $i++)
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+          <div class="col-lg-12">
+		  
+		  <div id="review-slider" class="splide">
+  <div class="splide__track">
+    <ul class="splide__list">
+@if(!empty($googleReview))
+             @foreach($googleReview as $googleReview_data)
+      <li class="splide__slide text-center" >
+        <div class="freelancer-style1 text-center bdr1 bdrs16 hover-box-shadow review-card-fixed">
+                  
+                  <div class="details">
+                    @if($googleReview_data->name != '')
+                    <h5 class="title mb-1">{{$googleReview_data->name}}</h5>
+                    @endif
+                    
+                    <div class="review">
+                         @if($googleReview_data->label != '')
+                        <div class="d-flex review-stars">
+                                @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $googleReview_data->label)
                                         <i class="fas fa-star review-color"></i>
                                     @else
@@ -1346,37 +1585,87 @@ ul.list {
                                     @endif
                                 @endfor
                               </div>
-                            
-                        @endif 
-                        @if($googleReview_data->description != '')
-                            <p>“{{$googleReview_data->description}}”</p>
                         @endif 
                     </div>
+                    
+                    <hr class="opacity-100 mt20 mb15">
+                    @if($googleReview_data->description != '')
+                    @php
+                    $shortDescription = Str::limit($googleReview_data->description, 80);
+                    @endphp
+                    
+                    <p class="review-description">“{{ $shortDescription }}”</p>
+                    @endif 
+                  </div>
                 </div>
-                @endforeach
-            @endif
-        </div>
-    </div>
+      </li>
+@endforeach
+              @endif
+
+      <!-- Add more slides as needed -->
+
+    </ul>
+  </div>
 </div>
+		  {{-- <div class="vam_nav_style dots_none review-slider owl-carousel owl-theme">
+
+            @if(!empty($googleReview))
+             @foreach($googleReview as $googleReview_data)
+              <div class="item">
+                <div class="freelancer-style1 text-center bdr1 bdrs16 hover-box-shadow review-card-fixed">
+                  
+                  <div class="details">
+                    @if($googleReview_data->name != '')
+                    <h5 class="title mb-1">{{$googleReview_data->name}}</h5>
+                    @endif
+                    
+                    <div class="review">
+                         @if($googleReview_data->label != '')
+                        <div class="d-flex review-stars">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $googleReview_data->label)
+                                        <i class="fas fa-star review-color"></i>
+                                    @else
+                                        <i class="far fa-star review-color ms-2"></i>
+                                    @endif
+                                @endfor
+                              </div>
+                        @endif 
+                    </div>
+                    
+                    <hr class="opacity-100 mt20 mb15">
+                    @if($googleReview_data->description != '')
+                            <p>“{{$googleReview_data->description}}”</p>
+                    @endif 
+                  </div>
+                </div>
+              </div>
+              @endforeach
+              @endif
+            </div> --}}
+          </div>
+        </div>
+      </div>
+{{-- </section> --}}
 
 <div class="container">
     <div class="googlereview">
         <div class="row align-items-md-center">
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
-                <h3>Curious about what sets apart?</h3>
+                <h3 class="google-text">Curious about what sets apart?</h3>
                 <p>Explore our Google Reviews and discover why customers trust us with home service needs</p>
             </div>
-            <div class="col-lg-3 wow fadeInUp" data-wow-delay="300ms">
-                <a style="width: 100%;" href="https://www.google.com/search?q=vendorscity+dubai&sca_esv=e472bba1732e8ddb&sca_upv=1&rlz=1C5CHFA_enAE1014AE1015&sxsrf=ADLYWIKMm77ohxWtSjtB2FywHuiQPICeBA%3A1716628559794&ei=T6xRZquOMNCVxc8Ph-eCsAo&ved=0ahUKEwjr8ZHcu6iGAxXQSvEDHYezAKYQ4dUDCBA&uact=5&oq=vendorscity+dubai&gs_lp=Egxnd3Mtd2l6LXNlcnAiEXZlbmRvcnNjaXR5IGR1YmFpMgQQIxgnMggQABgIGA0YHjIIEAAYCBgNGB4yCBAAGAgYDRgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIESMAKUMoEWN8GcAF4AZABAJgB_wGgAcYDqgEFMC4xLjG4AQPIAQD4AQGYAgOgAtMDwgIKEAAYsAMY1gQYR8ICBxAAGIAEGA3CAggQABgFGA0YHsICChAAGAUYDRgeGA-YAwDiAwUSATEgQIgGAZAGCJIHBTEuMC4yoAeUEA&sclient=gws-wiz-serp#lrd=0x4c30ffdf4bf81567:0xaf176b54bfc73c00,1" target="_blank" class="ud-btn btn-thm">Read More Reviews</a>
+            <div class="col-lg-3 col-7 wow fadeInUp" data-wow-delay="300ms">
+                <a style="width: 100%;" href="https://www.google.com/search?q=vendorscity+dubai&sca_esv=e472bba1732e8ddb&sca_upv=1&rlz=1C5CHFA_enAE1014AE1015&sxsrf=ADLYWIKMm77ohxWtSjtB2FywHuiQPICeBA%3A1716628559794&ei=T6xRZquOMNCVxc8Ph-eCsAo&ved=0ahUKEwjr8ZHcu6iGAxXQSvEDHYezAKYQ4dUDCBA&uact=5&oq=vendorscity+dubai&gs_lp=Egxnd3Mtd2l6LXNlcnAiEXZlbmRvcnNjaXR5IGR1YmFpMgQQIxgnMggQABgIGA0YHjIIEAAYCBgNGB4yCBAAGAgYDRgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIESMAKUMoEWN8GcAF4AZABAJgB_wGgAcYDqgEFMC4xLjG4AQPIAQD4AQGYAgOgAtMDwgIKEAAYsAMY1gQYR8ICBxAAGIAEGA3CAggQABgFGA0YHsICChAAGAUYDRgeGA-YAwDiAwUSATEgQIgGAZAGCJIHBTEuMC4yoAeUEA&sclient=gws-wiz-serp#lrd=0x4c30ffdf4bf81567:0xaf176b54bfc73c00,1" target="_blank" class="ud-btn btn-thm google-button">Read More Reviews</a>
             </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="300ms" style="text-align: right;">
+            <div class="col-lg-4 col-5 wow fadeInUp" data-wow-delay="300ms" style="text-align: right;">
                 <img class="w100" src="{{ asset('public/site/images/googlereview.png') }}" alt="" style="max-width: 400px;">
             </div>
         </div>
     </div>
 </div>
 
-<section class="pt20 pb-0">
+{{-- <section class="pt20 pb-0">
     <div class="container">
         <div class="row wow fadeInUp" data-wow-delay="00ms">
             <div class="col-lg-12">
@@ -1389,7 +1678,185 @@ ul.list {
             </div>
         </div>
     </div>
-</section>
+</section> --}}
+
+
+{{-- Our Location Section  --}}
+<section class="pb90 pb30-md pt-0">
+    <div class="container">
+        <div class="row align-items-center wow fadeInUp" data-wow-delay="00ms">
+            <div class="col-lg-9">
+                <div class="main-title2">
+                <h2 class="title mobile-head-text">Our Locations</h2>
+                <p class="paragraph">VendorsCity currently offers services in</p>
+                </div>
+            </div>
+        </div>
+		
+		<div id="our-location-slider" class="splide">
+		  <div class="splide__track">
+			<ul class="splide__list">
+
+			  <li class="splide__slide text-center" >
+				<div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/home13-team-1.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Dubai</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+
+			  <li class="splide__slide text-center">
+				<div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/abudhabi.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Abu Dhabi</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+
+			  <li class="splide__slide text-center">
+				<div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/sharjaha.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Sharjah</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+
+			  <li class="splide__slide text-center">
+				<div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/rasal.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Ras Al Khamiah</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+
+			  <li class="splide__slide text-center">
+				<div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/ajman.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Ajman</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+
+			  <li class="splide__slide text-center">
+				<div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/quwain.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Umm Al Quwain</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+			  <li class="splide__slide text-center">
+				 <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/fujairah.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Fujairah</p>
+                    </div>
+                </div>
+                </div>
+			  </li>
+
+			  <!-- Add more slides as needed -->
+
+			</ul>
+		  </div>
+		</div>
+		{{--
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+        <div class="col-lg-12">
+        <div class="our-location-slider owl-carousel owl-theme wow fadeInUp">
+            <div class="item">
+                <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/home13-team-1.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Dubai</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/abudhabi.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Abu Dhabi</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="item">
+            <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/sharjaha.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Sharjah</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/rasal.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Ras Al Khamiah</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="item">
+            <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/ajman.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Ajman</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/quwain.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Umm Al Quwain</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="feature-style1 at-home13 mb30 bdrs12">
+                <div class="feature-img bdrs12 overflow-hidden"><img class="w-100" src="{{ asset('public/site/images/fujairah.png') }}" alt=""></div>
+                <div class="feature-content">
+                    <div class="top-area">
+                    <p class="title mb-1">Fujairah</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div> --}}
+    </div>
+    </section>
 
 <!-- Faq Area -->
 
@@ -1428,24 +1895,10 @@ ul.list {
     </div>
 </section>
 
-<section class="bgc-thm2 container pb0 pt0 mb30">
+{{-- <section class="bgc-thm2 container pb0 pt0 mb30">
     <div class="container">
         <div class="row align-items-center custom_marquee">
 
-
-            {{-- <marquee width="100%" direction="left">| 15,000+ Customers | <span class="flaticon-star custom_icon">
-                </span>Rated 4.8 out of 5 | <span class="flaticon-call custom_icon"> </span>Live Customer Support |
-                15,000+ Customers | <span class="flaticon-star custom_icon"> </span>Rated 4.8 out of 5 | <span
-                    class="flaticon-call custom_icon"> </span>Live Customer Support | 15,000+ Customers | <span
-                    class="flaticon-star custom_icon"> </span>Rated 4.8 out of 5 | <span
-                    class="flaticon-call custom_icon"> </span>Live Customer Support | 15,000+ Customers | <span
-                    class="flaticon-star custom_icon"> </span>Rated 4.8 out of 5 | <span
-                    class="flaticon-call custom_icon"> </span>Live Customer Support | 15,000+ Customers | <span
-                    class="flaticon-star custom_icon"> </span>Rated 4.8 out of 5 | <span
-                    class="flaticon-call custom_icon"> </span>Live Customer Support | 15,000+ Customers | <span
-                    class="flaticon-star custom_icon"> </span>Rated 4.8 out of 5 | <span
-                    class="flaticon-call custom_icon"> </span>Live Customer Support |
-            </marquee> --}}
 
             <div class="ticker-container1">
                 <div class="ticker-items1">
@@ -1454,11 +1907,11 @@ ul.list {
                     <div class="ticker-item1"><span class="fa-regular fa-user custom_icon"></span>Trusted Vendors </div>
                   <!-- Add more items as needed -->
                 </div>
-            </div>
+            </div> 
 
         </div>
     </div>
-</section>
+</section> --}}
 
 @include('front.includes.footer')
 <script>
@@ -1483,57 +1936,57 @@ ul.list {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
   <script>
-    const tickerContainer = document.querySelector('.ticker-container');
-    const tickerItems = document.querySelector('.ticker-items');
-    const items = document.querySelectorAll('.ticker-item');
+    // const tickerContainer = document.querySelector('.ticker-container');
+    // const tickerItems = document.querySelector('.ticker-items');
+    // const items = document.querySelectorAll('.ticker-item');
 
-    // Calculate the width of all items combined
-    let itemsWidth = 0;
-    items.forEach(item => {
-      itemsWidth += item.offsetWidth;
-    });
+    // // Calculate the width of all items combined
+    // let itemsWidth = 0;
+    // items.forEach(item => {
+    //   itemsWidth += item.offsetWidth;
+    // });
 
-    // Clone items to fill the container at least twice
-    while (tickerItems.offsetWidth < tickerContainer.offsetWidth * 2) {
-      items.forEach(item => {
-        const clone = item.cloneNode(true);
-        tickerItems.appendChild(clone);
-      });
-    }
+    // // Clone items to fill the container at least twice
+    // while (tickerItems.offsetWidth < tickerContainer.offsetWidth * 2) {
+    //   items.forEach(item => {
+    //     const clone = item.cloneNode(true);
+    //     tickerItems.appendChild(clone);
+    //   });
+    // }
 
-    // Set up GSAP animation
-    gsap.to(tickerItems, {
-      duration: 5, // Adjust duration as needed
-      x: -itemsWidth,
-      ease: 'none',
-      repeat: -1
-    });
+    // // Set up GSAP animation
+    // gsap.to(tickerItems, {
+    //   duration: 5, // Adjust duration as needed
+    //   x: -itemsWidth,
+    //   ease: 'none',
+    //   repeat: -1
+    // });
 
-    const tickerContainer1 = document.querySelector('.ticker-container1');
-    const tickerItems1 = document.querySelector('.ticker-items1');
-    const items1 = document.querySelectorAll('.ticker-item1');
+    // const tickerContainer1 = document.querySelector('.ticker-container1');
+    // const tickerItems1 = document.querySelector('.ticker-items1');
+    // const items1 = document.querySelectorAll('.ticker-item1');
 
-    // Calculate the width of all items combined
-    let itemsWidth1 = 0;
-    items1.forEach(item1 => {
-      itemsWidth1 += item1.offsetWidth;
-    });
+    // // Calculate the width of all items combined
+    // let itemsWidth1 = 0;
+    // items1.forEach(item1 => {
+    //   itemsWidth1 += item1.offsetWidth;
+    // });
 
-    // Clone items to fill the container at least twice
-    while (tickerItems1.offsetWidth < tickerContainer1.offsetWidth * 2) {
-      items1.forEach(item1 => {
-        const clone1 = item1.cloneNode(true);
-        tickerItems1.appendChild(clone1);
-      });
-    }
+    // // Clone items to fill the container at least twice
+    // while (tickerItems1.offsetWidth < tickerContainer1.offsetWidth * 2) {
+    //   items1.forEach(item1 => {
+    //     const clone1 = item1.cloneNode(true);
+    //     tickerItems1.appendChild(clone1);
+    //   });
+    // }
 
-    // Set up GSAP animation
-    gsap.to(tickerItems1, {
-      duration: 5, // Adjust duration as needed
-      x: -itemsWidth,
-      ease: 'none',
-      repeat: -1
-    });
+    // // Set up GSAP animation
+    // gsap.to(tickerItems1, {
+    //   duration: 5, // Adjust duration as needed
+    //   x: itemsWidth1,
+    //   ease: 'none',
+    //   repeat: -1
+    // });
 
 
 // let names = [
@@ -1571,37 +2024,6 @@ ul.list {
             names.push("{{ $sub_service_data->subservicename }}");
         @endforeach
     @endif
-
-// //Sort names in ascending order
-// let sortedNames = names.sort();
-// //reference
-// let input = document.getElementById("search_auto");
-// //Execute function on keyup
-// input.addEventListener("keyup", (e) => {
-//   //loop through above array
-//   //Initially remove all elements ( so if user erases a letter or adds new letter then clean previous outputs)
-//   removeElements();
-//   for (let i of sortedNames) {
-//     //convert input to lowercase and compare with each string
-//     if (
-//       i.toLowerCase().startsWith(input.value.toLowerCase()) &&
-//       input.value != ""
-//     ) {
-//       //create li element
-//       let listItem = document.createElement("li");
-//       //One common class name
-//       listItem.classList.add("list-items");
-//       listItem.style.cursor = "pointer";
-//       listItem.setAttribute("onclick", "displayNames('" + i + "')");
-//       //Display matched part in bold
-//       let word = "<b>" + i.substr(0, input.value.length) + "</b>";
-//       word += i.substr(input.value.length);
-//       //display the value in array
-//       listItem.innerHTML = word;
-//       document.querySelector(".list").appendChild(listItem);
-//     }
-//   }
-// });
 
 let sortedNames_index = names.sort(); // Make sure `names` array is populated correctly before this line
 
@@ -1657,8 +2079,8 @@ function removeElements() {
   });
 }
 
-function search_city(val){
-// alert(val);
+function search_city_new(val){
+//alert(val);
     $('#search_city_index').val(val);
     $('#search_banner').submit();
 }
@@ -1666,29 +2088,273 @@ function search_city(val){
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all elements with the class 'splide'
-        document.querySelectorAll('.splide').forEach(function (splideElement) {
-            new Splide('#' + splideElement.id, {
-                type: 'loop',
-                loop:'true',
-                perPage: 3,          // Default number of slides per page (desktop)
-                gap: '1rem',         // Gap between slides
-                autoplay: false,
-                interval: 3000,
-                pagination: false,
-                arrows: true,
-                breakpoints: {
-                    768: {
-                        perPage: 2
-                        
-                        
-                        
-                        ,      // Show 1 slide per page on mobile
-                        gap: '0.5rem',   // Adjust gap for mobile if needed
-                    },
-                },
-            }).mount();
+//  document.addEventListener('DOMContentLoaded', function () {
+//     // Select all .splide elements except #feature-slider
+//     document.querySelectorAll('.splide:not(#feature-slider)').forEach(function (splideElement) {
+//         new Splide('#' + splideElement.id, {
+//            type: 'slide',
+//             perPage: 5,
+//             gap: '1rem',
+//             autoplay: false,
+//             interval: 3000,
+//             pagination: false,
+//             arrows: false,
+//             breakpoints: {
+//                 768: {
+//                     perPage: 2,
+//                     gap: '0.5rem',
+//                 },
+//             },
+//         }).mount();
+
+        
+//     });
+// });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#feature-slider', {
+            type: 'slide',
+            perPage: 6,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+            768: {
+                fixedWidth: '20%',
+                perPage: 4,
+                // perMove: 3,
+                gap: '0.5rem',
+                arrows: false,
+            },
+            },
+        }).mount();
         });
+		
+		document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#our-location-slider', {
+            type: 'slide',
+            perPage: 7,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+            768: {
+               fixedWidth: '40%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '1rem',
+                    arrows: false,
+            },
+            },
+        }).mount();
+        });
+		
+		
+		document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#we-do-slider-mobile', {
+            type: 'slide',
+            perPage: 2,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+            768: {
+               fixedWidth: '65%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '1rem',
+                    arrows: false,
+            },
+            },
+        }).mount();
+        });
+		
+		document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#review-slider', {
+            type: 'slide',
+            perPage: 4,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+            768: {
+               fixedWidth: '65%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '1rem',
+                    arrows: false,
+            },
+            },
+        }).mount();
+        });
+		
+		document.addEventListener('DOMContentLoaded', function () {
+    // Select all .splide elements except #feature-slider
+    document.querySelectorAll('.custom_splide.splide:not(#feature-slider)').forEach(function (splideElement) {
+
+        splideElement.classList.add('custom-splide');
+        const splideId = splideElement.id;
+
+        const subserviceCount = parseInt(splideElement.getAttribute('data-subservice-count')) || 0;
+        const showArrows = subserviceCount > 5;
+
+        const splideInstance = new Splide('#' + splideId, {
+            type: 'slide',
+            perPage: 5,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: showArrows,
+            breakpoints: {
+                768: {
+                    fixedWidth: '34%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '0.5rem',
+                    arrows: false,
+                    },
+            },
+        });
+
+        splideInstance.mount();
+        
+       // Bind custom buttons using ID extracted from splideElement
+        const prevButton = document.querySelector('.custom-prev-' + splideId.replace('splide_', ''));
+        const nextButton = document.querySelector('.custom-next-' + splideId.replace('splide_', ''));
+
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => splideInstance.go('<'));
+            nextButton.addEventListener('click', () => splideInstance.go('>'));
+        }
     });
-    </script>
+});
+
+</script>
+
+<script>
+
+// //Google Review Slider
+// function setEqualHeight() {
+//   const cards = document.querySelectorAll('.review-card-fixed');
+//   let maxHeight = 0;
+
+//   cards.forEach(card => {
+//     card.style.height = 'auto'; // Reset to get accurate height
+//     const height = card.offsetHeight;
+//     if (height > maxHeight) maxHeight = height;
+//   });
+
+//   cards.forEach(card => {
+//     card.style.height = maxHeight + 'px';
+//   });
+// }
+// $(document).ready(function () {
+//   let itemCount = $('.review-slider .item').length;
+//   let enableNav = itemCount > 5;
+
+//   $('.review-slider').owlCarousel({
+//     loop: false,
+//     margin: 30,
+//     nav: enableNav,
+//     navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+//     dots: false,
+//     autoplay: false,
+//     responsive: {
+//       0: { items: 2, nav: false },
+//       480: { items: 2, nav: false },
+//       768: { items: 3, nav: false },
+//       992: { items: 4, nav: enableNav },
+//       1300: { items: 4, nav: enableNav }
+//     },
+//     onInitialized: setEqualHeight,
+//     onResized: setEqualHeight,
+//     onRefreshed: setEqualHeight,
+//     onInitialized: function(event) {
+//       toggleNavVisibility(event);
+//     },
+//     onResized: function(event) {
+//       toggleNavVisibility(event);
+//     }
+//   });
+
+//   function toggleNavVisibility(event) {
+//   const width = $(window).width();
+
+//   if (width < 992) {
+//     // Always hide nav on mobile/tablet (< 992px)
+//     $(event.target).find('.owl-nav').hide();
+//   } else {
+//     // On desktop, show nav only if more than 5 items
+//     if (itemCount > 5) {
+//       $(event.target).find('.owl-nav').show();
+//     } else {
+//       $(event.target).find('.owl-nav').hide();
+//     }
+//   }
+// }
+
+// });
+
+// Our Location Slider
+/* $(document).ready(function () {
+$('.our-location-slider').owlCarousel({
+    loop: false,
+    margin: 30,
+    nav: false,
+    dots: false,
+    autoplay: false,
+    responsive: {
+        0: { items: 2,
+             stagePadding: 30,
+         },
+        600: { items: 2 },
+        1000: { items: 7 },
+        1200: { items: 7}
+    }
+});
+
+}); */
+
+
+// We Do Mobile View Slider
+$(document).ready(function () {
+ $('.we-do-mobile-slider').owlCarousel({
+    loop:false,
+    margin:30,
+    center:false,
+    dots:false,
+    nav:false,
+    responsive: {
+      0: {
+        items: 1,
+        stagePadding : 30,
+      },
+      480:{
+        items:1,
+        stagePadding : 30,
+      },
+      600: {
+        items: 1,
+        stagePadding : 30,
+      },
+      768: {
+        items: 1,
+        stagePadding : 30,
+      },
+    }
+  })
+
+});
+
+
+
+
+</script>

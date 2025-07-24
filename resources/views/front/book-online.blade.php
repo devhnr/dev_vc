@@ -2,6 +2,58 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 <style>
+
+#how_many_rooms_painted_slider_spatie .splide__arrow--prev{
+	left: 0em;
+}
+#how_many_rooms_painted_slider_spatie .splide__arrow--next{
+	right: 0em;
+}
+
+#how_many_rooms_painted_slider_spatie .splide__arrow{
+	
+	bottom: -40% !important;
+	background: inherit;
+	top: inherit;
+}
+
+
+#how_many_walls_painted_slider_spatie .splide__arrow--prev{
+	left: 0em;
+}
+#how_many_walls_painted_slider_spatie .splide__arrow--next{
+	right: 0em;
+}
+
+#how_many_walls_painted_slider_spatie .splide__arrow{
+	
+	bottom: -40% !important;
+	background: inherit;
+	top: inherit;
+}
+
+.modal-content {border-radius: 1.3rem;}
+.splide__slide .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* ensures uniform height if needed */
+    text-align: center;
+    white-space: nowrap; /* or wrap if label too long */
+    /* padding: 8px; */
+    border-radius: 8px;
+    background-color: #fff;
+    }
+.splide__slide label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .splide__slide {
+        /* margin-right: 0!important; */
+        width: auto !important;
+    }
      .wallet_apply{
         border: none;
         background-color: inherit;
@@ -47,15 +99,59 @@
   }
   .modal-dialog{
     max-width: 60%;
-     height: 700px; 
-     overflow: auto;
-
+    height: auto !important;
+    max-height:70% !important;
   }
+
   .mobile-next{
     top: 20px !important;
   }
+      .closeBtn {
+            background: none;
+            font-size: 50px;
+            color: #000;
+            border: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 0;
+            padding: 0;
+            width: 30px;
+        }
+
+.time_replace_ab{
+    
+    margin-top: 2%;
+}
+.time_replace_ab .surcharge-badge-timeslot{
+    position: relative;
+    margin-top: 4%;
+}
   /* Show the button on mobile screens (less than 768px wide) */
   @media only screen and (max-width: 768px) {
+	  
+	  #how_many_rooms_painted_slider_spatie .splide__arrow {
+		 
+		  top: inherit !important;
+	  }
+	  #how_many_rooms_painted_slider_spatie .splide__arrow--prev {
+			left: 1em;
+		}
+		#how_many_rooms_painted_slider_spatie .splide__arrow--next {
+			right: 1em;
+		}
+		
+		#how_many_walls_painted_slider_spatie .splide__arrow {
+		 
+		  top: inherit !important;
+	  }
+	  #how_many_walls_painted_slider_spatie .splide__arrow--prev {
+			left: 1em;
+		}
+		#how_many_walls_painted_slider_spatie .splide__arrow--next {
+			right: 1em;
+		}
+	  
     .hour_input .items{
         margin-left: 30px;
     }
@@ -112,20 +208,47 @@
         padding: 70px 10px 10px;
     }
 
-    .closeBtn {
-            background: none;
-            font-size: 50px;
-            color: #000;
-            border: none;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: 0;
-            padding: 0;
-            width: 30px;
+
+    
+    .splide__arrow{
+        background: none !important;
+        top: 120% !important;
+    }
+    .splide__arrow--prev{
+        content: '\f104'; /* FontAwesome left arrow */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-left: -4% !important;
+        top: 80px !important;
+    }
+
+    .splide__arrow--next{
+        content: '\f105'; /* FontAwesome right arrow */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: -4% !important;    
+        top: 80px !important;
+    }
+    .splide__arrow svg {
+        fill: #000;
+        height: 15px;
+        width: 15px;
+    }
+    .payment-center{
+        display: block !important;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .img-center{
+        text-align: center;
     }
     
 }
+  .time-slot-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 15px; /* spacing between items */
+    }
 
 
 table {
@@ -144,7 +267,7 @@ table {
     /* Style the labels to look like buttons */
     .radio-group label {
         display: inline-block;
-        padding: 10px 20px !important;
+        padding: 7px 21px;
         margin: 5px;
         border: 2px solid #0040E6;
         border-radius: 4px;
@@ -238,7 +361,7 @@ table {
         display: flex;
         align-items: center;
         /* justify-content: center; */
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
     .scroll-arrow {
         cursor: pointer;
@@ -285,7 +408,7 @@ table {
     }
     .surcharge-badge-timeslot{
         color: red;
-        padding-top: 20px;
+        /* padding-top: 20px; */
 /*        display: inline-block;*/
     }
 
@@ -300,7 +423,7 @@ table {
         background: #ffda40;
         padding: 0px 5px;
         color: #000;
-        top: 3px;
+        top: -30%;
         border-radius: 10px;
     }
     .surcharge-badge-dayslot{
@@ -328,6 +451,7 @@ table {
     @media (max-width: 768px) {
     width: 100% !important;
    
+    
     }
     }
     .button_weekly ul li{
@@ -335,8 +459,8 @@ table {
         margin-left: -20px;
     }
     .hour_input label{
-        border-radius: 50px;
-        padding: 7px 28px !important;
+       border-radius: 50px;
+       /* padding: 7px 20% !important; */
     }
     .hour_input span{
         position: absolute;
@@ -373,7 +497,7 @@ table {
         display: contents;"
     }
     .mid_col{
-        box-shadow: 0 6px 15px #00000029;
+        /* box-shadow: 0 6px 15px #00000029; */
         padding: 13px 13px 13px 13px;
         border-radius: 10px;
     }
@@ -410,16 +534,19 @@ table {
         width: 100% !important;
     } */
     .sm-summary{
-        max-width: 50%;
+        /* max-width: 50%; */
          text-align: right;
          color:#0040E6;
     }
-    .step-p{
-        margin:0  0 -10px 34%;
-        font-size:21px;
+    .step-p {
+       margin: 0 0 -8px 2.2%;
+        font-size: 18px;
     }
-    .step-title{
-        margin-left: 34%;
+    .step-title {
+        margin-left: 0;
+        display: flex;
+        gap: 10px;
+        align-items: center;
     }
     .custome-black{
         background-color: #000 !important;
@@ -438,13 +565,14 @@ table {
     .left-summary-total{
         background-color :#0040E6;
         color: #fff;
-        padding: 5px 0px 7px 67px;
+        padding: 13px 0px;
         border-radius: 11px;
     }
     .left-summary-without-cross-total{
         background-color :#0040E6;
         color: #fff;
-        padding: 16px 0px 7px 67px;
+        /* padding: 16px 0px 7px 67px; */
+        padding: 13px 0px;
         border-radius: 11px;
     }
     .main-title{
@@ -495,25 +623,247 @@ table {
 }
 
 
+.promo_dicount_replace_new_div {display: none !important;}
+.timing_charge_replace_div {display: none !important;}
+.cod_charge_replace_div {display: none !important;}
+
+  textarea::placeholder {
+    font-size: 12px; 
+    }
+
+    #service-step-title {
+        position: fixed;
+        top: 92px !important;
+        background: #fafafa;
+        z-index: 1;
+        padding: 10px 0;
+        width: 100%;
+        /* left: 0; */
+        padding-left: 0;
+
+        transition: all 0.4s ease;
+        opacity: 1;
+        transform: translateY(0);
+    }
+	
+	#summary_div_left_package{background-color: #fff;border:1px solid #ccc;box-shadow: inherit;}
+
+    #service-step-title .step-p {
+        transition: all 0.4s ease;
+        opacity: 1;
+        transform: translateY(0);
+        overflow: hidden;
+    }
+	
+	.body_content{background-color: #fafafa;}
+	
+	header.nav-homepage-style{
+		background-color: #fff;
+	}
+	
+
+    #service-step-title .step-p.hide {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        /* Removed: display: none; */
+    }
+    #category_form_new {
+            margin-top:80px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+        }
+@media (max-width: 767px) {
+    textarea::placeholder {
+    font-size: 12px !important; 
+    }
+    .mid_col{
+        box-shadow: unset !important;
+    }
+    #service-step-title {
+        position: fixed;
+        top: 80px !important;
+        background: #fafafa;
+        z-index: 9999;
+        padding: 10px 0;
+        width: 100%;
+        left: 0;
+        padding-left: 10px;
+        transition: all 0.4s ease;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #service-step-title .step-p {
+        transition: all 0.4s ease;
+        opacity: 1;
+        transform: translateY(0);
+        overflow: hidden;
+    }
+
+    #service-step-title .step-p.hide {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        /* Removed: display: none; */
+    }
+    #category_form_new {
+        margin-top:60px;
+    }
+    .step-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 20px;
+    }
+
+    .back-icon i {
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .step-p {
+        margin: 0 0 -8px 9% !important;
+        font-size:18px !important;
+    }
+     .subservice-name{
+        font-size: 20px !important;
+    }
+    .modal-header-mobile{
+        padding: 10px 10px 2px 10px !important;
+    }
+     .closeBtn {
+            background: none;
+            font-size: 50px;
+            color: #000;
+            border: none;
+            position: absolute;
+            right: 10px;
+            top: 9px;
+            margin: 0;
+            padding: 0;
+            width: 30px;
+        }
+}
+
+.ceilings-price{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 767.98px) {
+  .modal-mobile-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0 !important;
+  }
+
+  .modal-dialog-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 90vh;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1055;
+  }
+
+  .modal.show .modal-dialog-bottom {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .modal-content {
+    border-radius: 20px 20px 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .details-modal-content{
+    border-radius: 20px !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+.login-form-modal .user-modal-dialog{
+        max-width: 60%;
+        height: auto !important;
+    }
+  .modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-footer {
+    padding: 10px 16px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  /* Prevent Bootstrap's default top-down animation */
+  .modal .modal-dialog {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .modal-dialog-centered{
+    min-height:0 !important;
+  }
+ .modal-mobile{
+    padding: 10px 16px !important;
+  }
+}
+.service-fee-custome-modal{
+    max-width: 450px !important; 
+}
+.charge-desc-popup{
+    border-radius: 13px !important;
+}
+.modal{
+    z-index:99999 !important;
+}
+#summary_div_left {
+    padding-top: 81px;
+	
+}
+.container {
+    max-width: 960px !important;
+}
+ .back-icon i {
+    font-size: 25px;
+    cursor: pointer;
+}
     </style>
+
 <section class="our-register">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 wow fadeInUp" data-  -delay="300ms">
-                <div class="main-title">
-                    <p class="step-p">Step 1 of 4</p>
-                    <h2 class="title step-title">Booking Summary</h2>
-                    <hr class="step-underline">
-                    {{-- <p class="paragraph">Give your visitor a smooth online experience with a solid UX design</p> --}}
-                </div>
-            </div>
+        <div id="service-step-title" class="main-title">
+            <p class="step-p">Step 1 of 4</p>
+                    <h2 class="title step-title">
+                        <span class="back-icon"></span> 
+                       Booking Summary</h2>
         </div>
 
-        <div class="row">
-            <div class="col-lg-2">
-            </div>
-        <div class="col-lg-6">
-                <form id="category_form_new" action="{{ route('book_now_order') }}" method="POST" class="mid_col">
+        <div class="row wrap">
+        
+        <div class="col-lg-7">
+                <form id="category_form_new" action="{{ route('book_now_order') }}" method="POST" class="mid_col" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="apply_button" id="apply_button" value="0">
@@ -550,6 +900,7 @@ table {
 
                     <input type="hidden" name="selected_ceiling_price" id="selected_ceiling_price" value="0">
                     <input type="hidden" name="timing_charge" id="timing_charge" value="0">
+                    <input type="hidden" name="weekly_off_charge" id="weekly_off_charge" value="0">
 
                     <input type="hidden" name="no_of_ceilings" id="no_of_ceilings" value="">
                    
@@ -584,9 +935,9 @@ table {
                         <img src="https://servicemarket.imgix.net/dist/css/img/service/cleaning-maid-services/about-cleaning.jpg" width="100%">
                     </div> --}}
 
-                    <h5 class="font-weight-bold h3">About our {{ $subservice_name }} </h5>
-                    <p class="card-text"><span>Complete the booking form, and we’ll match you with a skilled painter to give your home a fresh, vibrant look. Discover more about what our Painting Service includes.</span><br/>
-                        @if($subservice_id == 47)
+                    <h5 class="font-weight-bold h3 subservice-name">About our {{ $subservice_name }} </h5>
+                    <p class="card-text"><span>Complete the booking form, and we’ll match you with a skilled painter to give your home a fresh, vibrant look. Discover more about what our Painting Service includes.</span>
+                    @if($subservice_id == 47)
                         <a href="javascript:void(0)" data-bs-toggle="modal" id="read_more" data-bs-target="#exampleModalLong_{{$subservice_id}}" style="text-decoration: underline;">
                             Read more
                         </a>
@@ -594,7 +945,7 @@ table {
                     </p>
                     
                     <div class="form-group mb-3">
-                        <label class="form-label fw500 dark-color" for="country">Please select the type of painting</label>
+                        <label class=" fw500 dark-color" for="country">Please select the type of painting</label>
                         <select class="form-control searches_drop"
                             id="formfield_value_test"
                             name="formfield_value"
@@ -622,31 +973,48 @@ table {
                         <p style="color:red;" id="painting-select-error"></p>
                     </div>
                     <span id="movingOptionTab" style="display: none;">
-                    <div class="form-group mb-3">
-                        <label class="form-label fw500 dark-color"
+                    <div class="form-group">
+                        <label class=" fw500 dark-color"
                         for="country">What type of home do you live in?</label><br>
-                        <div class="radio-group need_cleaner" style="display: inline-flex;">
-                            
-                            <div class="hour_input">
+						
+						<div id="type_of_home_slider_spatie" class="splide radio-group ">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+
+                            <li class="splide__slide text-center" >
+                               <div class="hour_input">
                                 <input type="radio" id="type-of-home-1" name="type_of_home" value="2" checked onclick="type_of_homeFun(1);">
                                 <label for="type-of-home-1">Apartment</label>
                                 <p style="font-size: 9px; margin-left:14px;"></p>
                             </div>
-                    
-                            <div class="hour_input">
+                            </li>
+
+                            <li class="splide__slide text-center">
+                                <div class="hour_input">
                                 <input type="radio" id="type-of-home-2" name="type_of_home" value="3" onclick="type_of_homeFun(2);">
                                 <label for="type-of-home-2">Villa</label>
                                 <p style="font-size: 9px; margin-left:15px;"></p>
                             </div>
+                            </li>
+
+
+                            <!-- Add more slides as needed -->
+
+                            </ul>
+                        </div>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label fw500 dark-color"
+                    <div class="form-group mb-3">
+                        <label class=" fw500 dark-color"
                         for="country">What is the size of your home?</label><br>
                         @if($painting_price_data !="" && !empty($painting_price_data) && count($painting_price_data) > 0)
-                        <div class="radio-group size-of-home-tab1 owl-carousel owl-theme slider" id="size-of-home-slider" style="display: inline-flex;">
-                            @php
+							
+						<div id="size-of-home-slider-apartment" class="splide radio-group size-of-home-tab1">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+							
+							@php
                                 $count = 0;
                             @endphp
                             @foreach($painting_price_data as $apartmentPrice)
@@ -657,19 +1025,32 @@ table {
                                     $isSelected = "";
                                 }
                             @endphp
-                            <div class="hour_input items">
-                                <input type="radio" id="size-of-home-studio-{{ $count }}" name="size_of_home_1" value="{{ $apartmentPrice->id }}" {{ $isSelected }} onclick="sizeOfHome();">
-                                <label for="size-of-home-studio-{{ $count }}">{{ $apartmentPrice->size_of_home }}</label>
-                                <p style="font-size: 9px; margin-left:14px;"></p>
-                            </div>
-                            @php
+
+                            <li class="splide__slide text-center" >
+                                 <div class="hour_input items">
+									<input type="radio" id="size-of-home-studio-{{ $count }}" name="size_of_home_1" value="{{ $apartmentPrice->id }}" {{ $isSelected }} onclick="sizeOfHome();">
+									<label for="size-of-home-studio-{{ $count }}">{{ $apartmentPrice->size_of_home }}</label>
+									<p style="font-size: 9px; margin-left:14px;"></p>
+								</div>
+                            </li>
+							@php
                                 $count++;
                             @endphp
                             @endforeach
+                            
+
+                            <!-- Add more slides as needed -->
+
+                            </ul>
                         </div>
+                        </div>			
+						
                         @endif
                         @if($villaPainting_price_data !="" && !empty($villaPainting_price_data) && count($villaPainting_price_data) > 0)
-                        <div class="radio-group size-of-home-tab2 owl-carousel owl-theme slider" style="display: none;">
+                        
+                        <div id="size-of-home-slider-villa" class="splide radio-group size-of-home-tab2" style="display: none;">
+                        <div class="splide__track">
+                            <ul class="splide__list">
                             @php
                                 $villa = 0;
                             @endphp
@@ -681,15 +1062,19 @@ table {
                                     $isSelected = "";
                                 }
                             @endphp
+                            <li class="splide__slide text-center" >
                             <div class="hour_input items">
                                 <input type="radio" id="size-of-home2-{{ $villa }}" name="size_of_home_2" value="{{ $villaPrice->id }}" {{ $isSelected }} onclick="sizeOfHome();">
                                 <label for="size-of-home2-{{ $villa }}">{{ $villaPrice->size_of_home }}</label>
                                 <p style="font-size: 9px; margin-left:14px;"></p>
                             </div>
+                            </li>
                             @php
                                 $villa++;
                             @endphp
                             @endforeach
+                        </ul>
+                        </div>
                         </div>
                         @endif
 
@@ -697,144 +1082,197 @@ table {
                     </div>
                     
 
-                    <div class="form-group mb-3">
-                        <label class="form-label fw500 dark-color"
+                    <div class="form-group ">
+                        <label class=" fw500 dark-color"
                         for="country">What color do you want your walls painted?</label><br>
-                        <div class="radio-group need_cleaner" style="display: inline-flex;">
-                            
+                       
+                        <div id="color_want_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+
+                            <li class="splide__slide text-center" >   
                             <div class="hour_input">
                                 <input type="radio" id="wallas-painted-1" name="color_do_you_want_walls_painted" value="white" onclick="newColor('1');">
                                 <label for="wallas-painted-1">White</label>
                             </div>
-                    
+                            </li>
+                            
+                            <li class="splide__slide text-center" >   
                             <div class="hour_input">
                                 <input type="radio" id="wallas-painted-2" name="color_do_you_want_walls_painted" value="off-white" onclick="newColor('1');">
                                 <label for="wallas-painted-2">Off-White</label>
                             </div>
+                            </li>
+                        </ul>
                            
+                        </div>
                         </div>
                         <p style="color:#ff0000;" class="new-color-error"></p>
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label fw500 dark-color"
+                        <label class=" fw500 dark-color"
                         for="country">What color are your walls now?</label><br>
-                        <div class="radio-group need_cleaner owl-carousel owl-theme slider" id="your-walls-now-slider" style="display: inline-flex;">
-                            
+                          
+                        <div id="your_walls_now_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+
+                            <li class="splide__slide text-center" >
                             <div class="hour_input items">
                                 <input type="radio" id="color-are-you-walls-now-1" name="what_color_your_walls_now" value="white" onclick="newColor('2');">
                                 <label for="color-are-you-walls-now-1">White</label>
                             </div>
+                            </li>
                     
+                            <li class="splide__slide text-center">
                             <div class="hour_input items">
                                 <input type="radio" id="color-are-you-walls-now-2" name="what_color_your_walls_now" value="off-white" onclick="newColor('2');">
                                 <label for="color-are-you-walls-now-2">Off-White</label>
                             </div>
+                            </li>
+
+                             <li class="splide__slide text-center" >
                             <div class="hour_input items">
                                 <input type="radio" id="color-are-you-walls-now-3" name="what_color_your_walls_now" value="color" onclick="newColor('2');">
                                 <label for="color-are-you-walls-now-3">Color</label>
                             </div>
+                            </li>
+
+                              <li class="splide__slide text-center" >
                             <div class="hour_input items">
                                 <input type="radio" id="color-are-you-walls-now-4" name="what_color_your_walls_now" value="mixed" onclick="newColor('2');">
                                 <label for="color-are-you-walls-now-4">Mixed</label>
                             </div>
-                            <p></p>
+                            </li>
+                            <ul>
+                        </div>
                         </div>
                         <p style="color:#ff0000;" class="old-color-error"></p>
                     </div>
                     
-                    <div class="row">
+                    {{-- <div class="row"> --}}
 
-                        <div class="form-group mb-3">
-                            <label class="form-label fw500 dark-color"
+                        <div class="form-group mt30">
+                            <label class=" fw500 dark-color"
                             for="country">Is your home furnished?</label><br>
-                            <div class="radio-group need_cleaner" style="display: inline-flex;">
-                                
+                        
+                        <div id="home_furnished_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+
+                            <li class="splide__slide text-center" >   
                                 <div class="hour_input">
                                     <input type="radio" id="is-your-home-furnished-1" name="isYourHomeFurnshed" value="Yes" onclick="homeFurnished();">
                                     <label for="is-your-home-furnished-1">Yes</label>
                                     <p style="font-size: 9px; margin-left:14px;"></p>
                                 </div>
+                            </li>
                         
+                            <li class="splide__slide text-center" >
                                 <div class="hour_input">
                                     <input type="radio" id="is-your-home-furnished-2" name="isYourHomeFurnshed" value="No" checked onclick="homeFurnished();">
                                     <label for="is-your-home-furnished-2">No</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                            </li>
+
+                            </ul>
+                            </div>
                             </div>
                         </div>
     
-                        <div class="form-group mb-3">
-                            <label class="form-label fw500 dark-color"
+                        <div class="form-group">
+                            <label class=" fw500 dark-color"
                             for="country">Do you need ceilings painted?</label><br>
-                            <div class="radio-group need_cleaner" style="display: inline-flex;">
-                                
+                            
+                               
+                        <div id="ceilings_painted_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+
+                            <li class="splide__slide text-center" >   
                                 <div class="hour_input">
                                     <input type="radio" id="do-you-need-ceiling-painted-1" name="do_you_need_ceiling_painted" value="1" onclick="isCeilingPainted();">
                                     <label for="do-you-need-ceiling-painted-1">Yes</label>
                                     <p style="font-size: 9px; margin-left:14px;"></p>
                                 </div>
-                        
+                            </li>
+
+                             <li class="splide__slide text-center" >   
                                 <div class="hour_input">
                                     <input type="radio" id="do-you-need-ceiling-painted-2" name="do_you_need_ceiling_painted" value="0" onclick="isCeilingPainted();" checked>
                                     <label for="do-you-need-ceiling-painted-2">No</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
-                                {{-- 24-10-2024 <div class="hour_input">
-                                    <input type="radio" id="do-you-need-ceiling-painted-1" name="do_you_need_ceiling_painted" value="2" onclick="doYouNeedCeilingsPainted(true);">
-                                    <label for="do-you-need-ceiling-painted-1">Yes</label>
-                                    <p style="font-size: 9px; margin-left:14px;"></p>
-                                </div>
-                        
-                                <div class="hour_input">
-                                    <input type="radio" id="do-you-need-ceiling-painted-2" name="do_you_need_ceiling_painted" value="3" onclick="doYouNeedCeilingsPainted(false);" checked>
-                                    <label for="do-you-need-ceiling-painted-2">No</label>
-                                    <p style="font-size: 9px; margin-left:15px;"></p>
-                                </div> --}}
+                             </li>
+
+                            </ul>
+                               
                             </div>
                         </div>
                         
                     </div>
+                    {{-- </div> --}}
                    
 
                     <div class="form-group mb-3" id="ceilngs-painting-costs" style="display: none;">
-                        <label class="form-label fw500 dark-color"
-                        for="country">Do you need ceilings painted?</label><br/><span>Ceilings painting costs AED 125 per ceiling</span><br>
-                        
-                        <div class="radio-group need_cleaner  owl-carousel owl-theme slider" style="display: inline-flex;">
-                            
+                        <label class=" fw500 dark-color"
+                        for="country">Do you need ceilings painted?</label><br/><span class=" ceilings-price">Ceilings painting costs AED 125 per ceiling</span><br>
+                   
+                        <div id="ceilings_painted_per_ceil_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list"> 
+                              
+                            <li class="splide__slide text-center" >     
                             <div class="hour_input items">
                                 <input type="radio" id="per-ceiling-costs-1" name="per_ceiling_costs" value="1" checked onclick="isCeilingPainted();">
-                                <label for="per-ceiling-costs-1">1</label>
+                                <label for="per-ceiling-costs-1"style="padding: 10px 28px !important;">1</label>
                                 <p style="font-size: 9px; margin-left:14px;"></p>
                             </div>
+                            </li>
                     
+                            <li class="splide__slide text-center" >  
                             <div class="hour_input items">
                                 <input type="radio" id="per-ceiling-costs-2" name="per_ceiling_costs" value="2" onclick="isCeilingPainted();">
-                                <label for="per-ceiling-costs-2">2</label>
+                                <label for="per-ceiling-costs-2" style="padding: 10px 28px !important;">2</label>
                                 <p style="font-size: 9px; margin-left:15px;"></p>
                             </div>
+                            </li>
+
+                            <li class="splide__slide text-center" >  
                             <div class="hour_input items">
                                 <input type="radio" id="per-ceiling-costs-3" name="per_ceiling_costs" value="3" onclick="isCeilingPainted();">
-                                <label for="per-ceiling-costs-3">3</label>
+                                <label for="per-ceiling-costs-3" style="padding: 10px 28px !important;">3</label>
                                 <p style="font-size: 9px; margin-left:15px;"></p>
                             </div>
+                            </li>
+
+                            <li class="splide__slide text-center" >  
                             <div class="hour_input items">
                                 <input type="radio" id="per-ceiling-costs-4" name="per_ceiling_costs" value="4" onclick="isCeilingPainted();">
-                                <label for="per-ceiling-costs-4">4</label>
+                                <label for="per-ceiling-costs-4" style="padding: 10px 28px !important;">4</label>
                                 <p style="font-size: 9px; margin-left:15px;"></p>
                             </div>
+                            </li>
+
+                            <li class="splide__slide text-center" >  
                             <div class="hour_input items">
                                 <input type="radio" id="per-ceiling-costs-5" name="per_ceiling_costs" value="5" onclick="isCeilingPainted();">
-                                <label for="per-ceiling-costs-5">5</label>
+                                <label for="per-ceiling-costs-5" style="padding: 10px 28px !important;">5</label>
                                 <p style="font-size: 9px; margin-left:15px;"></p>
                             </div>
+                            </li>
+
+                            </ul>
                         </div>
                     </div>
+                    </div>
+
                     </span>
                     {{-- <span id="movingOptionTab1" style="display: none;">
                         <div class="form-group mb-3 col-md-12 col-sm-12">
-                            <label class="form-label fw500 dark-color"
+                            <label class=" fw500 dark-color"
                             for="country">Where do you need the service?</label><br>
                             <div class="need_cleaner">
                                     <input type="text" id="type-of-home-1" class="form-control" name="type_of_home" value="" placeholder="Enter a location">
@@ -845,154 +1283,344 @@ table {
 
                     <span id="movingOptionTab2" style="display: none;">
                         <div class="form-group mb-3 col-md-12 col-sm-12">
-                            <label class="form-label fw500 dark-color"
+                            <label class=" fw500 dark-color"
                             for="country">How many rooms do you need painted?</label>
 
-                            <div class="radio-group need_cleaner owl-carousel owl-theme slider" id="paint-individual-slider" style="display: inline-flex;">
-                                
+
+                        <div id="how_many_rooms_painted_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list"> 
+                               
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-1" name="how_many_rooms_painted" value="1" checked onclick="no_of_rooms_paint('1');">
                                     <label for="how-many-room-painted-1" class="paint-individual-label">1</label>
                                     <p style="font-size: 9px; margin-left:14px;"></p>
                                 </div>
-                        
+                                </li>
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-2" name="how_many_rooms_painted" value="2" onclick="no_of_rooms_paint('2');">
                                     <label for="how-many-room-painted-2">2</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-3" name="how_many_rooms_painted" value="3" onclick="no_of_rooms_paint('3');">
                                     <label for="how-many-room-painted-3">3</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-4" name="how_many_rooms_painted" value="4" onclick="no_of_rooms_paint('4');">
                                     <label for="how-many-room-painted-4">4</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-5" name="how_many_rooms_painted" value="5" onclick="no_of_rooms_paint('5');">
                                     <label for="how-many-room-painted-5">5</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-6" name="how_many_rooms_painted" value="6" onclick="no_of_rooms_paint('6');">
                                     <label for="how-many-room-painted-6">6</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-7" name="how_many_rooms_painted" value="7" onclick="no_of_rooms_paint('7');">
                                     <label for="how-many-room-painted-7">7</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                                <li class="splide__slide text-center" >   
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-8" name="how_many_rooms_painted" value="8" onclick="no_of_rooms_paint('8');">
                                     <label for="how-many-room-painted-8">8</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
-                                <div class="hour_input">
+                                </li>
+                                <li class="splide__slide text-center" >   
+                                <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-9" name="how_many_rooms_painted" value="9" onclick="no_of_rooms_paint('9');">
                                     <label for="how-many-room-painted-9">9</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
-                                <div class="hour_input">
+                                </li>
+                                <li class="splide__slide text-center" >   
+                                <div class="hour_input items">
                                     <input type="radio" id="how-many-room-painted-10" name="how_many_rooms_painted" value="10" onclick="no_of_rooms_paint('10');">
                                     <label for="how-many-room-painted-10">10</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                            </ul>
+
                             </div>
                         </div>
-                        {{-- <div class="form-group mb-3 col-md-12 col-sm-12">
-                            <label class="form-label fw500 dark-color"
-                            for="country">Where do you need the service?</label><br>
-                            <div class="need_cleaner">
-                                    <input type="text" id="type-of-home-1" class="form-control" name="type_of_home" value="" placeholder="Enter a location">
-                                    <p style="font-size: 9px; margin-left:14px;"></p>
-                            </div>
-                        </div> --}}
+                        </div>
                     </span>
+
+
+
                     {{-- Lorem --}}
                     <span id="movingOptionTab4" style="display: none;">
                         <div class="form-group mb-3 col-md-12 col-sm-12">
-                            <label class="form-label fw500 dark-color"
+                            <label class=" fw500 dark-color"
                             for="country">How many walls do you need painted?</label>
                             
-                            <div class="radio-group need_cleaner owl-carousel owl-theme slider" id="paint-individual-wall-slider" style="display: inline-flex;">
-                                
+                        <div id="how_many_walls_painted_slider_spatie" class="splide radio-group">
+                        <div class="splide__track">
+                            <ul class="splide__list"> 
+                               
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-1" name="how_many_walls_painted" value="1" checked onclick="no_of_walls_paint('1');">
                                     <label for="how-many-wall-painted-1" class="paint-individual-label">1</label>
                                     <p style="font-size: 9px; margin-left:14px;"></p>
                                 </div>
+                                </li>
                         
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-2" name="how_many_walls_painted" value="2" onclick="no_of_walls_paint('2');">
                                     <label for="how-many-wall-painted-2">2</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-3" name="how_many_walls_painted" value="3" onclick="no_of_walls_paint('3');">
                                     <label for="how-many-wall-painted-3">3</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-4" name="how_many_walls_painted" value="4" onclick="no_of_walls_paint('4');">
                                     <label for="how-many-wall-painted-4">4</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-5" name="how_many_walls_painted" value="5" onclick="no_of_walls_paint('5');">
                                     <label for="how-many-wall-painted-5">5</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-6" name="how_many_walls_painted" value="6" onclick="no_of_walls_paint('6');">
                                     <label for="how-many-wall-painted-6">6</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-7" name="how_many_walls_painted" value="7" onclick="no_of_walls_paint('7');">
                                     <label for="how-many-wall-painted-7">7</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+
+                                <li class="splide__slide text-center" >
                                 <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-8" name="how_many_walls_painted" value="8" onclick="no_of_walls_paint('8');">
                                     <label for="how-many-wall-painted-8">8</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
-                                <div class="hour_input">
+                                </li>
+
+                                <li class="splide__slide text-center" >
+                                <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-9" name="how_many_walls_painted" value="9" onclick="no_of_walls_paint('9');">
                                     <label for="how-many-wall-painted-9">9</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
-                                <div class="hour_input">
+                                </li>
+
+                                <li class="splide__slide text-center" >
+                                <div class="hour_input items">
                                     <input type="radio" id="how-many-wall-painted-10" name="how_many_walls_painted" value="10" onclick="no_of_walls_paint('10');">
                                     <label for="how-many-wall-painted-10">10</label>
                                     <p style="font-size: 9px; margin-left:15px;"></p>
                                 </div>
+                                </li>
+                            </ul>
+                            </div>
                             </div>
                         </div>
-                        {{-- <div class="form-group mb-3 col-md-12 col-sm-12">
-                            <label class="form-label fw500 dark-color"
-                            for="country">Where do you need the service?</label><br>
-                            <div class="need_cleaner">
-                                    <input type="text" id="type-of-home-1" class="form-control" name="type_of_home" value="" placeholder="Enter a location">
-                                    <p style="font-size: 9px; margin-left:14px;"></p>
-                            </div>
-                        </div> --}}
                     </span>
 
                    
 
                     <div class="form-group mb-3">
-                        <label class="form-label fw500 dark-color " for="country">Please describe the painting service you need.</label>
+                        <label class=" fw500 dark-color " for="country">Please describe the painting service you need.</label>
                         <textarea name="describe_painting_service" id="describe_painting_service" placeholder="Please enter as much detail as possible, such as the color of paint, type of paint, and size of unit you need painted so that we can get accurate quotes for you"></textarea>
 
                         <p class="form-error-text" id="any_special_instruction_error" style="color: red; margin-top: 10px;">
                         </p>
                     </div>
 
+                    @endif
+
+                    @if($subservice_id == 89)
+
+                        {{-- <div class="image">
+                            <img src="https://servicemarket.com/_next/image?url=%2Fdist%2Fcss%2Fimg%2Fservice%2Fgardening-companies%2Fgardening-companies.jpg&w=1920&q=75" width="100%">
+                        </div> --}}
+
+                        <h5 class="font-weight-bold h3 mt-3">Get quotes for your {{ $subservice_name }} Services </h5>
+                            <p class="card-text"><span>Complete the booking form, and we’ll match you with a skilled Cleaner to give your Wooden Floor a fresh, vibrant look. Discover more about what our Wooden Floor Polishing Service includes.</span><br/>
+                        
+                                <a href="javascript:void(0)" data-bs-toggle="modal" id="read_more" data-bs-target="#WoodenfloorModal_{{$subservice_id}}" style="text-decoration: underline;">
+                                    Read more
+                                </a>
+                            </p>
+
+              
+
+                        <div class="form-group mb-3">
+                            <label class="fw500 dark-color" for="country">Type of Property ?</label>
+                            <select class="form-control searches_drop form-select"
+                                id="property_type"
+                                name="property_type">
+                                    @php
+                                    $Property_Type = array(
+                                                        "Apartment",
+                                                        "Villa",
+                                                        "Office",
+                                                        "Commercial Space",
+                                                        );
+                                    @endphp
+                                <option value="">Select Service Type</option>
+                                @foreach ($Property_Type as $data)
+                                <option value="{{ $data }}">
+                                    {{ $data }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <p style="color:red;" id="property_type_error"></p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw500 dark-color" for="country">Approximate Area of Wooden Flooring (sq. ft.)</label>
+                            <select class="form-control searches_drop form-select"
+                                id="area_of_floor"
+                                name="area_of_floor">
+                                    @php
+                                    $Area_of_wooden_floor = array(
+                                                        "Less than 200 sq. ft.",
+                                                        "200 – 500 sq. ft.",
+                                                        "500 – 1000 sq. ft.",
+                                                        "More than 1000 sq. ft.",
+                                                        "Not Sure",
+                                                        );
+                                    @endphp
+                                <option value="">Select Approximate Area of Wooden Flooring</option>
+                                @foreach ($Area_of_wooden_floor as $data)
+                                <option value="{{ $data }}">
+                                    {{ $data }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <p style="color:red;" id="area_of_floor_error"></p>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw500 dark-color" for="country">Current Condition of the Floor</label>
+                            <select class="form-control searches_drop form-select"
+                                id="condition_of_floor"
+                                name="condition_of_floor">
+                                    @php
+                                    $condition_of_floor = array(
+                                                        "Current Condition of the Floor",
+                                                        "Slight wear / dullness",
+                                                        "Deep scratches / stains",
+                                                        "Water damage",
+                                                        "Just maintenance polish",
+                                                        "Not sure",
+                                                        );
+                                    @endphp
+                                <option value="">Select Current Condition of the Floor</option>
+                                @foreach ($condition_of_floor as $data)
+                                <option value="{{ $data }}">
+                                    {{ $data }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <p style="color:red;" id="condition_of_floor_error"></p>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw500 dark-color" for="country">Service Required</label>
+                            <select class="form-control searches_drop form-select"
+                                id="service_required"
+                                name="service_required">
+                                    @php
+                                    $Service_required = array(
+                                                        "Floor polishing only",
+                                                        "Scratch/stain removal + polishing",
+                                                        "Full restoration (sanding & finishing)",
+                                                        "Need expert advice",
+                                                        );
+                                    @endphp
+                                <option value="">Select Required Service</option>
+                                @foreach ($Service_required as $data)
+                                <option value="{{ $data }}">
+                                    {{ $data }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <p style="color:red;" id="service_required_error"></p>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw500 dark-color" for="country">Would you like to schedule a site survey?</label>
+                            <select class="form-control searches_drop form-select"
+                                id="schedule_site_survey"
+                                name="schedule_site_survey" onchange="wooden_floor_calculation();">
+                                
+                                <option value="">Select Site Survey Schedule</option>
+                                <option value="yes">Yes, please schedule a free survey</option>
+                                <option value="no">No, I’ll upload floor video below</option>
+
+                            </select>
+                            <p style="color:red;" id="schedule_site_survey_error"></p>
+                        </div>
+
+                        <div class="form-group mb-3 d-none" id="upload_video_div"> 
+                            <label class="form-label fw500 dark-color" for="country">Upload Video of the Wooden Floor</label>
+                           <input type="file" name="upload_video" id="upload_video" class="form-control" placeholder="Upload Video of the Wooden Floor" accept=".mp4, .mov, .avi, .wmv, .flv, .mkv">
+                            <p style="color:red;" id="upload_video_error"></p>
+                        </div>
+                   
+
+                   
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw500 dark-color " for="country">Additional Notes or Special Requests (Optional)</label>
+                            <textarea name="describe_your_requirements" id="describe_your_requirements" placeholder="If you have any other requirements, feel free to describe them here in as much detail as you want. Or just leave us a message to call you if its easier to explain on the phone"></textarea>
+
+                            <p class="form-error-text" id="describe_your_requirements_error" style="color: red; margin-top: 10px;">
+                            </p>
+                        </div>
                     @endif
 
                     @if($subservice_id == 29)
@@ -1152,7 +1780,7 @@ table {
                 <div class="tab3" style="display:none">
 
                     <div class="form-group mb-3">
-                        <label class="form-label fw500 dark-color " for="country">Which day would you like us to come?</label>
+                        <label class="fw500 dark-color " for="country">Which day would you like us to come?</label>
                         <div class="calendar-input">
                             <p style="font-size:19px; font-weight:bold;" id="month_design" ></p>
                             <div class="calendar-container">
@@ -1164,7 +1792,7 @@ table {
                                         </g>
                                     </svg>
                                 </button>
-                                <div class="dates-container" id="dates-container">
+                                <div class="dates-container" id="dates-container" onclick="date_select();">
                                     <div class="days-wrapper" id="days-wrapper"></div>
                                 </div>
                                 <button class="scroll-arrow" id="scroll-right" type="button">
@@ -1186,9 +1814,9 @@ table {
                         <input type="hidden" name="date" id="date" value="">
                         <input type="hidden" name="month" id="month" value="">
     
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label class="form-label fw500 dark-color " for="country">What time would you like us to arrive?</label>
-                            <div class="radio-group row">
+                            <div class="radio-group row time-slot-grid position relative">
     
                                 @php
                                     $timeslot = DB::table('time_slots')->orderBy('id','asc')->get()->toArray();
@@ -1196,29 +1824,35 @@ table {
                                 @endphp
     
     
-                                @foreach($timeslot as  $timeslot_data)
-                                <div class="surcharge-badge-timeslot col-lg-6" style="position: relative;">
+                                @foreach($timeslot as $timeslot_data)
+
+                                @php
+                                    $timeslot_service = DB::table('subservice_timeslot_price')
+                                        ->where('subservice_id', $subservice_id)
+                                        ->where('time_slot_id', $timeslot_data->id)
+                                        ->where('is_active', 1)
+                                        ->first();  
+                                    // echo"<pre>";print_r($timeslot_service);echo"</pre>";exit;
     
-                                     @php
-                                        $timeslot_service = DB::table('subservice_timeslot_price')->where('subservice_id',$subservice_id)->where('time_slot_id',$timeslot_data->id)->first();
-                                       
-                                   
-                                    if($timeslot_service->price > 0){
+                                    if ($timeslot_service 
+                                    && $timeslot_service->price > 0) {
                                         $timeslot_service_price = $timeslot_service->price;
-                                        
-                                    }else{
+                                    } else {
                                         $timeslot_service_price = 0;
                                     }
+                                @endphp
     
-                                     @endphp
-    
-                                    @if($timeslot_service_price > 0)
-                                        <span>+ AED {{$timeslot_service_price}}</span>
-                                    @endif
+                                @if($timeslot_service && $timeslot_service->is_active == 1)
+
+                                <div class="surcharge-badge-timeslot items">
+                                @if($timeslot_service_price > 0)
+                                    <span>+ AED {{$timeslot_service_price}}</span>
+                                @endif
                                 <input type="radio" id="time{{$i}}" name="time_slot" data-name="{{$timeslot_data->name}}" onclick="timeslot_price('{{$timeslot_service_price}}','{{$timeslot_data->name}}');" value="{{$timeslot_data->id}}" >
                                 <label class="labeltime" for="time{{$i}}" style="border-radius: 50px;">{{$timeslot_data->name}}</label>
     
                                 </div>
+                                @endif
                                 @php
                                     $i++;
                                 @endphp
@@ -1226,7 +1860,52 @@ table {
                             </div>
                             <p class="form-error-text" id="time_slot_error" style="color: red; margin-top: 10px;">
                             </p>
+                        </div> --}}
+
+                       <div class="form-group mb-3">
+                        <label class="form-label fw500 dark-color" for="country">What time would you like us to start?</label>
+                        <div class="radio-group time-slot-grid time_replace_ab">
+                            @php
+    use Carbon\Carbon;
+    date_default_timezone_set('Asia/Dubai');
+
+    $timeslot = DB::table('time_slots')->orderBy('id', 'asc')->get()->toArray();
+    $i = 1;
+@endphp
+
+@foreach($timeslot as $timeslot_data)
+    @php
+        // Get service-specific timeslot price
+        $timeslot_service = DB::table('subservice_timeslot_price')
+            ->where('subservice_id', $subservice_id)
+            ->where('time_slot_id', $timeslot_data->id)
+            ->where('is_active', 1)
+            ->first();
+
+        $timeslot_service_price = $timeslot_service && $timeslot_service->price > 0 ? $timeslot_service->price : 0;
+    @endphp
+
+    @if($timeslot_service && $timeslot_service->is_active == 1)
+        <div class="surcharge-badge-timeslot items">
+            @if($timeslot_service_price > 0)
+                <span>+ AED {{ $timeslot_service_price }}</span>
+            @endif
+            <input type="radio" id="time{{ $i }}" name="time_slot"
+                data-name="{{ $timeslot_data->name }}"
+                onclick="timeslot_price('{{ $timeslot_service_price }}', '{{ $timeslot_data->name }}', this);"
+                value="{{ $timeslot_data->id }}">
+            <label class="labeltime" for="time{{ $i }}" style="border-radius: 50px;">
+                {{ $timeslot_data->name }}
+            </label>
+        </div>
+    @endif
+
+    @php $i++; @endphp
+@endforeach
+
                         </div>
+                        <p class="form-error-text" id="time_slot_error" style="color: red; margin-top: 10px;"></p>
+                    </div>
      
                         <button type="button" class="ud-btn btn-thm default-box-shadow2 custome-black" id="nextBtn12"
                         onclick="get_hide_show(2);">Previous</button>
@@ -1241,10 +1920,10 @@ table {
                     <div class="form-group mb-3">
                         <label class="form-label fw500 dark-color " for="country">How would you like to pay for your service?</label>
                         <p style="margin-top: -10px;font-size: 14px;">Please note cancellation or rescheduling fees may apply for last minute changes.</p>
-                        <div class="radio-group payment-type"> 
+                        <div class="radio-group payment-type payment-center"> 
                             <input type="radio" id="paymet_2" name="payment_type_old" value="ONLINE" checked>
                             <label for="paymet_2" style="border-radius: 50px;text-align: center;width:50%;">Online</label>
-                            <img src="{{ asset('public/site/images/pay_logo_new.png') }}" style="height: 45px;margin-bottom:10px;">
+                            <img src="{{ asset('public/site/images/pay_logo_new.png') }}" style="height: 45px;margin-bottom:10px;" class="img-center">
                         </div>
                             {{-- <p>Payment will only be processed once the service is successfully completed.</p> --}}
 
@@ -1324,9 +2003,9 @@ table {
                         </div>
                         
                         
-
                         @endif                       
 
+                      
                         <hr>
 
                         <div class="font-weight-bold h5">
@@ -1383,7 +2062,9 @@ table {
                         </div>
 
                         <hr>
-
+                        @php
+                        $subservice_popup_data = DB::table('subservices')->where('id',$subservice_id)->first();
+                       @endphp 
                         <div class="font-weight-bold h5">
                             Payment Details
                         </div>
@@ -1394,22 +2075,93 @@ table {
                                 <div class="font-weight-bold sm-summary"><span id="frequency_summary_service_charge"></span></div>
                             </div>
                         </div>
-                        <div class="my-2" >
+                        {{-- <div class="my-2" >
                             <div class="d-flex justify-content-between">
                                 <div>Additional Charges</div>
                                 <div class="font-weight-bold sm-summary"><span id="frequency_summary_addtional_charge">0.00</span></div>
                             </div>
+                        </div> --}}
+                         <div class="my-2"  id="additional_charge_wrapper" style="display: none;">
+                            <div class="d-flex justify-content-between">
+                                
+                                <div>Additional Charges 
+                                @if($subservice_popup_data->additional_charge_popup != "")
+                                <span>
+                                <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#additional_charge_popup_{{$subservice_id}}">
+                                 <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                                </a>
+                                </span>
+                                @endif
+                                </div>
+                                <div class="font-weight-bold sm-summary"><span id="frequency_summary_addtional_charge"></span></div>
+                            </div>
                         </div>
-                        <div class="my-2" >
+
+                        {{-- <div class="my-2" >
                             <div class="d-flex justify-content-between">
                                 <div>Cash on Delivery charge</div>
                                 <div class="font-weight-bold sm-summary"><span id="frequency_summary_cod_charge"></span></div>
                             </div>
+                        </div> --}}
+
+                          <div class="my-2" id="cod_charge_wrapper"  style="display: none;">
+                            <div class="d-flex justify-content-between " >
+                                
+                                <div>Delivery charge
+                                    @if($subservice_popup_data->delivery_charge_popup != "")
+                                    <span>
+                                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#delivery_charge_popup_{{$subservice_id}}">
+                                    <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;"></a>
+                                    </span>
+                                     @endif
+                                </div>
+                                <div class="font-weight-bold sm-summary"><span id="frequency_summary_cod_charge"></span></div>
+                                
+                            </div>
                         </div>
 
-                        <div class="my-2" >
+
+                        {{-- <div class="my-2" >
+                            <div class="d-flex justify-content-between">
+                                <div>Timing fee</div>
+                                <div class="font-weight-bold sm-summary"><span id="frequency_summary_timing_fee"></span></div>
+                            </div>
+                        </div> --}}
+
+                         <div class="my-2" id="timing_charge_wrapper"  style="display: none;">
+                            <div class="d-flex justify-content-between">
+                                
+                                <div>Timing fee
+                                    @if($subservice_popup_data->timing_fee_popup != "")
+                                    <span>
+                                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#timing_fee_popup_{{$subservice_id}}">
+                                    <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                                    </a>
+                                    </span>
+                                     @endif
+                                </div>
+                                <div class="font-weight-bold sm-summary"><span id="frequency_summary_timing_fee"></span></div>
+                                
+                            </div>
+                        </div>
+
+                        {{-- <div class="my-2" >
                             <div class="d-flex justify-content-between">
                                 <div>Service Fee</div>
+                                <div class="font-weight-bold sm-summary"><span id="frequency_summary_service_fee_charge"></span></div>
+                            </div>
+                        </div> --}}
+
+                         <div class="my-2" id="service_fee_wrapper"  style="display: none;">
+                            <div class="d-flex justify-content-between">
+                                <div>Service Fee 
+                                   @if($subservice_popup_data->service_fee_popup != "")
+                                    <span> 
+                                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#service_fee_popup_{{$subservice_id}}">
+                                    <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                                    </a></span>
+                                     @endif
+                                </div>
                                 <div class="font-weight-bold sm-summary"><span id="frequency_summary_service_fee_charge"></span></div>
                             </div>
                         </div>
@@ -1483,8 +2235,8 @@ table {
                                     Total to pay
                                 </div>
                                 <div class="font-weight-bold" style="max-width: 50%; text-align: right;">
-                                    <stong><del>AED <span id="frequency_summary_cross_total">0.00</span></del></stong>
-                                    <br><span id="frequency_summary_total_to_pay"></span>
+                                    {{-- <del>AED <span id="frequency_summary_cross_total">0.00</span></del> --}}
+                                    <br><strong>AED <span id="frequency_summary_total_to_pay"></span></strong>
                                 </div>
                             </div>
                         </div>
@@ -1504,7 +2256,7 @@ table {
 
                 <div class="tab6" style="display:none">
 
-                    <div class="form-content-main pb-0 pre-confirm-desc mt-4">
+                     <div class="form-content-main pb-0 pre-confirm-desc mt-4 px-md-2">
                         <div class="row justify-content-center">
                             <div class="col-12">
                                 <h5 class="card-title mb-md-4">Please review your request and submit it to start receiving your quotes.</h5>
@@ -1512,7 +2264,7 @@ table {
                         </div>
                     </div>
 
-                    <div class="p-md-3 px-md-5">
+                    <div class="p-md-3 px-md-2">
                         <hr>
                         <div class="font-weight-bold h5">
                                 Booking Summary
@@ -1541,11 +2293,68 @@ table {
                         </div>
 
                         <hr>
+
                         <div class="font-weight-bold h5">
                             Additional instructions
                         </div>
                         <hr>
-                        @endif                       
+                        @endif   
+
+                        @if($subservice_id == 89)
+
+                        {{-- <div class="font-weight-bold h5">
+                           Service Details
+                        </div> --}}
+                        <div class="first-edit">
+                            <a href="javascript:void(0);" class="first-edit-anch" onclick="get_hide_show(1);">Edit</a>
+                        </div>
+                       
+                        <div class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <div>Service</div>
+                                <div class="font-weight-bold sm-summary" id="last_summary_service_type">Wooden Floor Polishing</div>
+                            </div>
+                        </div>
+
+                        <div class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <div>Type of Property</div>
+                                <div class="font-weight-bold sm-summary" id="last_summary_property_type"></div>
+                            </div>
+                        </div>
+
+                        <div class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <div>Approximate Area of Wooden Flooring</div>
+                                <div class="font-weight-bold sm-summary" id="last_summary_area_of_floor"></div>
+                            </div>
+                        </div>
+
+                        <div class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <div>Current Condition of the Floor</div>
+                                <div class="font-weight-bold sm-summary" id="last_summary_condition_of_floor"></div>
+                            </div>
+                        </div>
+
+                        <div class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <div>Service Required</div>
+                                <div class="font-weight-bold sm-summary" id="last_summary_service_required"></div>
+                            </div>
+                        </div>
+
+                        <div class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <div>Would you like to schedule a site survey?</div>
+                                <div class="font-weight-bold sm-summary" id="last_summary_schedule_site_survey"></div>
+                            </div>
+                         </div>  
+                        
+                         <hr>
+                        @endif
+                        
+                        
 
                         <div class="font-weight-bold h5">
                                 Date &amp; Time
@@ -1598,7 +2407,8 @@ table {
                 <input type="hidden" name="promo_discount" id="promo_discount" value="0">
                 <input type="hidden" name="cleaning_discount_additional" id="cleaning_discount_additional" value="0">
                 <input type="hidden" name="additional_charge" id="additional_charge" value="0">
-                <input type="hidden" name="timing_charge" id="timing_charge" value="0">
+                {{-- <input type="hidden" name="timing_charge" id="timing_charge" value="0">
+                <input type="hidden" name="weekly_off_charge" id="weekly_off_charge" value="0"> --}}
                 <input type="hidden" name="sub_total" id="sub_total" value="78">
                 <input type="hidden" name="sub_total_time" id="sub_total_time" value="78">
                 <input type="hidden" name="vat_total" id="vat_total" value="3.90">
@@ -1611,15 +2421,15 @@ table {
 
             <div class="sticky-button">
 
-            <button id="stickyButton" class="booking-summary" style="bottom:32px;">
+            <button id="stickyButton" class="booking-summary" style="bottom:20px;">
 
                 <div class="d-flex justify-content-between mobile-total-price-show mobile-total-price-btn" style="color:#000;">
                     <div class="font-weight-bold">
                         @if($painting_dis_price->promo_discount > 0)
-                        <div style="font-size: 15px;margin-right:75px;text-decoration: line-through;">
+                        {{-- <div style="font-size: 15px;margin-right:75px;text-decoration: line-through;">
                             AED 
                             <span id="frequency_summary_cross_amount_mobile" style="text-decoration: line-through;"></span>
-                        </div>
+                        </div> --}}
                         @endif
                        @php
                        if($painting_dis_price->promo_discount > 0){
@@ -1656,22 +2466,42 @@ table {
                 <input type="hidden" name="service_fee" id="service_fee" value="9">
             </div>
 
+
+
             
 
             
 
 
-            <div class="col-lg-3 " id="summary_div_left">
+            <div class="col-lg-5" id="summary_div_left">
 
                 <div  id="summary_div_left_package" class="last_col">
-                <h3>Summary</h3>
+                    <span class="moving-in-out-painting-show moving-in-out-painting-hide">
+                    <div class="d-flex justify-content-center is-r font-weight-bold-summary">
+                    <div  class="font-weight-bold-summary h5" style="font-size: 17px;">
+                    <h3>Total to pay
+                    </h3>
+                    </div>
+                    </div>
+                    <div class="{{ $painting_dis_price->promo_discount > 0 ? 'left-summary-total' : 'left-summary-without-cross-total' }}">
+                    @if($painting_dis_price->promo_discount > 0)
+                    {{-- <stong style="width: 100%;text-align: center; display: inline-block;">AED <span id="cross_amount" style="text-decoration: line-through;"></span></stong> --}}
+                    
+                    @endif
+                    <strong style="font-size: 28px;display: inline-block;
+                        width: 100%; text-align: center;">AED <span id="total_to_pay_charge_replace">546.00</span></strong>
+                </div>
+                <p id="selected_weekly" style="font-size: 17px; font-weight:1000;" ></p>
+
+            </span>
+                 <div  class="font-weight-bold-summary h5" style="font-size: 17px;">Booking Summary</div>
                 <span class="underline"></span>
-                <div class="font-weight-bold-summary h5">Booking Summary</div>
+                <div class="font-weight-bold-summary h5">Service Details</div>
 
                 @if($subservice_id == 47)
                 <div class="d-flex justify-content-between"><div>Service</div><div class="font-weight-bold sm-summary" id="service-label">Painting</div></div>
                 <span class="summary-movein-out-service-show summary-movein-out-service-hide">
-                    <div class="d-flex justify-content-between moving-in-out-painting-show moving-in-out-painting-hide">
+                    <div class="d-flex justify-content-between moving-in-out-painting-show moving-in-out-painting-hide">    
                         <div>Size of Home</div>
                         <div class="font-weight-bold sm-summary" id="size-of-home-label-nn"><span id="size-of-home-label-type">Apartment</span> - <span id="size-of-home-label-size">Studio</span></div>
                     </div>
@@ -1707,8 +2537,33 @@ table {
 
                 @endif
 
-                <div class="font-weight-bold-summary h5">Date & Time</div>
-                <div class="d-flex justify-content-between"><div class="font-weight-bold sm-summary" style="margin-left:155px; margin-top:-30px;"> <span id="date_replace"></span> <span id="time_replace"></span></div></div>  
+            @if($subservice_id == 89)
+
+                <div class="d-flex justify-content-between"><div>Service</div><div class="font-weight-bold sm-summary" id="service-label">Wooden Floor Polishing</div></div>
+
+                <div class="d-flex justify-content-between"><div>Type of Property</div><div class="font-weight-bold sm-summary" id="property_type_lable"></div></div>
+
+                <div class="d-flex justify-content-between"><div>Approximate Area</div><div class="font-weight-bold sm-summary" id="area_of_floor_lable"></div></div>
+
+                <div class="d-flex justify-content-between"><div>Current Condition</div><div class="font-weight-bold sm-summary" id="condition_of_floor_lable"></div></div>
+
+                <div class="d-flex justify-content-between"><div>Service Required</div><div class="font-weight-bold sm-summary" id="required_service_lable"></div></div>
+
+                <div class="d-flex justify-content-between"><div>Schedule a site survey?</div><div class="font-weight-bold sm-summary" id="schedule_site_lable"></div></div>
+
+   
+                <div class="font-weight-bold-summary h5">Address</div>
+                <div class="d-flex justify-content-between"><div class="font-weight-bold sm-summary" style="margin-left:155px; margin-top:-30px;"><span id="address_replace"></span></div></div>  
+            @endif
+
+
+                <div class="d-flex justify-content-between">
+					<div class="font-weight-bold-summary h5">
+					Date & Time
+					</div>
+					 <div class=""><div class="font-weight-bold sm-summary" style=""> <span id="date_replace"></span></br><span id="time_replace"></span></div></div>  
+				</div>
+               
                 
                 <span class="underline"></span>
 
@@ -1717,14 +2572,14 @@ table {
                 <div class="font-weight-bold-summary h5">Payment Details</div>
                 <div class="d-flex justify-content-between"><div>Service Charges</div><div class="font-weight-bold sm-summary"> AED <span id="service_charge_replace">550.00</span></div></div>
 
-                <div class="d-flex justify-content-between additional-charges-label additional-charges-display"><div>Additional Charges</div><div class="font-weight-bold sm-summary"> AED <span id="additional_charge_replace">20.00</span></div></div>
+                <div class="d-flex justify-content-between additional-charges-label additional-charges-display additional_charge_replace_div" style="display: none !important"><div>Additional Charges</div><div class="font-weight-bold sm-summary"> AED <span id="additional_charge_replace">20.00</span></div></div>
                     {{-- DisV --}}
-                <div class="d-flex justify-content-between"><div>Promo Discount</div><div class="font-weight-bold sm-summary" style="background-color:#FFD312;border-radius: 6px;
+                <div class="d-flex justify-content-between promo_dicount_replace_new_div" style="display: none !important"><div>Promo Discount</div><div class="font-weight-bold sm-summary" style="background-color:#FFD312;border-radius: 6px;
                 padding: 0px 5px 0px 5px;">-AED <span id="promo_dicount_replace_new">{{ number_format($painting_dis_price->promo_discount, 2) }}</span></div></div>
 
                 
 
-                <div class="d-flex justify-content-between " >
+                <div class="d-flex justify-content-between timing_charge_replace_div" style="display: none !important">
                         
                         <div>Timing fee</div>
                         <div class="font-weight-bold sm-summary"> AED 
@@ -1733,7 +2588,7 @@ table {
                        
                 </div>
 
-                <div class="d-flex justify-content-between " >
+                <div class="d-flex justify-content-between cod_charge_replace_div" style="display: none !important">
                         
                         <div>Delivery charge</div>
                         <div class="font-weight-bold sm-summary"> AED 
@@ -1745,18 +2600,9 @@ table {
                 <div class="d-flex justify-content-between"><div>Sub Total</div><div class="font-weight-bold sm-summary"> AED <span id="sub_total_replace">520.00</span></div></div>
                 <div class="d-flex justify-content-between"><div>VAT (5%)</div><div class="font-weight-bold sm-summary"> AED <span id="vat_charge_replace">26.00</span></div></div>
                 <span class="underline"></span>
-                <div class="d-flex justify-content-between mt-2 is-r font-weight-bold-summary">
-                <div  class="font-weight-bold-summary h5" style="font-size: 17px;">Total to pay</div>
-                </div>
+              
 
-                <div class="{{ $painting_dis_price->promo_discount > 0 ? 'left-summary-total' : 'left-summary-without-cross-total' }}">
-                    @if($painting_dis_price->promo_discount > 0)
-                    <stong style="margin-left: 45px;">AED <span id="cross_amount" style="text-decoration: line-through;"></span></stong>
-                     <br>
-                    @endif
-                    <strong style="font-size: 28px;margin-left: 1px;">AED <span id="total_to_pay_charge_replace">546.00</span></strong>
-                </div>
-                <p id="selected_weekly" style="font-size: 17px; font-weight:1000;" ></p>
+                
             </span>
             </div>
             </div>
@@ -1765,42 +2611,110 @@ table {
               
                 <div class="summuryInner">
 
-                     <button type="button" class="close closeBtn" id="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                <button type="button" class="close closeBtn" id="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
                         </button>
 
                 @if($subservice_id == 30 || $subservice_id == 28 || $subservice_id == 47)
-                
+                {{-- Mobile hide --}}
                 <div class="d-flex justify-content-between"><div>Service Charges</div><div class="font-weight-bold sm-summary"> AED <span id="service_charge_replace_mobile">0.00</span></div></div>
 
-                <div class="d-flex justify-content-between additional-charges-label additional-charges-display"><div>Additional Charges</div><div class="font-weight-bold sm-summary"> AED <span id="additional_charge_replace_mobile">0.00</span></div></div>
+                {{-- <div class="d-flex justify-content-between additional-charges-label additional-charges-display"><div>Additional Charges</div><div class="font-weight-bold sm-summary"> AED <span id="additional_charge_replace_mobile">0.00</span></div></div> --}}
+
+                <div id="additional_charge_wrapper_mobile" style="display: none;">
+                <div class="d-flex justify-content-between">
+                    <div>Additional Charges
+                    @if($subservice_popup_data->additional_charge_popup != "") 
+                    <span>
+                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#additional_charge_popup_{{$subservice_id}}">
+                       <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                    </a>
+                    </span>
+                    @endif
+                </div>
+                <div class="font-weight-bold sm-summary"> AED <span id="additional_charge_replace_mobile"></span></div>
+            </div>
+            </div>
+                
 
                 <div class="d-flex justify-content-between"><div>Promo Discount</div><div class="font-weight-bold sm-summary" style="background-color:#FFD312;border-radius: 6px;
-                padding: 0px 5px 0px 5px;">-AED <span id="promo_dicount_replace_mobile">{{ number_format($painting_dis_price->promo_discount, 2) }}</span></div></div>
+                padding: 0px 5px 0px 5px;">-AED <span id="promo_dicount_replace_mobile">0.00</span></div></div>
 
-                <div class="d-flex justify-content-between " >
+                {{-- <div class="d-flex justify-content-between " >
                                         
                     <div>Delivery charge</div>
                     <div class="font-weight-bold sm-summary"> AED 
                         <span id="cod_charge_replace_mobile">0</span>
                     </div>
                 
+                </div> --}}
+
+                
+            <div id="cod_charge_wrapper_mobile" style="display: none;">
+                <div class="d-flex justify-content-between " >
+                                        
+                <div>Delivery charge
+                    @if($subservice_popup_data->delivery_charge_popup != "") 
+                    <span>
+                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#delivery_charge_popup_{{$subservice_id}}">
+                    <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                    </a>
+                    </span>
+                    @endif
+                </div>
+                    <div class="font-weight-bold sm-summary"> AED 
+                        <span id="cod_charge_replace_mobile">0</span>
+                    </div>
+                </div>
                 </div>
 
-                <div class="d-flex justify-content-between " >
+                {{-- <div class="d-flex justify-content-between " >
                         
                     <div>Timing fee</div>
                     <div class="font-weight-bold sm-summary"> AED 
                         <span id="timing_charge_replace_mobile">0.00</span>
                     </div>
                    
-            </div>
+            </div> --}}
+
+            <div id="timing_charge_wrapper_mobile" style="display: none;">
+                <div class="d-flex justify-content-between " >
+                        
+                <div>Timing fee
+                    @if($subservice_popup_data->timing_fee_popup != "") 
+                    <span>
+                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#timing_fee_popup_{{$subservice_id}}">
+                    <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                    </a>
+                    </span>
+                    @endif
+                </div>
+                <div class="font-weight-bold sm-summary"> AED 
+                    <span id="timing_charge_replace_mobile">0</span>
+                </div>
+                </div>
+                </div>
                 
                 
-                <div class="d-flex justify-content-between">
+                {{-- <div class="d-flex justify-content-between">
                         <div>Service Fee</div>
                         <div class="font-weight-bold sm-summary"> AED 
                         <span id="frequency_summary_service_fee_charge_mobile">0.00</span></div>
+                </div> --}}
+                <div id="service_fee_wrapper_mobile" style="display: none;">
+                <div class="d-flex justify-content-between">
+                    <div>Service Fee
+ 
+                    @if($subservice_popup_data->service_fee_popup != "") 
+                    <span>
+                    <a style="cursor: pointer;" data-bs-toggle="modal" id="cleaner_stay" data-bs-target="#service_fee_popup_{{$subservice_id}}">
+                    <img src="{{ asset('public/site/images/infoicon.svg') }}" style="height: 15px;width: 15px;">
+                    </a>
+                    </span>
+                    @endif
+                    </div>
+                    <div class="font-weight-bold sm-summary">AED <span id="frequency_summary_service_fee_charge_mobile">0.00</span></div>
+                </div>
                 </div>
 
                 <div class="d-flex justify-content-between"><div>Sub Total</div><div class="font-weight-bold sm-summary"> AED <span id="sub_total_replace_mobile">78.00</span></div></div>
@@ -1818,8 +2732,10 @@ table {
 @include('front.includes.footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
-<div class="modal fade" id="exampleModalLong_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div id="modal-digi" class="modal-dialog" role="document" style="">
+
+{{-- For Painting Read more Popup Start --}}
+<div class="modal modal-mobile-bottom" id="exampleModalLong_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div id="modal-digi" class="modal-dialog modal-dialog-bottom modal-dialog-centered" role="document" style="">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 20px;">
@@ -1847,9 +2763,48 @@ table {
     </div>
 </div>
 
+{{-- For Painting Read more Popup End --}}
 
-<div class="modal fade" id="Learnmore_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="LearnmoreTitle" aria-hidden="true">
-    <div  id="modal-digi" class="modal-dialog" role="document" style="overflow: auto;">
+
+
+{{-- For Wooden and Floor Read more Popup Start --}}
+
+<div class="modal modal-mobile-bottom" id="WoodenfloorModal_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div id="modal-digi" class="modal-dialog modal-dialog-bottom modal-dialog-centered" role="document" style="">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle" style="font-size: 20px;">
+                    What Our Wooden Floor Polishing Service Includes </h5>
+                    <button type="button" class="close" id="close" data-bs-dismiss="modal" aria-label="Close" style="background: none; font-size: 50px; color: #000; border: none;">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+            </div>
+
+            <div>
+                <p style="font-size: 15px; font-weight:100; margin-left:15px;">
+                <span>Revitalize your home with a fresh, polished look through our professional painting services. Whether you’re updating a single room or transforming your entire space, our skilled team delivers precise and flawless results, letting you enjoy a vibrant new ambiance without the hassle.</span></p>
+                </div>
+                <h6 style="font-size: 18px; margin-left:15px;">Our Services Include:</h6>
+                <div class="modal-body">
+                    <ul style="list-style-type: disc; list-style: inherit;">
+                        <li style="list-style: inherit;"><b>Surface Preparation:</b> Cleaning, sanding, and priming walls for a smooth finish</li>
+                        <li style="list-style: inherit;"><b>Wall and Ceiling Painting:</b> Professional application with even, streak-free coats</li>
+                        <li style="list-style: inherit;"><b>Trim and Molding Painting:</b> Crisp lines for doors, windows, and baseboards</li>
+                        <li style="list-style: inherit;"><b>Color Consultation:</b> Assistance in choosing the perfect hues to match your style</li>
+                        <li style="list-style: inherit;"><b>Clean-Up:</b> Ensuring your space is left spotless after the job is done</li>
+                        <li style="list-style: inherit;"><b>Additional Services:</b> Accent walls, exterior touch-ups, and custom finishes</li>
+                    </ul>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+{{-- For Wooden and Floor Read more Popup End --}}
+
+
+<div class="modal modal-mobile-bottom" id="Learnmore_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="LearnmoreTitle" aria-hidden="true">
+    <div  id="modal-digi" class="modal-dialog modal-dialog-bottom modal-dialog-centered" role="document" style="overflow: auto;">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="LearnmoreTitle" style="font-size: 20px;">
@@ -1949,8 +2904,8 @@ table {
     </div>
 </div>
 
-<div class="modal fade" id="material_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="materialTitle" aria-hidden="true">
-    <div id="modal-digi" class="modal-dialog" role="document" style="overflow: auto;">
+<div class="modal modal-mobile-bottom" id="material_{{$subservice_id}}" tabindex="-1" role="dialog" aria-labelledby="materialTitle" aria-hidden="true">
+    <div id="modal-digi" class="modal-dialog modal-dialog-bottom modal-dialog-centered" role="document" style="overflow: auto;">
         <div class="modal-content">
             <div class="modal-header" style="display:block;"> 
             <button type="button" class="close" id="close" data-bs-dismiss="modal" aria-label="Close" style="background: none; font-size: 50px; color: #000; border: none;margin-left:90%;">
@@ -2030,6 +2985,113 @@ table {
   </div>
 </div>
 
+  @php
+    $subservice_service_fee_popup = DB::table('subservices')->where('id',$subservice_id)->first();
+    @endphp
+  <!--- Service Fee Popup Start ---->
+ 
+    <div class="modal modal-mobile-bottom" id="service_fee_popup_{{$subservice_id}}"  tabindex="-1" aria-labelledby="materialTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-bottom modal-dialog-centered modal-lg service-fee-custome-modal" id="modal-digi" role="document">
+        <div class="modal-content charge-desc-popup">
+            <div class="modal-header modal-header-mobile" style="display:block;">
+            <h4>Service Fee Description</h4>
+            <button type="button" class="close closeBtn" id="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            
+            <div class="modal-body modal-mobile" style="max-height: 70vh; overflow-y: auto;">
+                <div class="    ">
+            <h6>{{ $subservice_service_fee_popup->service_fee_popup }}</h6>
+                </div>
+            </div>
+            <div class="modal-footer">
+            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+            </div>
+        </div>
+        </div>
+    </div>
+
+<!--- Service Fee Popup End ---->
+
+<!--- Additional Charge Popup Start ---->
+ 
+    <div class="modal modal-mobile-bottom"  id="additional_charge_popup_{{$subservice_id}}"  tabindex="-1" aria-labelledby="materialTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-bottom modal-dialog-centered modal-lg service-fee-custome-modal" id="modal-digi" role="document">
+        <div class="modal-content charge-desc-popup">
+            <div class="modal-header modal-header-mobile" style="display:block;">
+                <h4>Additional Charge Fee Description</h4>
+            <button type="button" class="close closeBtn" id="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            
+            <div class="modal-body modal-mobile" style="max-height: 70vh; overflow-y: auto;">
+                <div class="    ">
+            <h6>{{ $subservice_service_fee_popup->additional_charge_popup }}</h6>
+                </div>
+            </div>
+            <div class="modal-footer">
+            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+            </div>
+        </div>
+        </div>
+    </div>
+
+<!--- Additional Charge Popup End ---->
+
+<!--- Delivery Charge Popup Start ---->
+ 
+    <div class="modal modal-mobile-bottom" id="delivery_charge_popup_{{$subservice_id}}"  tabindex="-1" aria-labelledby="materialTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-bottom modal-dialog-centered modal-lg service-fee-custome-modal" id="modal-digi" role="document">
+        <div class="modal-content charge-desc-popup">
+            <div class="modal-header modal-header-mobile" style="display:block;">
+                <h4>Delivery Charge Description</h4>
+            <button type="button" class="close closeBtn" id="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            
+            <div class="modal-body modal-mobile" style="max-height: 70vh; overflow-y: auto;">
+                <div class="    ">
+            <h6>{{ $subservice_service_fee_popup->delivery_charge_popup }}</h6>
+                </div>
+            </div>
+            <div class="modal-footer">
+            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+            </div>
+        </div>
+        </div>
+    </div>
+
+<!--- Delivery Charge Popup End ---->
+
+<!--- Timing Fee Popup Start ---->
+ 
+    <div class="modal modal-mobile-bottom" id="timing_fee_popup_{{$subservice_id}}"  tabindex="-1" aria-labelledby="materialTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-bottom modal-dialog-centered modal-lg service-fee-custome-modal" id="modal-digi" role="document">
+        <div class="modal-content charge-desc-popup">
+            <div class="modal-header modal-header-mobile" style="display:block;">
+             <h4>Timing Charge Description</h4>
+            <button type="button" class="close closeBtn" id="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            
+            <div class="modal-body modal-mobile" style="max-height: 70vh; overflow-y: auto;">
+                <div>
+            <h6>{{ $subservice_service_fee_popup->timing_fee_popup }}</h6>
+                </div>
+            </div>
+            <div class="modal-footer">
+            
+            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+            </div>
+        </div>
+        </div>
+    </div>
+
+<!--- Timing Fee Popup End ---->
 
 @php 
 if($price_data != ''){
@@ -2043,7 +3105,185 @@ if($price_data != ''){
 }
 @endphp
 
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
 <script>
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#type_of_home_slider_spatie', {
+            type: 'slide',
+            // perPage: 6,
+            // gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+			768: {
+                    focus: 0,            // Start slide aligned left
+            },
+            },
+        }).mount();
+        });
+		
+		document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#size-of-home-slider-apartment', {
+            type: 'slide',
+            perPage: 6,
+            // gap: '0.5rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+			768: {
+                focus: 0,       
+                arrows: true,
+            },
+            },
+        }).mount();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#size-of-home-slider-villa', {
+            type: 'slide',
+            perPage: 8,
+            // gap: '0.5rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            // fixedWidth: '13%',
+            breakpoints: {
+            768: {
+                    focus: 0,            // Start slide aligned left
+                    arrows: true,
+            },
+            },
+        }).mount();
+        });
+
+document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#color_want_slider_spatie', {
+        type: 'slide',
+        // perPage: 6,
+        // gap: '0.5rem',
+        autoplay: false,
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+            768: {
+                 focus: 0,            // Start slide aligned left
+            },
+        },
+    }).mount();
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#your_walls_now_slider_spatie', {
+        type: 'slide',
+        perPage: 6,
+        // gap: '0.5rem',
+        autoplay: false,
+        interval: 3000,
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+            768: {
+                focus:0,
+                 arrows: true,
+            },
+        },
+    }).mount();
+});
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#home_furnished_slider_spatie', {
+        type: 'slide',
+        perPage: 7,
+        autoplay: false,
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+            768: {
+               
+            },
+        },
+    }).mount();
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#ceilings_painted_slider_spatie', {
+        type: 'slide',
+        perPage: 7,
+        autoplay: false,
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+            768: {
+            },
+        },
+    }).mount();
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#ceilings_painted_per_ceil_slider_spatie', {
+        type: 'slide',
+        perPage: 7,
+        // gap: '3.5rem',
+        autoplay: false,
+        pagination: false,
+        arrows: false,
+        // fixedWidth: 50,
+        breakpoints: {
+            768: {
+                arrows: true,
+                 perPage: 3,
+            },
+        },
+    }).mount();
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#how_many_rooms_painted_slider_spatie', {
+        type: 'slide',
+        perPage: 7,
+        gap: '0.3rem',
+        autoplay: false,
+        pagination: false,
+        arrows: true,
+        // fixedWidth: 50,
+        breakpoints: {
+            768: {
+                arrows: true,
+                 perPage: 3,
+            },
+        },
+    }).mount();
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#how_many_walls_painted_slider_spatie', {
+        type: 'slide',
+        perPage: 7,
+        gap: '0.3rem',
+        autoplay: false,
+        pagination: false,
+        arrows: true,
+        // fixedWidth: 50,
+        breakpoints: {
+            768: {
+                arrows: true,
+                 perPage: 3,
+            },
+        },
+    }).mount();
+});
+
+		
+		
 
 function validateNumber(event) {
     var key = window.event ? event.keyCode : event.which;
@@ -2182,7 +3422,7 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
+/* $(document).ready(function(){
     $("#size-of-home-slider").owlCarousel({
         loop: false,          // Enables infinite looping
         margin: 0,          // Adjust the margin between items
@@ -2200,26 +3440,26 @@ $(document).ready(function(){
             }
         }
     });
-});
-$(document).ready(function(){
-    $("#your-walls-now-slider").owlCarousel({
-        loop: false,          // Enables infinite looping
-        margin: 0,          // Adjust the margin between items
-        nav: false,
-        dots:false,           // Show navigation buttons
-        responsive: {
-            0: {
-                items: 3
-            },
-            600: {
-                items: 4
-            },
-            1000: {
-                items: 6
-            }
-        }
-    });
-});
+}); */
+// $(document).ready(function(){
+//     $("#your-walls-now-slider").owlCarousel({
+//         loop: false,          // Enables infinite looping
+//         margin: 0,          // Adjust the margin between items
+//         nav: false,
+//         dots:false,           // Show navigation buttons
+//         responsive: {
+//             0: {
+//                 items: 3
+//             },
+//             600: {
+//                 items: 4
+//             },
+//             1000: {
+//                 items: 6
+//             }
+//         }
+//     });
+// });
 
 // $(document).ready(function(){
 //     $("#owl-carousel1").owlCarousel({
@@ -2250,6 +3490,7 @@ $(document).ready(function(){
     
     calculationPaint();
 }); */
+
 
 
 function sizeOfHome(){
@@ -2416,6 +3657,8 @@ function isCeilingPainted(){
 
 
 function calculationNew(){
+
+    //alert('calculationNew');
     displayDiscountPrice();
     let noOfCeilings;
 
@@ -2440,6 +3683,7 @@ function calculationNew(){
     
     var hidden_discount_price = $("#hidden_discount_price").val();
     var timing_charge = $("#timing_charge").val();
+    var weekly_off_charge = $("#weekly_off_charge").val();
 
     var selected_you_want_color_name = $("#selected_you_want_color_name").val();
     var selected_your_walls_now_name = $("#selected_your_walls_now_name").val();
@@ -2458,7 +3702,7 @@ function calculationNew(){
         colorsLabelDisplay();
 
         $(".additional-charges-label").removeClass("additional-charges-display");
-        var additionalCharge = parseFloat(selected_home_furnished_price) + parseFloat(color_your_walls_now_price) + parseFloat(selected_ceiling_price) + parseFloat(timing_charge);
+        var additionalCharge = parseFloat(selected_home_furnished_price) + parseFloat(color_your_walls_now_price) + parseFloat(selected_ceiling_price) + parseFloat(timing_charge) + parseFloat(weekly_off_charge);
     }
 
     if(selected_home_furnished_price > 0){
@@ -2479,7 +3723,7 @@ function calculationNew(){
 
     //var sub_total = parseInt(percleanprice) + parseInt(additional_charge) + parseInt(timing_charge) + parseInt(cod_charge) - parseInt(discount_amount);
 
-    var sub_total_new = parseInt(size_of_home_price) + parseInt(additionalCharge) - parseInt(hidden_discount_price) + parseInt(cod_charge_new);
+    var sub_total_new = parseInt(size_of_home_price) + parseInt(additionalCharge) - parseInt(hidden_discount_price) + parseInt(cod_charge_new) + parseFloat(timing_charge) + parseFloat(weekly_off_charge);
 
     //alert(sub_total);
 
@@ -2487,7 +3731,7 @@ function calculationNew(){
 
     let get_vat_amount = $("#hidden_vat_charge_price").val();
     //alert(parseFloat(get_vat_amount));
-    let cross_total = parseInt(size_of_home_price) + parseFloat(additionalCharge);
+    let cross_total = parseInt(size_of_home_price) + parseFloat(additionalCharge) ;
     // alert("Total Of Service "+ cross_total);
     let cross_total_vat_plus = parseFloat(cross_total) * 5 /100;
 
@@ -2519,17 +3763,63 @@ function calculationNew(){
     // alert(cod_charge);
     $("#additional_charge_price").val(additionChargeNo.toFixed(2));
     $("#additional_charge_replace").html(additionChargeNo.toFixed(2));
+
+     if (parseFloat(additionChargeNo) !== 0) {
+            $('#additional_charge_wrapper').show();
+            $('#additional_charge_wrapper_mobile').show();
+        }else{
+            $('#additional_charge_wrapper').hide();
+            $('#additional_charge_wrapper_mobile').hide();
+        } 
     $("#additional_charge_replace_mobile").html(additionChargeNo.toFixed(2));
     $("#frequency_summary_addtional_charge").html(additionChargeNo.toFixed(2));
     $("#service_charge_replace").html(size_of_home_price);
     $("#service_charge_replace_mobile").html(size_of_home_price);
 
+
     $('#frequency_summary_cod_charge').html(parseFloat(cod_charge).toFixed(2));
     $('#cod_charge_replace').html(parseFloat(cod_charge).toFixed(2));
     $('#cod_charge_replace_mobile').html(parseFloat(cod_charge).toFixed(2));
 
-    $('#timing_charge_replace').html(parseFloat(timing_charge).toFixed(2));
-    $('#timing_charge_replace_mobile').html(parseFloat(timing_charge).toFixed(2));
+    var total_timing_charge = parseFloat(timing_charge) + parseFloat(weekly_off_charge);
+
+    $('#timing_charge_replace').html(parseFloat(total_timing_charge).toFixed(2));
+    $('#timing_charge_replace_mobile').html(parseFloat(total_timing_charge).toFixed(2));
+
+     if (parseFloat(total_timing_charge) !== 0) {
+                $('#timing_charge_wrapper').show();
+                $('#timing_charge_wrapper_mobile').show();
+    }else{
+        $('#timing_charge_wrapper').hide();
+        $('#timing_charge_wrapper_mobile').hide();
+    } 
+    if (parseFloat(cod_charge) !== 0) {
+        $('#cod_charge_wrapper').show();
+        $('#cod_charge_wrapper_mobile').show();
+    }else{
+        $('#cod_charge_wrapper').hide();
+        $('#cod_charge_wrapper_mobile').hide();
+    } 
+    if(total_timing_charge > 0){
+        $('.timing_charge_replace_div').attr('style', 'display: flex !important');
+    } else {
+        $('.timing_charge_replace_div').attr('style', 'display: none !important');
+    }
+
+    
+    if(additionChargeNo > 0){
+        $('.additional_charge_replace_div').attr('style', 'display: flex !important');
+    } else {
+        $('.additional_charge_replace_div').attr('style', 'display: none !important');
+    }
+
+    if(cod_charge > 0){
+        $('.cod_charge_replace_div').attr('style', 'display: flex !important');
+    } else {
+        $('.cod_charge_replace_div').attr('style', 'display: none !important');
+    }
+
+    
 }
 
 function colorsLabelDisplay(){
@@ -2602,6 +3892,12 @@ function displayDiscountPrice(){
     $("#promo_dicount_replace_new").html(discount_amount);
     $("#sub_total_replace").html(subtotal);
     $("#hidden_subtotal_price").val(subtotal);
+
+    if(discount_amount > 0){
+        $('.promo_dicount_replace_new_div').attr('style', 'display: flex !important');
+    } else {
+        $('.promo_dicount_replace_new_div').attr('style', 'display: none !important');
+    }
 }
 
 function calculationOfCeiling(){
@@ -2674,29 +3970,10 @@ function no_of_walls_paint(element){
             $("#size-of-home-label-type").html('Villa');
             $("#selected_type_home").val('Villa');
             $("#size-of-home-label-size").html('2BR');
-            $('.size-of-home-tab2').css('display', 'inline-flex');
+            $('.size-of-home-tab2').show();
             $(".size-of-home-tab1").hide();
             sizeOfHome();
         }
-
-        // let typeCast = typeVal;
-        // if(typeVal === 1){
-
-            
-        //     $("#size-of-home-label").html('Apartment - Studio');
-        //     $("#confirm-sizeHome-label").html('Apartment - Studio');
-        //     $(".size-of-home-tab1").show();
-        //     $(".size-of-home-tab2").hide();
-        //     calculationPaint();
-        // }
-
-        // if(typeVal === 2){
-        //     $("#size-of-home-label").html('Villa - 2 BR');
-        //     $("#confirm-sizeHome-label").html('Villa - 2 BR');
-        //     $('.size-of-home-tab2').css('display', 'inline-flex');
-        //     $(".size-of-home-tab1").hide();
-        //     calculationPaint();
-        // }
     }
 
     function paintingServices(element){
@@ -3052,12 +4329,13 @@ function no_of_walls_paint(element){
 
                   
                     var timing_charge = $('#timing_charge').val();
+                    var weekly_off_charge = $('#weekly_off_charge').val();
 
                     var cod_charge = $('#cod_charge').val();
                     
                     // sub_total = parseInt(sub_total) - parseInt(cleaning_discount_amount);
                     // alert(additional_charge);
-                    var sub_total = parseInt(percleanprice_new) + parseInt(additional_charge_new) + parseInt(timing_charge) + parseInt(cod_charge) - parseInt(discount_amount);
+                    var sub_total = parseInt(percleanprice_new) + parseInt(additional_charge_new) + parseInt(timing_charge) + parseInt(weekly_off_charge) + parseInt(cod_charge) - parseInt(discount_amount);
 
                     // alert(cod_charge);
 
@@ -3133,9 +4411,12 @@ function no_of_walls_paint(element){
                     $('#total_to_pay_charge_replace').html(total_to_pay);
                     $('#total_to_pay_charge_replace_mobile').html(total_to_pay);
                     // $('#service_fee_replace_charge_mobile').html(service_fee);
-                    $('#timing_charge_replace').html(timing_charge);
-                    $('#timing_charge_replace_mobile').html(timing_charge);
-                    $('#frequency_timing_charge_replace').html(timing_charge);
+
+                    var total_timing_charge = parseFloat(timing_charge) + parseFloat(weekly_off_charge);
+
+                    $('#timing_charge_replace').html(total_timing_charge);
+                    $('#timing_charge_replace_mobile').html(total_timing_charge);
+                    $('#frequency_timing_charge_replace').html(total_timing_charge);
 
                     $('#cod_charge_replace').html(cod_charge);
                     $('#cod_charge_replace_mobile').html(cod_charge);
@@ -3148,9 +4429,25 @@ function no_of_walls_paint(element){
                     $('#sub_total').val(sub_total);
                     $('#vat_total').val(vat_total);
                     $('#total_to_pay').val(total_to_pay);
-                    
+
+                    if(additional_charge_new1 > 0){
+                        $('.additional_charge_replace_div').attr('style', 'display: flex !important');
+                    } else {
+                        $('.additional_charge_replace_div').attr('style', 'display: none !important');
+                    }
 
 
+                    if(total_timing_charge > 0){
+                        $('.timing_charge_replace_div').attr('style', 'display: flex !important');
+                    } else {
+                        $('.timing_charge_replace_div').attr('style', 'display: none !important');
+                    }
+
+                    if(cod_charge > 0){
+                        $('.cod_charge_replace_div').attr('style', 'display: flex !important');
+                    } else {
+                        $('.cod_charge_replace_div').attr('style', 'display: none !important');
+                    }
 
 
                   
@@ -3241,6 +4538,7 @@ function no_of_walls_paint(element){
         var additional_charge = 0;
 
         var timing_charge = $('#timing_charge').val();
+        var weekly_off_charge = $('#weekly_off_charge').val();
 
         
         var cod_charge = $('#cod_charge').val();
@@ -3249,7 +4547,7 @@ function no_of_walls_paint(element){
 
         //var sub_total = parseInt(percleanprice) + parseInt(additional_charge) + parseInt(timing_charge) + parseInt(cod_charge) - parseInt(discount_amount);
 
-        var sub_total = parseInt('{{ $subtotal }}') + parseInt(additional_charge) + parseInt(timing_charge) + parseInt(cod_charge);
+        var sub_total = parseInt('{{ $subtotal }}') + parseInt(additional_charge) + parseInt(timing_charge) + parseInt(weekly_off_charge) + parseInt(cod_charge);
 
         var vat_total = (sub_total) * 5/100;
 
@@ -3277,9 +4575,63 @@ function no_of_walls_paint(element){
         $('#vat_total').val(vat_total);
         $('#total_to_pay').val(total_to_pay);
 
+        if(timing_charge > 0){
+            $('.timing_charge_replace_div').attr('style', 'display: flex !important');
+        } else {
+            $('.timing_charge_replace_div').attr('style', 'display: none !important');
+        }
+
+        if(cod_charge > 0){
+            $('.cod_charge_replace_div').attr('style', 'display: flex !important');
+        } else {
+            $('.cod_charge_replace_div').attr('style', 'display: none !important');
+        }
+
    }
 
+    // Get references to the select elements
+    const propertyTypeSelect = document.getElementById('property_type');
+    const areaSelect = document.getElementById('area_of_floor');
+    const conditionSelect = document.getElementById('condition_of_floor');
+    const serviceSelect = document.getElementById('service_required');
+    const scheduleSelect = document.getElementById('schedule_site_survey');
 
+    // Get references to the div elements where data will be shown
+    const propertyTypeLabel = document.getElementById('property_type_lable');
+    const areaOfFloorLabel = document.getElementById('area_of_floor_lable');
+    const conditionOfFloorLabel = document.getElementById('condition_of_floor_lable');
+    const requiredServiceLabel = document.getElementById('required_service_lable');
+    const scheduleSiteLabel = document.getElementById('schedule_site_lable');
+
+    // Function to update the labels
+    function updateLabels() {
+        propertyTypeLabel.textContent = propertyTypeSelect.value;
+        areaOfFloorLabel.textContent = areaSelect.value;
+        conditionOfFloorLabel.textContent = conditionSelect.value;
+        requiredServiceLabel.textContent = serviceSelect.value;
+        scheduleSiteLabel.textContent = scheduleSelect.value;
+    }
+
+    // Add event listeners for each select dropdown to update labels when a value is selected
+    propertyTypeSelect.addEventListener('change', updateLabels);
+    areaSelect.addEventListener('change', updateLabels);
+    conditionSelect.addEventListener('change', updateLabels);
+    serviceSelect.addEventListener('change', updateLabels);
+    scheduleSelect.addEventListener('change', updateLabels);
+
+    // Initialize labels on page load (in case any options are pre-selected)
+    updateLabels();
+
+    function wooden_floor_calculation() {
+        var schedule_site_survey = $('#schedule_site_survey').val();
+
+        if(schedule_site_survey === "no"){
+            $('#upload_video_div').removeClass('d-none');  
+        } else {
+            $('#upload_video_div').addClass('d-none');     
+        }
+    }
+   
 
     function get_hide_show(id){
 
@@ -3300,8 +4652,24 @@ function no_of_walls_paint(element){
             $(".mobile-booknow-btn").css("display", "none");
 
             $(".step-p").text("Step 1 of 4");
-            $(".step-title").text("Booking Summary");
+            $(".step-title .back-icon")
+            .off("click")
+            .html('<i class="fas fa-arrow-left"></i>');
+            $(".step-title .back-icon")
+            .css("cursor", "pointer")
+            .on("click", function () {
+                window.location.href = "{{ url('/') }}";
+            });
+            $(".step-title").contents().filter(function () {
+                return this.nodeType === 3;
+            }).remove();
+            $(".step-title").append("Booking Summary");
+
             $("#summary_div_left").css("display", "block");
+
+                $('html, body').animate({
+                    scrollTop: $('.tab1').offset().top - 300
+            }, 1000);
         }
 
         if(id == 2){
@@ -3312,11 +4680,12 @@ function no_of_walls_paint(element){
                 jQuery('#painting-select-error').show().delay(0).fadeIn('show');
                 jQuery('#painting-select-error').show().delay(2000).fadeOut('show');
                 $('html, body').animate({
-                    scrollTop: $('#painting-select-error').offset().top - 150
+                    scrollTop: $('#painting-select-error').offset().top - 300
                 }, 1000);
                 return false;
             } 
 
+            
            if($("#type_of_painting").val() === "Move in / Move Out Painting"){         
 
             var newColor = $("input[name='color_do_you_want_walls_painted']:checked");
@@ -3325,7 +4694,7 @@ function no_of_walls_paint(element){
                 jQuery('.new-color-error').show().delay(0).fadeIn('show');
                 jQuery('.new-color-error').show().delay(2000).fadeOut('show');
                 $('html, body').animate({
-                    scrollTop: $('.new-color-error').offset().top - 150
+                    scrollTop: $('.new-color-error').offset().top - 300
                 }, 1000);
                 return false;
             }
@@ -3335,11 +4704,91 @@ function no_of_walls_paint(element){
                 jQuery('.old-color-error').show().delay(0).fadeIn('show');
                 jQuery('.old-color-error').show().delay(2000).fadeOut('show');
                 $('html, body').animate({
-                    scrollTop: $('.old-color-error').offset().top - 150
+                    scrollTop: $('.old-color-error').offset().top - 400
                 }, 1000);
                 return false;
             }
         }
+
+
+        //  For Wooden Flooor Polishing Validition Start 
+        var subservice_id = $("#subservice_id").val();
+
+        if (subservice_id == 89) {
+
+        var property_type = $("#property_type").val();
+            if (!property_type) {
+                jQuery('#property_type_error').html("Please Select Property Type.");
+                jQuery('#property_type_error').show().delay(0).fadeIn('show');
+                jQuery('#property_type_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#property_type_error').offset().top - 300
+                }, 1000);
+                return false;
+            }
+
+        var area_of_floor = $("#area_of_floor").val();
+            if (!area_of_floor) {
+                jQuery('#area_of_floor_error').html("Please Select Area Of Floor.");
+                jQuery('#area_of_floor_error').show().delay(0).fadeIn('show');
+                jQuery('#area_of_floor_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#area_of_floor_error').offset().top - 300
+                }, 1000);
+                return false;
+            }
+
+        var condition_of_floor = $("#condition_of_floor").val();
+            if (!condition_of_floor) {
+                jQuery('#condition_of_floor_error').html("Please Select Current Condition of Floor.");
+                jQuery('#condition_of_floor_error').show().delay(0).fadeIn('show');
+                jQuery('#condition_of_floor_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#condition_of_floor_error').offset().top - 300
+                }, 1000);
+                return false;
+            }
+
+        var service_required = $("#service_required").val();
+            if (!service_required) {
+                jQuery('#service_required_error').html("Please Select Required Service.");
+                jQuery('#service_required_error').show().delay(0).fadeIn('show');
+                jQuery('#service_required_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#service_required_error').offset().top - 300
+                }, 1000);
+                return false;
+            }
+
+        var schedule_site_survey = $("#schedule_site_survey").val();
+            if (!schedule_site_survey) {
+                jQuery('#schedule_site_survey_error').html("Please Select Would you like to Schedule a Site Survey.");
+                jQuery('#schedule_site_survey_error').show().delay(0).fadeIn('show');
+                jQuery('#schedule_site_survey_error').show().delay(2000).fadeOut('show');
+                $('html, body').animate({
+                    scrollTop: $('#schedule_site_survey_error').offset().top - 300
+                }, 1000);
+                return false;
+            }
+            
+            if(schedule_site_survey === 'no'){
+                var upload_video = $("#upload_video").val();
+                if (upload_video == '') {
+                    jQuery('#upload_video_error').html("Please Upload Video.");
+                    jQuery('#upload_video_error').show().delay(0).fadeIn('show');
+                    jQuery('#upload_video_error').show().delay(2000).fadeOut('show');
+                    $('html, body').animate({
+                        scrollTop: $('#upload_video_error').offset().top - 300
+                    }, 1000);
+                    return false;
+                }
+            }
+
+        }
+
+
+        //  For Wooden Flooor Polishing Validition End
+
 
            $(".tab1").css("display", "none");
             $(".mobile-tab2").css("display", "none");
@@ -3355,18 +4804,34 @@ function no_of_walls_paint(element){
             $(".tab6").css("display", "none");
 
             $(".step-p").text("Step 2 of 4");
-            $(".step-title").text("Your Location");
+            $(".step-title .back-icon") 
+            .off("click")
+            .html('<i class="fas fa-arrow-left"></i>');
+            $(".step-title .back-icon")
+            .css("cursor", "pointer")
+            .on("click", function (event) {
+                event.preventDefault(); 
+                get_hide_show(1); 
+            });
+            $(".step-title").contents().filter(function () {
+                return this.nodeType === 3;
+            }).remove();
+            $(".step-title").append("Your Location");
+
+            // $(".step-title").text("Your Location");
             $("#summary_div_left").css("display", "block");
 
            
             $('html, body').animate({
-                    scrollTop: $('.tab2').offset().top - 150
+                    scrollTop: $('.tab2').offset().top - 300
             }, 1000);
 
             
         }
 
         if(id == 3){
+
+           
 
             var city = $('#city').val();
             if (city == '') {
@@ -3425,6 +4890,8 @@ function no_of_walls_paint(element){
             $('#address_replace').html(address);
             $('#get-quote-summary-address').html(address);
 
+          
+
 
             $(".tab1").css("display", "none");
             $(".tab2").css("display", "none");
@@ -3440,12 +4907,53 @@ function no_of_walls_paint(element){
             $(".tab6").css("display", "none");
 
             $(".step-p").text("Step 3 of 4");
-            $(".step-title").text("Scheduling Your Service");
+            $(".step-title .back-icon") 
+            .off("click")
+            .html('<i class="fas fa-arrow-left"></i>');
+            $(".step-title .back-icon")
+            .css("cursor", "pointer")
+            .on("click", function (event) {
+                event.preventDefault();
+                get_hide_show(2); 
+            });
+            $(".step-title").contents().filter(function () {
+                return this.nodeType === 3;
+            }).remove();
+            $(".step-title").append("Scheduling Your Service");
+
+            // $(".step-title").text("Scheduling Your Service");
             $("#summary_div_left").css("display", "block");
+
+            $('html, body').animate({
+                    scrollTop: $('.tab3').offset().top - 300
+            }, 1000);
         }
 
         if(id == 4){
 
+
+            @php
+                if($subservice_id == 89){
+            @endphp
+            
+
+            var property_type = $("#property_type").val();
+            var area_of_floor = $("#area_of_floor").val();
+            var condition_of_floor = $("#condition_of_floor").val();
+            var service_required = $("#service_required").val();
+            var schedule_site_survey = $("#schedule_site_survey").val();
+
+
+            $('#last_summary_property_type').html(property_type);
+            $('#last_summary_area_of_floor').html(area_of_floor);
+            $('#last_summary_condition_of_floor').html(condition_of_floor);
+            $('#last_summary_service_required').html(service_required);
+            $('#last_summary_schedule_site_survey').html(schedule_site_survey);
+
+            @php
+                }
+            @endphp
+            
             var date = $('#date').val();
             if (date == '') {
                 jQuery('#date_error').html("Please Select Date");
@@ -3491,7 +4999,21 @@ function no_of_walls_paint(element){
                 $(".tab6").css("display", "block");
                 $(".tab5").css("display", "none");
                 $(".step-p").text("Step 4 of 4");
-                $(".step-title").text("Review & Confirm");
+
+                  $(".step-title .back-icon")
+                        .off("click")
+                        .html('<i class="fas fa-arrow-left"></i>');
+                        $(".step-title .back-icon")
+                        .css("cursor", "pointer")
+                        .on("click", function (event) {
+                            event.preventDefault();
+                            get_hide_show(3); 
+                });
+                $(".step-title").contents().filter(function () {
+                    return this.nodeType === 3;
+                }).remove();
+                    $(".step-title").append("Review & Confirm");
+                // $(".step-title").text("Review & Confirm");
                 $("#summary_div_left").css("display", "none"); 
             }else{
                 $("#summary_div_left").css("display", "block");
@@ -3506,10 +5028,25 @@ function no_of_walls_paint(element){
                 $(".tab4").css("display", "block");
                 $(".tab5").css("display", "none");
                 $(".step-p").text("Step 4 of 4");
-                $(".step-title").text("Payment Information");
+                $(".step-title .back-icon")
+                        .off("click")
+                        .html('<i class="fas fa-arrow-left"></i>');
+                        $(".step-title .back-icon")
+                        .css("cursor", "pointer")
+                        .on("click", function (event) {
+                            event.preventDefault();
+                            get_hide_show(3); 
+                });
+                $(".step-title").contents().filter(function () {
+                    return this.nodeType === 3;
+                }).remove();
+                $(".step-title").append("Payment Information");
+                // $(".step-title").text("Payment Information");
             }
 
-            
+             $('html, body').animate({
+                    scrollTop: $('.tab4').offset().top - 300
+            }, 1000);
 
         }
 
@@ -3606,11 +5143,20 @@ function no_of_walls_paint(element){
             var cod_charge = $('#cod_charge_new').val();
             var service_fee = $('#service_fee').val();
             var timing_charge = $('#timing_charge').val();
+            var weekly_off_charge = $('#weekly_off_charge').val();
             var promo_discount = $('#hidden_discount_price').val(); 
 
+            var total_timing_charge = parseFloat(timing_charge) + parseFloat(weekly_off_charge);
             //var sub_total = parseInt(percleanprice) + parseInt(additional_charge) + parseInt(timing_charge) + parseInt(cod_charge) - parseInt(discount_amount);
           
-            var sub_total = parseInt(service_charge) + parseInt(additional_charge) + parseInt(cod_charge) + parseInt(timing_charge) + parseInt(service_fee) - parseInt(promo_discount) ;
+            var sub_total = parseInt(service_charge) + parseInt(additional_charge) + parseInt(cod_charge) + parseInt(total_timing_charge) + parseInt(service_fee) - parseInt(promo_discount) ;
+
+            // alert(sub_total);
+            // alert(service_charge);
+            // alert(additional_charge);
+            // alert(cod_charge);
+            // alert(timing_charge);
+            // alert(service_fee);
 
             //alert(sub_total);
 
@@ -3641,14 +5187,26 @@ function no_of_walls_paint(element){
 
             //alert(sub_total);
 
+           
+            if (parseFloat(service_fee) !== 0) {
+                $('#service_fee_wrapper').show();
+                $('#service_fee_wrapper_mobile').show();
+            }else{
+                $('#service_fee_wrapper').hide();
+                $('#service_fee_wrapper_mobile').hide();
+            } 
+
+
             $('#total_to_pay_charge_price').val(total_to_pay);
             $('#frequency_summary_service_charge').html(service_charge);
             $('#frequency_summary_cross_amount').html(service_charge);
             $('#frequency_summary_cross_amount_mobile').html(last_sub_total.toFixed(2));
             $('#frequency_summary_promo_discount').html(promo_discount);
             $('#frequency_summary_additional_charge').html(additional_charge);
+            $('#frequency_summary_timing_fee').html(total_timing_charge.toFixed(2));
             $('#frequency_summary_service_fee_charge').html(service_fee);
             $('#frequency_summary_service_fee_charge_mobile').html(parseFloat(service_fee).toFixed(2));
+            $('#sub_total_replace_mobile').html(last_sub_total.toFixed(2));
             $('#frequency_summary_service_sub_total').html(last_sub_total.toFixed(2));
             $('#sub_total_replace').html(last_sub_total.toFixed(2));
             $('#frequency_summary_service_vat').html(vat_charge.toFixed(2));
@@ -3660,6 +5218,9 @@ function no_of_walls_paint(element){
            
             $('#total_to_pay_charge_replace').html(total_to_pay);
             $('#total_to_pay_charge_replace_mobile').html(total_to_pay);
+
+            
+          
             $('#frequency_summary_cod_charge').html(parseFloat(cod_charge).toFixed(2));
 
             var walletAmount = parseFloat($('#wallet_amount').text().replace('Wallet Amount (', '').replace(' AED)', ''));
@@ -3672,8 +5233,7 @@ function no_of_walls_paint(element){
 
             $('#frequency_summary_cod_charge').html(parseFloat(cod_charge).toFixed(2));
             
-            
-            
+          
 
             $("#summary_div_left").css("display", "none");
 
@@ -3687,10 +5247,25 @@ function no_of_walls_paint(element){
             $(".mobile-tab4").css("display", "none");
             $(".mobile-tab5").css("display", "none");
             $(".mobile-tab6").css("display", "inline-block");
-            $(".step-p").text("");
-            $(".step-title").text("Booking Summary");
-            $("#summary_div_left").css("display", "block");
+            $(".step-p").text("Step 5");
+             $(".step-title .back-icon")
+            .off("click")
+            .html('<i class="fas fa-arrow-left"></i>');
+            $(".step-title .back-icon")
+            .css("cursor", "pointer")
+            .on("click", function (event) {
+                 event.preventDefault();
+                get_hide_show(4); 
+            });
+            $(".step-title").contents().filter(function () {
+                return this.nodeType === 3;
+            }).remove();
+            $(".step-title").append("Booking Summary");
+            //$("#summary_div_left").css("display", "block");
 
+              $('html, body').animate({
+                    scrollTop: $('.tab5').offset().top - 300
+            }, 1000);
             }
 
             if(id == 6){
@@ -3755,7 +5330,7 @@ function no_of_walls_paint(element){
              // Update the wallet amount display
              $('#frequency_wallet_amount').text(`- AED ${UserWalletAmount.toFixed(2)}`);
             // Update the displayed order grand total
-            $('#frequency_summary_total_to_pay').text(`AED ${order_total_new1.toFixed(2)}`);
+            $('#frequency_summary_total_to_pay').text(`${order_total_new1.toFixed(2)}`);
             $('#apply_button').val(1);
             $('#cancel_button').val(1);
             document.querySelector('.wallet_apply').style.display = 'none';
@@ -3783,7 +5358,7 @@ $.ajax({
             let originalOrderTotal = parseFloat(orderTotal);
             $('#cancel_button').val(0);
             $('#apply_button').val(0);
-            $('#frequency_summary_total_to_pay').text(`AED ${originalOrderTotal.toFixed(2)}`);
+            $('#frequency_summary_total_to_pay').text(`${originalOrderTotal.toFixed(2)}`);
         
             // Reset the wallet amount display
             $('#frequency_wallet_amount').text('');
@@ -3826,7 +5401,7 @@ $.ajax({
     const scrollRightBtn = document.getElementById('scroll-right');
 
     // Get the current date and generate the next 14 days
-    const today = new Date();
+   const today = addDays(new Date(), 1);
     const daysToShow = 30;
     let currentIndex = 0;
     for (let i = 0; i < daysToShow; i++) {
@@ -3838,7 +5413,7 @@ $.ajax({
         dayDiv.innerHTML = `
             <div class="calendar-day-label" id="calenday_day">${formattedDate.day}</div>
             <div class="calendar-date-label" id="calender_date">${formattedDate.date}</div>
-            ${formattedDate.day === 'Sa' || formattedDate.day === 'Su' ? '<div class="surcharge-badge-dayslot" style="position:relative;"><span>+ AED 5</span></div>' : ''}
+            ${(formattedDate.day === 'Sa' || formattedDate.day === 'Su' || isToday(currentDate)) ? '<div class="surcharge-badge-dayslot" style="position:relative;"><span>+ AED 5</span></div>' : ''}
         `;
 
         // Add click event to each day
@@ -3850,15 +5425,38 @@ $.ajax({
 
             var date_new = formattedDate.date + ' ' + formattedDate.month + ' ' + formattedDate.year;
 
+            if (formattedDate.day === 'Sa' || formattedDate.day === 'Su' || isToday(currentDate)) {
+            //    alert('You selected a weekend!');
+
+                var weekly_off_charge = 5;
+            }else{
+                var weekly_off_charge = 0;
+            }
+
+            $('#weekly_off_charge').val(weekly_off_charge);
+
             $('#date_replace').html(date_new);
             $('#get-quote-summary-date').html(date_new);
             $('#frequency_summary_date').html(date_new);
+
+           
+            calculationNew();
+            //calculation_book_now();
 
             
             //alert(`Selected date: ${formattedDate.day}, ${formattedDate.date} ${formattedDate.month}`);
         });
 
         daysWrapper.appendChild(dayDiv);
+    }
+
+    function isToday(date) {
+        const today = new Date();
+        return (
+            date.getDate() === today.getDate() &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear()
+        );
     }
 
 
@@ -3976,32 +5574,83 @@ if (answer) {
     document.getElementById('month').textContent = getCurrentMonthAndYear();
 </script>
 <script>
-  document.getElementById('aerrowicon').addEventListener('click', function() {
-    var summaryDiv = document.getElementById('summary_div_left_mobile');
-    var aerrowIcon = document.getElementById('aerrowicon');
-    var close = document.getElementById('close');
-    
-    // Toggle the 'open' class on click to slide the div up or down
-    if (summaryDiv.classList.contains('open')) {
-        summaryDiv.classList.remove('open');
-        aerrowIcon.style.transition = 'transform 0.3s ease'; // Corrected style manipulation
-        aerrowIcon.style.transform = 'rotate(0deg)'; // Corrected style manipulation
-    } else {
-        summaryDiv.classList.add('open');
-        aerrowIcon.style.transition = 'transform 0.3s ease';
-        aerrowIcon.style.transform = 'rotate(180deg)'; // Corrected style manipulation
+   document.getElementById('aerrowicon').addEventListener('click', function () {
+                var summaryDiv = document.getElementById('summary_div_left_mobile');
+                var aerrowIcon = document.getElementById('aerrowicon');
+                
+                // Toggle the 'open' class on click to slide the div up or down
+                if (summaryDiv.classList.contains('open')) {
+                    summaryDiv.classList.remove('open');
+                    aerrowIcon.style.transition = 'transform 0.3s ease'; // Smooth transition
+                    aerrowIcon.style.transform = 'rotate(0deg)'; // Reset rotation
+                } else {
+                    summaryDiv.classList.add('open');
+                    aerrowIcon.style.transition = 'transform 0.3s ease'; // Smooth transition
+                    aerrowIcon.style.transform = 'rotate(180deg)'; // Rotate icon
+                }
+            });
+
+            // Close Button Click Event
+    document.getElementById('close').addEventListener('click', function () {
+        var summaryDiv = document.getElementById('summary_div_left_mobile');
+        var aerrowIcon = document.getElementById('aerrowicon');
+
+        // Close the div and reset the arrow icon
+        if (summaryDiv.classList.contains('open')) {
+            summaryDiv.classList.remove('open');
+            aerrowIcon.style.transition = 'transform 0.3s ease'; // Smooth transition
+            aerrowIcon.style.transform = 'rotate(0deg)'; // Reset rotation
+        }
+    });
+
+$(document).ready(function () {
+    if ($(window).width() <= 767) {
+        const $stepText = $('#service-step-title .step-p');
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 10) {
+                $stepText.addClass('hide');
+            } else {
+                $stepText.removeClass('hide');
+            }
+        });
     }
 });
-  document.getElementById('close').addEventListener('click', function() {
-    var summaryDiv = document.getElementById('summary_div_left_mobile');
-    var close = document.getElementById('close');
-    
-    // Toggle the 'open' class on click to slide the div up or down
-    if (summaryDiv.classList.contains('open')) {
-        summaryDiv.classList.remove('open');
-    } 
-});
+$(document).ready(function () {
+$(".step-title .back-icon")
+            .off("click")
+            .html('<i class="fas fa-arrow-left"></i>');
+			
+			
+			});
+    function date_select(){
+        //alert('Please select a date from the calendar.');
 
+        var url = '{{ url('painting-time-check') }}';
+        var date = $('#date').val();
+        var dateText = $('#date_replace').html();
+        var dateParts = dateText.split(' ');      // Split the string by spaces
+        var month = dateParts[1];   
+        var year = dateParts[2]; 
+
+        $.ajax({
+            url: url, // Laravel route
+            method: "POST",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                'date': date,
+                'month': month,
+                'year': year,
+                'subservice_id': '{{ $subservice_id }}'
+            },
+            success: function (response) {
+                $(".time_replace_ab").html(response.html); // inject HTML into DOM
+            },
+            error: function () {
+                alert("Failed to load time slots. Try again.");
+            }
+        });
+
+    }
     </script>
     
 

@@ -1,13 +1,20 @@
                             <!-- Our Footer -->
 <section class="footer-style1 at-home5 pt25 pb-0" style="background-color: #222222;">
-    <div class="web_whatsapp"><a href="https://web.whatsapp.com/send?phone=9710568363677" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+   
+    {{-- <div class="web_whatsapp">
+        <a href="https://web.whatsapp.com/send?phone=9710568363677" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div> --}}
+    <div class="web_whatsapp">
+        <a href="" id="whatsappButton" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
     <style>
         .footer-logo{
             width: 30% !important;
         }
         @media only screen and (max-width: 768px) {
             .footer-logo{
-            width: 80% !important;
+            width: 67% !important;
             }
         }
     </style>
@@ -127,6 +134,12 @@ alt="Footer Logo" >
             <div class="col-sm-6 col-lg-3">
                 <div class="link-style1 light-style at-home8 mb-4 mb-sm-5">
                     <h4 class="mb15" style="color: #fff;">Get in Touch With Us</h4>
+					<ul class="ps-0">
+                    <li style="color: #eee;">
+                        Bardab - Al Quoz 3 - Owned by Dubai Investment Fund 24TF-A-BLK Office No.
+                    </li>
+					<li style="color: #eee;"> <i class="fas fa-phone" style="color: #fff; margin-right: 5px;"></i><a href="tel:+971508807610" style="color: #eee; text-decoration: none;display:unset;">+971 50 880 7610</a></li>
+					</ul>
                     <ul class="ps-0">
                         <li><a href="mailto:support@vendorscity.com" style="color: #eee;">support@vendorscity.com</a></li>
 						<li style="color: #eee;">056 VENDORS (836 3677)</li>
@@ -195,7 +208,7 @@ alt="Footer Logo" >
         </div>
     </div>
 </section>
-<a class="scrollToHome" href="#" style="background: #fff;"><i class="fas fa-angle-up" style="color: #000;"></i></a>
+{{-- <a class="scrollToHome" href="#" style="background: #fff;"><i class="fas fa-angle-up" style="color: #000;"></i></a> --}}
 
 
 </div>
@@ -232,9 +245,11 @@ alt="Footer Logo" >
 <script src="{{ asset('public/site/js/jquery.counterup.js') }}"></script>
 <script src="{{ asset('public/site/js/isotop.js') }}"></script>
 <script src="{{ asset('public/site/js/scrollbalance.js') }}"></script>
+<script src="{{ asset('public/site/js/scrollbalance_new.js') }}"></script>
 <!-- Custom script for all pages -->
 <script src="{{ asset('public/site/js/script.js') }}"></script>
 <script src="{{ asset('public/site/js/owl.carousel.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> --}}
 
 <!-- Select2 JS -->
@@ -515,7 +530,40 @@ function search_city_mobile(val){
     $('#search_banner_mobile').submit();
 }
 </script>
+<script>
+    // JavaScript to open WhatsApp
+    document.getElementById('whatsappButton').addEventListener('click', function () {
+        const phoneNumber = "9710568363677"; // Replace with your WhatsApp number
+        const message = ""; // Replace with your default message
 
+        // Open WhatsApp in a new tab
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    });
+</script>
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdownnew").classList.toggle("show-new");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtnnew')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content-new");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show-new')) {
+            openDropdown.classList.remove('show-new');
+          }
+        }
+      }
+    }
+
+    
+</script>
 </body>
 
 </html>

@@ -10,7 +10,16 @@
     }
     
 }
+.custome-button {
+    min-width: 130px; /* optional, for uniform look */
+    text-align: center;
+}
 
+.d-flex-center-wrapper {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 @media (max-width: 767px) {
     /* Show for mobile view */
     .mobile-view {
@@ -19,25 +28,65 @@
     .web-view{
         display: none !important;
     }
-    
+    .google-button {
+            font-size: 13px !important;
+            padding: 5px 5px !important;
+    }
+    .google-text{
+            font-size: 20px !important;
+    }
+    .googlereview p{
+            font-size: 15px !important;
+    }
+    .review-description{
+        font-size: 12px !important;
+        max-height: 9em !important;
+        height: 50px !important;
+        margin-bottom: 0px !important;
+    }
 }
+    .review-stars{
+        justify-content: center;
+    }
+    .review-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 10em; 
+        height: 90px;
+        margin-bottom: 0px !important;
+    }
+    .banner_title{
+        line-height: 1 !important;
+    }
+    #get_quote_button{
+        font-size: 25px !important;
+        padding: 9px 18px 38px 18px !important;
+        font-weight: 600;
+    }
+
+
+
 #gets_button_booknow {
     font-size: 25px;
     font-family: var(--title-font-family);
-    font-weight: 500;
-    height: 40px;
-    left: 200px;
-    top: 16px;
+    font-weight: 600;
+    /* height: 40px;
+    left: 200px; 
+    top: 16px;*/
     /* margin-bottom:0px !important; */
-    padding:9px 18px 37px 18px;
+    padding:9px 18px 38px 18px;
     background-color: #FFD312;
     color: #000;
-    font-style: italic !important;
+    /* font-style: italic !important; */
 }
-#gets_button_booknow:hover:before{
-background-color: #FFD312 !important;
+    #gets_button_booknow:hover:before{
+    background-color: #FFD312 !important;
 }
-
+    #pills-tabContent{
+        /* height: 285px !important; */
+}
 .our-faq {
     padding-top: 90px;
 }
@@ -58,6 +107,7 @@ background-color: #FFD312 !important;
         width: 80%;
     }
 
+
     /* .vendor_banner_sec img {
         width: 60%;
     } */
@@ -71,9 +121,9 @@ background-color: #FFD312 !important;
         padding: 5px 13px;
     }
 
-    .listing-style1 .list-content {
-        padding: 25px 20px;
-        position: relative;
+    .listing-style1{
+        border:none !important; 
+        margin-bottom: 15px !important;
     }
 
     .ui-slider-range.ui-corner-all.ui-widget-header {
@@ -106,6 +156,7 @@ background-color: #FFD312 !important;
         height: 0;
         width: 100%;
         opacity: 1;
+        cursor: auto !important; 
     }
 
     #centerButton {
@@ -169,6 +220,29 @@ background-color: #FFD312 !important;
     }
     .mobile_img{display:none}
 
+    .banner-content-center {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        padding: 0 15px;
+        width: 55%;
+    }
+    .desktop_img{
+        display: block;
+        width: 100%;
+        height: auto;   
+    }
+    .banner_static_title{
+        font-size: 32px !important;
+        width: 100% !important;
+    }
+    .custome-button{
+            border-radius: 15px !important;        
+    }
+
     @media only screen and (max-width: 600px) {
         img {
             max-width: 100%;
@@ -186,15 +260,46 @@ background-color: #FFD312 !important;
             padding-bottom: 0 !important;
         }
         .we_do_heading {
-            font-size: 50px;
+            font-size: 24px !important;
+            font-weight: 700;
+            text-align: center !important; 
         }
         .reviewListBox {
             height: auto;
             margin: 0 0 10px 0;
         }
-        .mobile_img{display:block}
+        .mobile_img{display:block;
+                    width: 100%;
+                    height: auto;
+                    }
         .desktop_img{display:none}
+        .listing-style1 .list-content{
+            padding: 25px 18px;
+        }
+      
+        /* You can add this to your CSS */
+        .show-more-btn {
+            color: #007bff;
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .why-div{
+            max-height: 50em;
+            height: 380px;
+        }
+        /* .mobile_top{
+            margin-top: 64px;
+        } */
+        .main-title2{
+            margin-bottom: 15px !important;
+        }
     }
+     .we_do_heading {
+            font-size: 48px;
+        }
 
     #bannerBottom {
         position: absolute;
@@ -215,10 +320,96 @@ background-color: #FFD312 !important;
         margin-right: 2px;
     }
     .we_cut_out_paragraph {
-        line-height: 35px;
+        line-height: 30px;
         border-left: 2px solid gray;
-        padding-left: 25px;
+        padding-left: 20px;
+        font-size: 16px !important;
     }
+     .freelancer-style1{
+        padding: 15px;
+    }
+    /* li{
+        list-style-type: inherit !important;
+    } */
+	
+.whyvendorscity-slider.owl-carousel .owl-item img{margin:0 auto}
+.whyvendorscity-slider.owl-carousel .owl-item h3{font-size: 18px;}
+.whyvendorscity-slider.owl-carousel .owl-item .item .freelancer-style1{    padding: 3px 14px;}
+
+@media (max-width: 767px) {
+  .whyvendorscity-slider .owl-stage-outer {
+    margin-left: -40px !important; /* same as stagePadding */
+  }
+  
+.body_content {
+    margin-top: 144px !important; 
+  }
+
+  #get_quote_button{
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    width: 100%;
+    padding: 8px 23px 23px 27px !important;
+  }
+
+  .whyvendorscity-slider.owl-carousel .owl-item img{margin:0 auto}
+  .whyvendorscity-slider.owl-carousel .owl-item .item{text-align:center}
+  
+  #pills-tabContent{height:auto !important;}
+
+ .underline {
+    margin-left: 9px !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 95% !important;
+    border: none;
+    height: 1px;
+    box-shadow: 0 0 0.3px #707070;
+    background: #707070; /* or a lighter gray */
+    display: inline-block !important;
+}
+
+  .banner_static_title{
+        font-size: 22px !important;
+    }
+    .banner_static_subtitle{
+        font-size: 12px !important;
+    }
+
+    .banner-content-center {
+        position: absolute;
+        top: unset;
+        left: 0 !important;
+        transform: unset;
+        text-align: center;
+        z-index: 2;
+        padding: 0 15px;
+        width: 100%;
+        bottom: 30px;
+    }
+
+}
+.subservice-name strong{
+    font-size: 22px !important;
+    font-weight: 600;
+}
+.underline{
+    display: none;
+}
+.list-content h5 {
+    font-size: 15px !important;
+}
+
+.custom-blue-btn{
+    background-color: #0040E6 !important;
+    color: #fff !important;
+}
+
+#gets_button_book_now.custom-blue-btn:hover:before {
+    background-color: #0040E6 !important;
+    color: #fff !important;
+}
+    
 </style>
 <!-- <section class="breadcumb-section pt-0 container">
     <div
@@ -246,13 +437,13 @@ background-color: #FFD312 !important;
 
 @php
     // echo '<pre>';
-    // print_r($package_data[0]);
+    // print_r($subservices_new);
     // echo '</pre>';
     // exit();
 @endphp
 
-<section class="our-about bgc-thm2 container pb0 pt0 mb30 mt120 vendor_banner_sec mrgb0">
-    <div class="container">
+<section class="our-about bgc-thm2  pb0 pt0 mb30 mt120 vendor_banner_sec mrgb0">
+    <div>
         <div class="row align-items-center">
             {{-- <div class="col-xl-5 offset-xl-1">
                 <div class="position-relative wow fadeInLeft" data-wow-delay="300ms">
@@ -267,83 +458,63 @@ background-color: #FFD312 !important;
             </div> --}}
             <div class="col-xl-12">
                 <div class="position-relative mb30-lg mrgb0">
-                    <div class="about-img wow fadeInRight mb-3" data-wow-delay="300ms">
+                    <div class="wow fadeInRight mb-3" data-wow-delay="300ms">
                         @if(isset($banner_subservices->banner_image))
-                            <img style="width: 100%;" class="bdrs16 desktop_img"
-                                src="{{ asset('public/upload/subservice/banner/large/' . $banner_subservices->banner_image) }}"
+                            <img style="width: 100%;" class="desktop_img"
+                                src="{{ asset('public/upload/subservice/banner/' . $banner_subservices->banner_image) }}"
                                 alt="">
 
-                            <img style="width: 100%;" class="bdrs16 mobile_img"
-                            src="{{ asset('public/upload/subservice/large/' . $banner_subservices->image) }}"
-                            alt="">
-                        @else
-
-                             <img style="width: 100%;" class="bdrs16"
-                                src="{{ asset('public/upload/subservice/banner/no_image_subservice.png') }}"
+                            <img style="width: 100%;" class="mobile_img"
+                                src="{{ asset('public/upload/subservice/banner/' . $banner_subservices->mobile_banner_image) }}"
                                 alt="">
 
-                        @endif
-                    </div>
-                    <div id="centerButton">
-                        @if($subservices_new->id == 23 || $subservices_new->id == 26)
-                        <a id="gets_button_booknow"
-                        href="" class="ud-btn btn-thm2 add-joining">
-                        Book Now
-                        </a>
-                        @endif
-                    </div>
-                    {{-- @if (!empty($package_data) && isset($package_data[0])) --}}
-                    <div id="centerButton">
-                        @if($banner_subservices->is_bookable == 1)
-                        @php
-                        $userdata = Session::get('user');
-                        $servicesData = array("session_service_id"=>$services_id,"session_subservice_id" => $subservices_new->id);
+                            {{-- Centered Content --}}
+                            <div class="banner-content-center">
+                                <h2 class="banner_title text-white banner_static_title">{{ $banner_subservices->banner_title }}</h2>
+                                <h6 class="text-white banner_static_subtitle">
+                                    {{$banner_subservices->banner_subtitle}}
+                                </h6>
 
-                        Session::put('servicesData',$servicesData);
-                        @endphp
-                        {{-- @if($userdata != "") --}}
-                        <a id="gets_button_get_quote"
-                            href="{{ route('enquiry', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id]) }}"
-                            class="ud-btn btn-thm2 add-joining">
-                            Get a Quote
-                        </a>
-                        {{-- @else
-                        @php
-                        // Store the intended URL in the session before redirecting to login
-                        $intendedUrl = route('enquiry', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id]);
-                        // echo"($intendedUrl)";
-                        Session::put('redirect_url', $intendedUrl);
-                         @endphp
-                        <a id="gets_button_get_quote"
-                            href="{{ route('sign-in-form') }}"
-                            class="ud-btn btn-thm2 add-joining">
-                            Get a Quote
-                        </a>
-                        @endif --}}
+                                {{-- Buttons if needed --}}
+                             
+
+                                <div class="d-flex flex-column flex-md-row justify-content-center align-items-center px-4 mt-4">
+
+                                @if($banner_subservices->is_bookable == 1)
+                                <a href="{{ route('enquiry', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id]) }}"
+                                class="ud-btn btn-thm2 add-joining custome-button mb-2 mb-md-0 me-md-3" id="get_quote_button">Get 5 Free Quotes</a>
+
+                                @if($subservices_new->id == 23 || $subservices_new->id == 26)
+                                <a id="gets_button_booknow" href="" class="ud-btn btn-thm2 custome-button add-joining">Book Now</a>
+                                @endif
+
+                                @else
+
+                                @php
+                                $category_id = $_GET['category'] ?? "";
+                                @endphp
+                            
+                                <a id="gets_button_book_now"
+                                href="{{ route('booknow', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id] + ($category_id != '' ? ['category' => $category_id] : [])) }}"
+                                class="ud-btn btn-thm2 add-joining custome-button @if($subservices_new->id === 47 || in_array($subservices_new->id, [77, 78, 89])) custom-blue-btn @endif">
+                                    @if($subservices_new->id === 47)
+                                        Get Started
+                                    @elseif(in_array($subservices_new->id, [77, 78, 89]))
+                                        Get a Quote
+                                    @else
+                                        Book Now
+                                    @endif
+                                </a>
+                                @endif
+                                </div>
+                            </div>
                         @else
-                        <a id="gets_button_book_now"
-                        href="{{ route('booknow', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id]) }}"
-                        class="ud-btn btn-thm2 add-joining">
-                        @if($subservices_new->id === 47)
-                            Get Started
-                            @else
-                            Book Now
-                            @endif
-                        </a>
+                            <img style="width: 100%;"
+                                src="{{ asset('public/upload/subservice/banner/no_image_subservice.png') }}"  alt="">
                         @endif
                     </div>
-                    
-                    {{-- @endif --}}
-            {{-- <div id="bannerBottom">
-                        @if($subservices_new->id != '28')
-                        <p style="color: #fff">Get <strong>5 Free Quotes</strong> from our <strong>Trusted Vendors</strong> @if($package_count > 0)or <strong>Choose a Package Below</strong> @endif</p>
-                        @else
-                        <p style="color: #fff";>Book your home cleaning with VendorsCity now for a spotless, refreshing home!</p>
-                        @endif
-                    </div> --}}
-                   
-
                 </div>
+
                  
             </div>
 
@@ -351,22 +522,37 @@ background-color: #FFD312 !important;
 
     </div>
 </section>
-
+{{-- 
 @isset($subservices_new->top_description)
-    <section class="pt30 pb90 pbm0">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    {{-- <h4>Description</h4> --}}
+   <section class="pt30 pb90 pbm0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 subservice-name">
+                <div class="description-container d-block d-md-none">
+                    <div class="short-description"></div>
+                    <div class="full-description d-none"></div>
+
+                    <button class="toggle-description-btn d-flex align-items-center gap-1 mt-2" style="border: none; background: none; color: #6b7177; font-weight: 500; font-size: 14px;">
+                        <span class="btn-text">Show More</span>
+                        <i class="fa-solid fa-angle-down arrow" ></i>
+                    </button>
+                </div>
+
+                <div class="d-none d-md-block">
                     {!! html_entity_decode($subservices_new->top_description) !!}
                 </div>
-                <div id="scroll-booknow"></div>
             </div>
+            <span class="underline"></span>
+            <div id="scroll-booknow"></div>
         </div>
-    </section>
-@endisset
+    </div>
+</section>
 
 
+@endisset --}}
+
+
+@if($subservices_new->id != 29 && $subservices_new->id != 70 && $subservices_new->id != 71 && $subservices_new->id != 47 && $subservices_new->id != 73 && $subservices_new->id != 79 && $subservices_new->id != 80 && $subservices_new->id != 81 && $subservices_new->id != 82 && $subservices_new->id != 83 && $subservices_new->id != 84 && $subservices_new->id != 85 && $subservices_new->id != 86 && $subservices_new->id != 87 && $subservices_new->id != 88)
 @if($package_count > 0)
 <!-- Listings All Lists -->
 <section class="pt30 pb90 pbm0">
@@ -635,7 +821,9 @@ background-color: #FFD312 !important;
                     </div>
                 </div>
             </div>
+             
             <div class="col-lg-9">
+                <div id="scroll-booknow"></div>
                 <div class="row align-items-center mb20">
                     <div class="col-md-6">
                         <div class="text-center text-md-start">
@@ -889,14 +1077,15 @@ background-color: #FFD312 !important;
     </div>
 </section>
 @endif
-<section class="pb90 pb30-md pt10 ptm0">
+@endif
+
+<section class="pb20 pt10 ptm0">
     <div class="container">
-        <div class="row align-items-center wow fadeInUp" data-wow-delay="00ms">
+        <div class="row align-items-center wow fadeInUp pb20" data-wow-delay="00ms">
             <div class="col-lg-6">
                 <div class="main-title2">
-                    <h2 class="title we_do_heading">Most Popular Services
+                    <h2 class="mt-4 mt-md-0 title we_do_heading">Most Popular Services
                     </h2>
-
                 </div>
             </div>
             <div class="col-lg-6">
@@ -912,69 +1101,39 @@ background-color: #FFD312 !important;
 
 
         @php
-            // $test = DB::table('services')->where('id', $services_id)->get();
-            //$services = DB::table('services')->where('id', '!=', $services_id)->where('is_active', 0)->get();
             $services = DB::table('subservices')->where('id', '!=', $banner_subservices->id)->where('serviceid', $banner_subservices->serviceid)->where('is_active','0')->get();
-            // echo '<pre>';
-            // print_r($services);
-            // echo '</pre>';
-            // exit();
         @endphp
 
-
-        <div class="tab-content ha" id="pills-tabContent">
-            <div class="tab-pane fade fz15 text show active" id="pills-home" role="tabpanel"
-                aria-labelledby="pills-home-tab">
-                <div class="navi_pagi_bottom_center slider-4-grid owl-carousel owl-theme">
-                    @foreach ($services as $services_data)
-                        <div class="item">
+         <div class="row">
+				
+				 @foreach ($services as $services_data)
+                        <div class="col-sm-6 col-xl-3 col-6 col-lg-3">
                             <div class="listing-style1">
-                                <div class="list-thumb">
-                                    <a href="{{ url('package-lists/' . $services_data->page_url) }}">
-                                        @if (isset($services_data->image) && $services_data->image != '')
-                                            <img class="w-100"
-                                                src="{{ asset('public/upload/subservice/large/' . $services_data->image) }}"
-                                                alt="">
-                                        @else
-                                            <img class="w-100"
-                                                src="{{ asset('public/upload/subservice/large/1715859524No_Image_Available.jpg') }}"
-                                                alt="">
-                                        @endif
-                                    </a>
-                                    {{-- <a href="" class="listing-fav fz12"><span class="far fa-heart"></span></a> --}}
-                                </div>
-                                <div class="list-content"
-                                    style="padding: 35px 15px 20px 15px; background:#eee; !important">
 
-                                    {{-- <div class="review-meta d-flex align-items-center">
-                                        <i class="fas fa-star fz10 review-color"></i>
-                                        <i class="fas fa-star fz10 review-color"></i>
-                                        <i class="fas fa-star fz10 review-color"></i>
-                                        <i class="fas fa-star fz10 review-color"></i>
-
-                                    </div> --}}
-
-                                    <div class="list-meta d-flex justify-content-between align-items-center">
-                                        <a class="d-flex" href="{{ url('package-lists/' . $services_data->page_url) }}">
-                                            <span class="fz14"
-                                                style="font-size: 20px;!important">{{ $services_data->subservicename }}</span>
-                                        </a>
-                                        <div class="budget">
-                                            <i class="far fa-arrow-right-long"></i>
-                                        </div>
-                                    </div>
+                                <div class="list-thumb bdrs12">
+                                @if ($services_data->image != '')
+                                <a href="{{ url('package-lists/' . $services_data->page_url) }}">
+										<img src="{{ asset('public/upload/subservice/large/' . $services_data->image) }}" alt="" class="serviceimage_desktop w-100">
+                                </a>
+                                @else
+                                <a href="{{ url('package-lists/' . $services_data->page_url) }}"> <img class="w-100"
+                                            src="{{ asset('public/upload/service/large/Image_Available.jpg') }}"
+                                            alt=""></a>
+                                @endif
                                 </div>
                             </div>
+                              <div class="list-content">
+                                    <h5 class="list-title"><a
+                                            href="{{ url('package-lists/' . $services_data->page_url) }}" style="font-weight:600;">{{ $services_data->subservicename }}
+                                        </a></h5>
+                            </div>
                         </div>
-                    @endforeach
-
-
+				@endforeach 
                 </div>
-            </div>
         </div>
-    </div>
-
 </section>
+
+
 
 @isset($subservices_new->description)
     <section class="pt30 pb10 pbm0">
@@ -995,14 +1154,110 @@ background-color: #FFD312 !important;
         ->get();
 
 @endphp
+
+@isset($subservices_new->top_description)
+<section class="pt30 pbm0  pb30 pt0-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 subservice-name">
+
+                {{-- ✅ Mobile Only Toggle Container --}}
+                <div class="description-container d-block d-md-none">
+                    
+                    {{-- Top Description --}}
+                    <div class="short-description"></div>
+                    <div class="full-description d-none">
+
+                        {!! html_entity_decode($subservices_new->top_description) !!}
+
+                        {{-- ✅ Package Attributes (Mobile Only) --}}
+                        <div class="package-mobile-section mt-4">
+                            @foreach ($package_attr as $index => $package_attribut)
+                                <div class="mb-5">
+                                    <div class="placeholder rect bg-primary rounded"
+                                        style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
+                                    </div>
+                                    <div class="mt-3">
+                                        <h3 class="mb-2 font-weight-bold">{{ $package_attribut->title_addmore }}</h3>
+                                        {!! html_entity_decode($package_attribut->description_addmore) !!}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+
+                    {{-- Toggle Button --}}
+                    <button class="toggle-description-btn d-flex align-items-center gap-1 mt-2" style="border: none; background: none; color: #6b7177; font-weight: 500; font-size: 14px;">
+                        <span class="btn-text">Show More</span>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </button>
+
+                </div>
+
+                {{-- ✅ Desktop Full Description --}}
+                <div class="d-none d-md-block">
+                    {!! html_entity_decode($subservices_new->top_description) !!}
+                    
+                    {{-- Desktop Package Attributes --}}
+                    <div class="row mb-5 align-items-center mrgb0">
+                        @foreach ($package_attr as $index => $package_attribut)
+                            @if ($index % 2 == 1)
+                                {{-- Right Image --}}
+                                <div class="col-12 col-md-7 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
+                                    <div class="rounded p-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h3 class="mb-4 font-weight-bold">{{ $package_attribut->title_addmore }}</h3>
+                                            </div>
+                                            <div class="col-12">{!! html_entity_decode($package_attribut->description_addmore) !!}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-5 pl-md-0 stack-top stack-adjust--left mrgb0">
+                                    <div class="placeholder rect bg-primary rounded"
+                                        style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
+                                    </div>
+                                </div>
+                            @else
+                                {{-- Left Image --}}
+                                <div class="col-12 col-md-5 pl-md-0 stack-top stack-adjust--left">
+                                    <div class="placeholder rect bg-primary rounded"
+                                        style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-7 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
+                                    <div class="rounded p-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h3 class="mb-4 font-weight-bold">{{ $package_attribut->title_addmore }}</h3>
+                                            </div>
+                                            <div class="col-12">{!! html_entity_decode($package_attribut->description_addmore) !!}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+
+            </div>
+            <span class="underline"></span>
+           
+        </div>
+    </div>
+</section>
+@endisset
+
+{{-- 
 @isset($package_attr)
 
-    <section class="pb10 pb30-md pt10 ptm0">
+    <section class="pb10 pb30-md pt10 ptm0" id="package-section">
         <div class="container web-view">
             <div class="row mb-5 align-items-center mrgb0">
                 @foreach ($package_attr as $index => $package_attribut)
                     @if ($index % 2 == 1)
-                        <div class="col-12 col-md-6 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
+                        <div class="col-12 col-md-7 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
                             <div class="rounded p-3">
                                 <div class="row">
                                     <div class="col-12">
@@ -1014,23 +1269,22 @@ background-color: #FFD312 !important;
                             </div>
                         </div>
 
-                        <div class="col-12 mb-5 col-md-6 pl-md-0 stack-top stack-adjust--left mrgb0">
-                            <div class="placeholder rect bg-primary rounded b-lazy b-loaded"
+                        <div class="col-12  col-md-5 pl-md-0 stack-top stack-adjust--left mrgb0">
+                            <div class="placeholder rect bg-primary rounded"
                                 style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
                             </div>
                             
                         </div>
                     @else
                         <!-- Reverse the order for odd indices -->
-                        <div class="col-12 mb-5 col-md-6 pl-md-0 stack-top stack-adjust--left">
-                            <div class="placeholder rect bg-primary rounded b-lazy b-loaded"
+                        <div class="col-12  col-md-5 pl-md-0 stack-top stack-adjust--left">
+                            <div class="placeholder rect bg-primary rounded"
                                 style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
                             </div>
                         </div>
 
-                        <div
-                            class="col-12 
-                col-md-6 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
+                        <div class="col-12 
+                col-md-7 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
                             <div class="rounded p-3">
                                 <div class="row">
                                     <div class="col-12">
@@ -1055,7 +1309,7 @@ background-color: #FFD312 !important;
                         <div class="col-12 col-md-6 px-5 px-md-0 pr-md-0 stack-bottom stack-adjust--right">
                             <div class="rounded p-3">
                                 <div class="row">
-                                <div class="placeholder rect bg-primary rounded b-lazy b-loaded"
+                                <div class="placeholder rect bg-primary rounded"
                                 style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
                                 </div>
                                 </div>
@@ -1073,7 +1327,7 @@ background-color: #FFD312 !important;
                     @else
                         <!-- Reverse the order for odd indices -->
                         <div class="col-12 mb-5 col-md-6 pl-md-0 stack-top stack-adjust--left">
-                            <div class="placeholder rect bg-primary rounded b-lazy b-loaded"
+                            <div class="placeholder rect bg-primary rounded"
                                 style="background: url('{{ asset('public/upload/subservice/subservice_attr/large/' . $package_attribut->image) }}'); background-size: cover; width: 100%; height: 300px;">
                             </div>
                         </div>
@@ -1097,33 +1351,55 @@ background-color: #FFD312 !important;
 
         <!-- For Mobile view -->
     </section>
-@endisset
+@endisset --}}
 
-<section class="pb90 pb30-md pt10 ptm0">
+
+
+<section class="pb50 pb30-md pt10 ptm0 ">
     <div class="container">
         <div class="row align-items-md-center">
-							<div class="col-sm-12 col-xl-3 text-center">
+		
+		<div class="vam_nav_style dots_none owl-carousel owl-theme whyvendorscity-slider">
+		
+						<div class="item">
+						<div class="freelancer-style1  bdr1 bdrs16 hover-box-shadow review-card-fixed why-div">
+							
                                 <img src="{{ asset('public/site/images/Select_your_Service.png') }}" alt="" style="width: 65%;">
                                 <h3 style="margin-top: 15px;">Why VendorsCity?</h3>
-                                <p style="padding: 0 32px;">Positioned as a leading home and commercial services marketplace, VendorsCity takes the lead in streamlining your diverse service requirements. Here's why opting for our services stands out.</p>
-                            </div>
-                            <div class="col-sm-12 col-xl-3 text-center">
+                                <p >Positioned as a leading home and commercial services marketplace, VendorsCity takes the lead in streamlining your diverse service requirements. Here's why opting for our services stands out.</p>
+                            
+                        </div>
+                        </div>
+						<div class="item">
+						<div class="freelancer-style1  bdr1 bdrs16 hover-box-shadow review-card-fixed why-div">
+                            
                                 <img src="{{ asset('public/site/images/Sit_back_and_relax.png') }}" alt="" style="width: 65%;">
                                 <h3 style="margin-top: 15px;">Top-notch Professionals</h3>
-                                <p style="padding: 0 28px;">Connect with industry-leading professionals through VendorsCity. Prioritizing excellence, we ensure our partners deliver exceptional quality for your utmost satisfaction.</p>
+                                <p> Connect with industry-leading professionals through VendorsCity. Prioritizing excellence, we ensure our partners deliver exceptional quality for your utmost satisfaction.</p>
+                            
                             </div>
-                            <div class="col-sm-12 col-xl-3 text-center">
+                            </div>
+							<div class="item">
+							<div class="freelancer-style1  bdr1 bdrs16 hover-box-shadow review-card-fixed why-div">
+                            
                                 <img src="{{ asset('public/site/images/about/ease_of_booking.png') }}" alt="" style="width: 65%;">
                                 <h3 style="margin-top: 15px;">Consistent Excellence</h3>
-                                <p style="padding: 0 32px;">Quality is our standard at VendorsCity. Through rigorous measurement and management, we maintain unparalleled service quality, consistently exceeding expectations.</p>
+                                <p >Quality is our standard at VendorsCity. Through rigorous measurement and management, we maintain unparalleled service quality, consistently exceeding expectations.</p>
+                            
                             </div>
-							<div class="col-sm-12 col-xl-3 text-center">
+                            </div>
+							<div class="item">
+							<div class="freelancer-style1  bdr1 bdrs16 hover-box-shadow review-card-fixed why-div">
+							
                                 <img src="{{ asset('public/site/images/about/customer_support.png') }}" alt="" style="width: 65%;">
                                 <h3 style="margin-top: 15px;">Customer-Focused</h3>
-                                <p style="padding: 0 32px;">Customer service is a priority at VendorsCity. With a seven-day operating contact center, we take your concerns seriously, providing reliable support whenever you need it.</p>
+                                <p >Customer service is a priority at VendorsCity. With a seven-day operating contact center, we take your concerns seriously, providing reliable support whenever you need it.</p>
+                            
                             </div>
-        </div>
-    </div>
+                        </div>
+                   </div>
+              </div>
+         </div>
 </section>
 
 <!--<section class="pb90 pb30-md pt10 ptm0">
@@ -1151,7 +1427,7 @@ Positioned as a leading home and commercial services marketplace, VendorsCity ta
         <div class="row wow fadeInUp" data-wow-delay="00ms">
             <div class="col-lg-6">
                 <div class="main-title2">
-                    <h2 class="title we_do_heading">Hear what Our Clients Have to say About Us</h2>
+                    <h2 class="title">Hear what Our Clients Have to say About Us</h2>
 
                 </div>
             </div>
@@ -1319,59 +1595,81 @@ Positioned as a leading home and commercial services marketplace, VendorsCity ta
         </div>
     </div>
 </section>
-
-<div class="container wow fadeInUp" data-wow-delay="300ms">
-    <div class="reviewList">
-        <div class="row align-items-md-center">
-            <div class="col-lg-12">
-                <h2>Read Our Verified Reviews</h2>
+<div class="container">
+        <div class="row align-items-center wow fadeInUp">
+          <div class="col-lg-9">
+            <div class="main-title">
+              <h2 class="title">Read Our Verified Reviews</h2>
             </div>
+          </div>
         </div>
-        <div class="row" style="margin:0; ">
-            @if(!empty($googleReview))
-                @foreach($googleReview as $googleReview_data)
-                <div class="col-lg-3">
-                    <div class="reviewListBox">
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+          <div class="col-lg-12">
+		  
+		  <div id="review-slider" class="splide">
+			  <div class="splide__track">
+				<ul class="splide__list">
+			@if(!empty($googleReview))
+						 @foreach($googleReview as $googleReview_data)
+				  <li class="splide__slide text-center" >
+					<div class="freelancer-style1 text-center bdr1 bdrs16 hover-box-shadow review-card-fixed">
+							  
+							  <div class="details">
+								@if($googleReview_data->name != '')
+								<h5 class="title mb-1">{{$googleReview_data->name}}</h5>
+								@endif
+								
+								<div class="review">
+									 @if($googleReview_data->label != '')
+									<div class="d-flex review-stars">
+											@for ($i = 1; $i <= 5; $i++)
+												@if ($i <= $googleReview_data->label)
+													<i class="fas fa-star review-color"></i>
+												@else
+													<i class="far fa-star review-color ms-2"></i>
+												@endif
+											@endfor
+										  </div>
+									@endif 
+								</div>
+								
+								<hr class="opacity-100 mt20 mb15">
+								@if($googleReview_data->description != '')
+                                @php
+                                $shortDescription = Str::limit($googleReview_data->description, 80);
+                                @endphp
+                                    
+                                <p class="review-description">“{{ $shortDescription }}”</p>
+								@endif 
+							  </div>
+							</div>
+				  </li>
+			@endforeach
+						  @endif
 
-                        @if($googleReview_data->name != '')
-                        <h5 class="mb-0">{{$googleReview_data->name}}</h5>
-                        @endif 
+				  <!-- Add more slides as needed -->
 
-                        @if($googleReview_data->label != '')
-                        <div class="d-flex">
-                               @for ($i = 1; $i <= 5; $i++)
-                                    @if ($i <= $googleReview_data->label)
-                                        <i class="fas fa-star review-color"></i>
-                                    @else
-                                        <i class="far fa-star review-color ms-2"></i>
-                                    @endif
-                                @endfor
-                              </div>
-                            
-                        @endif 
-                        @if($googleReview_data->description != '')
-                            <p>“{{$googleReview_data->description}}”</p>
-                        @endif 
-                    </div>
-                </div>
-                @endforeach
-            @endif
+				</ul>
+			  </div>
+			</div>
+            
+          </div>
         </div>
     </div>
-</div>
+
 
 
 <div class="container">
     <div class="googlereview">
         <div class="row align-items-md-center">
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="300ms">
-                <h3>Curiouos about what sets apart?</h3>
+                <h3 class="google-text">Curiouos about what sets apart?</h3>
                 <p>Explore our Google Reviews and discover why customers trust us with home service needs</p>
             </div>
-            <div class="col-lg-3 wow fadeInUp" data-wow-delay="300ms">
-                <a style="width: 100%;" href="https://www.google.com/search?q=vendorscity+dubai&sca_esv=e472bba1732e8ddb&sca_upv=1&rlz=1C5CHFA_enAE1014AE1015&sxsrf=ADLYWIKMm77ohxWtSjtB2FywHuiQPICeBA%3A1716628559794&ei=T6xRZquOMNCVxc8Ph-eCsAo&ved=0ahUKEwjr8ZHcu6iGAxXQSvEDHYezAKYQ4dUDCBA&uact=5&oq=vendorscity+dubai&gs_lp=Egxnd3Mtd2l6LXNlcnAiEXZlbmRvcnNjaXR5IGR1YmFpMgQQIxgnMggQABgIGA0YHjIIEAAYCBgNGB4yCBAAGAgYDRgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIESMAKUMoEWN8GcAF4AZABAJgB_wGgAcYDqgEFMC4xLjG4AQPIAQD4AQGYAgOgAtMDwgIKEAAYsAMY1gQYR8ICBxAAGIAEGA3CAggQABgFGA0YHsICChAAGAUYDRgeGA-YAwDiAwUSATEgQIgGAZAGCJIHBTEuMC4yoAeUEA&sclient=gws-wiz-serp#lrd=0x4c30ffdf4bf81567:0xaf176b54bfc73c00,1" target="_blank" class="ud-btn btn-thm">Read More Reviews</a>
+            <div class="col-lg-3 col-6 wow fadeInUp" data-wow-delay="300ms">
+                <a style="width: 100%;" href="https://www.google.com/search?q=vendorscity+dubai&sca_esv=e472bba1732e8ddb&sca_upv=1&rlz=1C5CHFA_enAE1014AE1015&sxsrf=ADLYWIKMm77ohxWtSjtB2FywHuiQPICeBA%3A1716628559794&ei=T6xRZquOMNCVxc8Ph-eCsAo&ved=0ahUKEwjr8ZHcu6iGAxXQSvEDHYezAKYQ4dUDCBA&uact=5&oq=vendorscity+dubai&gs_lp=Egxnd3Mtd2l6LXNlcnAiEXZlbmRvcnNjaXR5IGR1YmFpMgQQIxgnMggQABgIGA0YHjIIEAAYCBgNGB4yCBAAGAgYDRgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIESMAKUMoEWN8GcAF4AZABAJgB_wGgAcYDqgEFMC4xLjG4AQPIAQD4AQGYAgOgAtMDwgIKEAAYsAMY1gQYR8ICBxAAGIAEGA3CAggQABgFGA0YHsICChAAGAUYDRgeGA-YAwDiAwUSATEgQIgGAZAGCJIHBTEuMC4yoAeUEA&sclient=gws-wiz-serp#lrd=0x4c30ffdf4bf81567:0xaf176b54bfc73c00,1" target="_blank" class="ud-btn btn-thm google-button">Read More Reviews</a>
             </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="300ms" style="text-align: right;">
+            <div class="col-lg-4 col-6 wow fadeInUp" data-wow-delay="300ms" style="text-align: right;">
                 <img class="w100" src="{{ asset('public/site/images/googlereview.png') }}" alt="" style="max-width: 400px;">
             </div>
         </div>
@@ -1520,9 +1818,9 @@ Positioned as a leading home and commercial services marketplace, VendorsCity ta
 
 @endif
 
-<section class="our-about bgc-thm2 bgc-thm22 container pb0 pt0 mb30 mt30">
+<section class="our-about bgc-thm2 bgc-thm22 container pb0 pt0 mb30 mt30" >
     <div class="container">
-        <div class="row align-items-center custom_marquee">
+        <div class="row align-items-center custom_marquee" style="display: none;">
 
 
             {{-- <marquee width="100%" direction="left">| 15,000+ Customers | <span class="flaticon-star custom_icon">
@@ -1567,9 +1865,15 @@ Positioned as a leading home and commercial services marketplace, VendorsCity ta
     <div class="scrollButton-div" style="padding: 0 0 14px 0;">
     <h3 class="scrollButton-h3-book-now">Looking for {{$subservices_new->subservicename}} Services in Dubai?</h3>
     <a id="gets_button_sticky_book_now" style="top:12px;"
-    href="{{ route('booknow', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id]) }}"
+    href="{{ route('booknow', ['service_id' => $services_id, 'subservice_id' => $subservices_new->id])}}"
     class="ud-btn btn-thm2 add-joining">
-    Book Now
+     @if($subservices_new->id === 47)
+        Get Started
+    @elseif(in_array($subservices_new->id, [77, 78, 89]))
+        Get a Quote
+    @else
+        Book Now
+    @endif
 </a></div>
     @endif
 </div>
@@ -1650,5 +1954,122 @@ Positioned as a leading home and commercial services marketplace, VendorsCity ta
             }, 1000); // Adjust speed (1000ms = 1 second)
         });
     });
+
+
+   
 </script>
+
+<script>
+    $('#subservices_slider').owlCarousel({
+    loop: false,
+    margin: 15,
+    nav: false,
+    dots: false,
+    responsive: {
+        0: {
+            items: 2  // 👈 Show 2 items on small screens (mobile)
+        },
+        576: {
+            items: 2
+        },
+        768: {
+            items: 3
+        },
+        992: {
+            items: 5  // 👈 Show 4 items on desktop
+        }
+    }
+});
+
+
+$(document).ready(function () {
+  $('.whyvendorscity-slider').owlCarousel({
+    loop: false,
+    margin: 30,
+    center: false,
+    dots: false,
+    nav: false,
+    responsive: {
+      0: {
+        items: 1,
+        stagePadding: 40 // shows half of next item
+      },
+      480: {
+        items: 1, // slightly more visible on small screens
+        stagePadding: 40
+      },
+      600: {
+        items: 2
+      },
+      768: {
+        items: 3
+      },
+      1024: {
+        items: 4
+      }
+    }
+  });
+});
+
+
+</script>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#review-slider', {
+            type: 'slide',
+            perPage: 4,
+            gap: '1rem',
+            autoplay: false,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+            768: {
+               fixedWidth: '65%',   // Each slide takes 80% of container
+                    focus: 0,            // Start slide aligned left
+                    gap: '1rem',
+                    arrows: false,
+            },
+            },
+        }).mount();
+        });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const maxChars = 190;
+    const fullText = `{!! addslashes($subservices_new->top_description) !!}`;
+    
+    const shortDescDiv = document.querySelector(".short-description");
+    const fullDescDiv = document.querySelector(".full-description");
+    const toggleBtn = document.querySelector(".toggle-description-btn");
+    const btnText = toggleBtn.querySelector(".btn-text");
+    const arrowIcon = toggleBtn.querySelector(".arrow");
+
+    // Show short preview only
+    shortDescDiv.innerHTML = fullText.substring(0, maxChars) + "...";
+
+    toggleBtn.addEventListener("click", function () {
+        const isExpanded = fullDescDiv.classList.contains("d-block");
+
+        if (isExpanded) {
+            fullDescDiv.classList.replace("d-block", "d-none");
+            shortDescDiv.classList.remove("d-none");
+            btnText.innerText = "Show More";
+            arrowIcon.classList.replace("fa-angle-up", "fa-angle-down");
+        } else {
+            fullDescDiv.classList.replace("d-none", "d-block");
+            shortDescDiv.classList.add("d-none");
+            btnText.innerText = "Show Less";
+            arrowIcon.classList.replace("fa-angle-down", "fa-angle-up");
+        }
+    });
+});
+
+
+</script>
+
 

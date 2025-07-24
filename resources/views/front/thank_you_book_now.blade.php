@@ -38,6 +38,7 @@
 			$text1 = "Accepted payment methods include cash,creditcard,and debit card.";
         }else{
             $text = "Your payment has been successfully processed online.";
+			$text1 = "";
         }
     @endphp
 	
